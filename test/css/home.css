@@ -316,12 +316,13 @@ header #weather {
 #sidebar {
 	width:250px;
 	position:absolute;
-	background: #000;
+	/*background: #000;*/
 	height:100%;
 	z-index: 2;
 	/*border-right: 1px solid #fff;*/
 	box-shadow:0px 0 50px #000;
 	-moz-box-shadow:0px 0 50px #000;
+	font-family: "minion-pro"
 }
 
 
@@ -360,7 +361,11 @@ header #weather {
 	font-size: 21px;
 	line-height: 24px;
 	/*font-family: georgia;*/
-	text-transform: uppercase;
+	text-alignxt-transform: uppercase;
+	background: #fff;
+	color: #000;
+	margin:20px;
+	padding:10px;
 }
 
 #updates_list li:first-line {
@@ -368,13 +373,13 @@ header #weather {
 }
 
 #updates_list li:nth-child(even){
-	padding:25px 12px 0px;
+	/*padding:25px 12px 0px;*/
 	-webkit-transform: perspective(500px) rotateY(-25deg);
 	-moz-transform: perspective(500px) rotateY(-25deg);
 }
 
 #updates_list li:nth-child(odd){
-	padding:0px 12px;
+	/*padding:0px 12px;*/
 	-webkit-transform: perspective(500px) rotateY(25deg);
 	-moz-transform: perspective(500px) rotateY(25deg);
 }
