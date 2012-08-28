@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8' /> 
+		<link href="css/reset.css" rel="stylesheet" />
+		<title>Megazine! A Magazine of Amazing Art!</title>
+
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/pong.css" />
+
+
+		<script>
+
+
+
+
+
+			// Twitter JAM
+			$.ajax({
+				url:'https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=megazinemag&count=3',
+				success:function(data, resp){
+					// console.log(data, resp)
+					var newsList = $('#updates_list'),
+						count =1;
+
+					$.each(data, function(i, status){
+						// + count + '.) '
+						var text = '<li>' + status.text + '</li>';
+						count++;
+						// go through all of the urls in the tweet and replace the text with an html "a" tag
+						$.each(status.entities.urls, function(i, url){
+							text = text.replace(url.url, '<a href="' + url.expanded_url + '">' + url.display_url + '</a>');
+							console.log(text);
+						});
+
+						newsList.append(text);
+					});
+
+				},
+				error: function(err, resp){
+					console.log(err, resp)
+				},
+				dataType:'jsonp'
+			})
+
+
+
+
+
+
+
+
+
+
+			$(function(){
+
+
+				var letterSpinner = function(elm){
+
+					var word=elm,
+						letters=word.text().split(''),
+						letterWrapper=$('<span></span>').css({
+							position:'relative'
+						}),
+						showStyle = {
+							position:'absolute'
+						},
+						hideStyle = {visibility:'hidden'},
+						axis = ['X','Y','Z'],
+						axisIndex = 0;
+
+
+					word.text('').css('letterSpacing', '5px');
+
+					$.each(letters, function(i){
+
+						if(axisIndex>2){
+							axisIndex=0;
+						}
+
+						var animLetter = $('<span>'+ letters[i] +'</span>');
+
+
+						animLetter[0].style.MozAnimation = 'spin'+ axis[axisIndex] + ' ' + (Math.random() * 5) + 's infinite linear';
+
+						axisIndex++;
+
+						word.append(letterWrapper.clone().append(
+							animLetter.css(showStyle),
+							$('<span>'+ letters[i] +'</span>').css(hideStyle)
+						));
+
+					})
+
+				}
+
+
+				$('#month_word, #the_word, #issue_word').each(function(){
+					letterSpinner($(this));
+				});
+
+				// pong implementation!
+			   	$('#table').pong('img/pong.png', {
+		          targetSpeed: 30,  //ms
+		          ballAngle: 45,    //degrees
+		          ballSpeed: 8,     //pixels per update
+		          compSpeed: 5,     //speed of your opponent!!
+		          playerSpeed: 5,   //pixels per update
+		          difficulty: 5,
+		          width: 250,       //px
+		          height: 175,      //px
+		          paddleWidth: 6,  //px
+		          paddleHeight: 50, //px
+		          paddleBuffer: 4,  //px from the edge of the play area
+		          ballWidth: 14,    //px
+		          ballHeight: 14,   //px
+		          playTo: 1000        //points
+			    });
+
+			});
+
+		</script>
+
+	</head>
+	<!-- TODO:
+		contributors
+		issue title -->
+	<body>
+		<section id="masthead">
+			<header>
+				<div id="weather" class="rain">
+					<h2>Weather</h2>
+					<div id="weather_box">
+						<img src="img/weather2.png"  />
+						<span id="high">H 131° F</span>
+						<span id="low">L -45° F</span>
+					</div>
+
+				</div>
+
+				<h1><img src="img/masthead_white.png" width="439" /><span class="hidden">MEGAZINE!</span></h1>
+
+				<div id="signup">
+					<div class="callout">
+						<h2>Subscribe!</h2>
+					</div>
+				</div>
+			</header>
+
+			<nav>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Genesis</span><span class="visible_text">Genesis</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Radio</span><span class="visible_text">Radio</span></span></a>
+				<!-- <a href<span class="text_wrapper" ="#">Contributors<span class="bang"><span class="bang_text">Boing!</span></span></a> -->
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">About</span><span class="visible_text">About</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Shop</span><span class="visible_text">Shop</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Menu</span><span class="visible_text">Menu</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Interests</span><span class="visible_text">Interests</span><!-- <span class="bang"><span class="bang_text">Boing!</span></span> --></span></a></nav>
+		</section>
+
+		
+		<div id="magazine">
+			<div id="sidebar">
+
+
+				<div id="news">
+					<h2>This Just In</h2>
+					<ul id="updates_list"></ul>
+				</div>
+
+				<div id="pong">
+					<h2>Play pong!</h2>
+					<div id="pong"><div id="table"></div></div>
+					<p>Click to start. <br />Arrow keys to move.</p>
+				</div>
+
+				<!-- PUT THE TWITTER FEED IN HERE! -->
+			</div>
+
+
+			<section id="issue">
+				<div class="content_wrapper">
+					<h1><span id="the_word">The</span> <span id="month_word">Septober</span> <span id="issue_word">Issue</span></h1>
+
+
+
+
+					<h2>Miracle Jones <br />and Other Goons!</h2>
+				</div>
+			</section>
+
+
+			<section id="table_of_contents">
+				<div class="placeholder_content">
+					<img src="img/iss.png" width="100%" />
+				</div>
+			</section>
+
+
+			<footer>
+				<div id="editors">
+				<h3>Editors</h3>
+				<ul>
+					<li><h2>LOREN KRAMAR</h2></li>
+					<li><h2>MAREN MILLER</h2></li>
+					<li><h2>JOE KENDALL</h2></li>
+				</ul>
+				</div>
+
+				<div id="contributors">
+					<h3>Contributors</h3>
+					<ul>
+						<li><h2>MIRACLE JONES</h2></li>
+						<li><h2>THE BRUCE HIGH QUALITY FOUNDATION</h2></li>
+						<li><h2>EBECHO MUSLIMOVA</h2></li>
+						<li><h2>AUREL SCHMIDT</h2></li>
+						<li><h2>OTO GILLEN</h2></li>
+						<li><h2>JOANA AVILLEZ</h2></li>
+						<li><h2>SNOOCHIE BOOCHIES</h2></li>
+						<li><h2>NICK LEMMIN</h2></li>
+						<li><h2>CYNTHIA BROTHERS</h2></li>
+						<li><h2>JAKE BROWER</h2></li>
+						<li><h2>AVERY K. SINGER</h2></li>
+						<li><h2>SISTERY MYSTERY</h2></li>
+						<li><h2>OLIVER LOAIZA</h2></li>
+						<li><h2>KEEGAN MONAGHAN</h2></li>
+						<li><h2>SASHA GROSSMAN</h2></li>
+						<li><h2>TAYLOR SHIELDS</h2></li>
+						<li><h2>LOBESIAN PRESS</h2></li>
+						<!-- <li><h2>LOREN KRAMAR</h2></li>
+						<li><h2>MAREN MILLER</h2></li>
+						<li><h2>JOE KENDALL</h2></li> -->
+					</ul>
+				</div>
+			</footer>
+		</div>
+		<script type="text/javascript" src="js/jqueryPong.js"></script>
+
+		<script type="text/javascript" src="//use.typekit.net/wzt6iot.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	</body>
+</html>

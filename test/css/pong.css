@@ -1,0 +1,39 @@
+#pong {
+	/*width:100% !important;*/
+	/*height:600px;*/
+	/*padding:50px 0;*/
+	width:100%;
+	background:#fff;
+}
+#pong textarea{
+	position:absolute;
+	left:-8000px;
+}
+
+#table {
+	margin:0px auto;
+	/*border:1px solid #333;*/
+	background: #000 !important;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+#table .score {
+	display:none;
+}
+
+#marque {
+	text-transform:uppercase;
+	line-height:190px;
+	font-size:200px;
+	color:#fff;
+	text-align:center;
+}
+
+.rightPaddle {
+	background-color: red !important;
+}
+
+.leftPaddle {
+	background-color: blue !important;
+}
