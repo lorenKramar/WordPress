@@ -4,11 +4,12 @@
 	<head>
 		<meta charset='utf-8' /> 
 		<link href="css/reset.css" rel="stylesheet" />
-		<title>Megazine! Magazine of amazing art!</title>
+		<title>Megazine! A Magazine of Amazing Art!</title>
 
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/pong.css" />
 
 
 		<script>
@@ -101,9 +102,25 @@
 					letterSpinner($(this));
 				});
 
+				// pong implementation!
+			   	$('#table').pong('img/pong.png', {
+		          targetSpeed: 30,  //ms
+		          ballAngle: 45,    //degrees
+		          ballSpeed: 8,     //pixels per update
+		          compSpeed: 5,     //speed of your opponent!!
+		          playerSpeed: 5,   //pixels per update
+		          difficulty: 5,
+		          width: 250,       //px
+		          height: 175,      //px
+		          paddleWidth: 6,  //px
+		          paddleHeight: 50, //px
+		          paddleBuffer: 4,  //px from the edge of the play area
+		          ballWidth: 14,    //px
+		          ballHeight: 14,   //px
+		          playTo: 1000        //points
+			    });
 
-
-			})
+			});
 
 		</script>
 
@@ -154,9 +171,9 @@
 				</div>
 
 				<div id="pong">
-					<h2>Play some pong!</h2>
+					<h2>Play pong!</h2>
+					<div id="pong"><div id="table"></div></div>
 					<p>Click to start. <br />Arrow keys to move.</p>
-					<img src="img/pong.png" width="100%" />
 				</div>
 
 				<!-- PUT THE TWITTER FEED IN HERE! -->
@@ -166,6 +183,10 @@
 			<section id="issue">
 				<div class="content_wrapper">
 					<h1><span id="the_word">The</span> <span id="month_word">Septober</span> <span id="issue_word">Issue</span></h1>
+
+
+
+
 					<h2>Miracle Jones <br />and Other Goons!</h2>
 				</div>
 			</section>
@@ -176,13 +197,46 @@
 					<img src="img/iss.png" width="100%" />
 				</div>
 			</section>
+
+
 			<footer>
-				<section>
-					<h2>Editors</h2>
-					<h1><span>Loren Kramar</span> <span>Maren Miller</span> <span>Joe Kendall</span></h1>
-				</section>
+				<div id="editors">
+				<h3>Editors</h3>
+				<ul>
+					<li><h2>LOREN KRAMAR</h2></li>
+					<li><h2>MAREN MILLER</h2></li>
+					<li><h2>JOE KENDALL</h2></li>
+				</ul>
+				</div>
+
+				<div id="contributors">
+					<h3>Contributors</h3>
+					<ul>
+						<li><h2>MIRACLE JONES</h2></li>
+						<li><h2>THE BRUCE HIGH QUALITY FOUNDATION</h2></li>
+						<li><h2>EBECHO MUSLIMOVA</h2></li>
+						<li><h2>AUREL SCHMIDT</h2></li>
+						<li><h2>OTO GILLEN</h2></li>
+						<li><h2>JOANA AVILLEZ</h2></li>
+						<li><h2>SNOOCHIE BOOCHIES</h2></li>
+						<li><h2>NICK LEMMIN</h2></li>
+						<li><h2>CYNTHIA BROTHERS</h2></li>
+						<li><h2>JAKE BROWER</h2></li>
+						<li><h2>AVERY K. SINGER</h2></li>
+						<li><h2>SISTERY MYSTERY</h2></li>
+						<li><h2>OLIVER LOAIZA</h2></li>
+						<li><h2>KEEGAN MONAGHAN</h2></li>
+						<li><h2>SASHA GROSSMAN</h2></li>
+						<li><h2>TAYLOR SHIELDS</h2></li>
+						<li><h2>LOBESIAN PRESS</h2></li>
+						<!-- <li><h2>LOREN KRAMAR</h2></li>
+						<li><h2>MAREN MILLER</h2></li>
+						<li><h2>JOE KENDALL</h2></li> -->
+					</ul>
+				</div>
 			</footer>
 		</div>
+		<script type="text/javascript" src="js/jqueryPong.js"></script>
 
 		<script type="text/javascript" src="//use.typekit.net/wzt6iot.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
