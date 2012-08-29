@@ -1,3 +1,187 @@
+@keyframes lightup {
+  0% { 
+	background-color: rgba(51,51,51,1);
+  }
+  50%   { 
+  	background-color: rgba(51,51,51,1);
+	
+  }
+
+  50% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  50.75% {
+  	background-color: rgba(68,0,76,0);
+  }
+  51% {
+  	background-color: rgba(51,51,51,.75);
+  }
+  52% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  53.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+
+  70% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  70.75% {
+  	background-color: rgba(68,0,76,.25);
+  }
+  71% {
+  	background-color: rgba(51,51,51,1);
+  }
+  72% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  73.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+  100% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+   
+}
+
+@-webkit-keyframes lightup {
+  0% { 
+	background-color: rgba(51,51,51,1);
+  }
+  50%   { 
+  	background-color: rgba(51,51,51,1);
+	
+  }
+
+  50% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  50.75% {
+  	background-color: rgba(68,0,76,0);
+  }
+  51% {
+  	background-color: rgba(51,51,51,.75);
+  }
+  52% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  53.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+
+  70% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  70.75% {
+  	background-color: rgba(68,0,76,.25);
+  }
+  71% {
+  	background-color: rgba(51,51,51,1);
+  }
+  72% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  73.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+  100% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+   
+}
+
+
+@-moz-keyframes lightup {
+  0% { 
+	background-color: rgba(51,51,51,1);
+  }
+  50%   { 
+  	background-color: rgba(51,51,51,1);
+	
+  }
+
+  50% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  50.75% {
+  	background-color: rgba(68,0,76,0);
+  }
+  51% {
+  	background-color: rgba(51,51,51,.75);
+  }
+  52% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  53.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+
+  70% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  70.75% {
+  	background-color: rgba(68,0,76,.25);
+  }
+  71% {
+  	background-color: rgba(51,51,51,1);
+  }
+  72% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  73.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+  100% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+}
+
+
+
+
+
+
+
+
+
 
 @-webkit-keyframes spinZ {
   from { -webkit-transform: rotateZ(0); }
@@ -101,11 +285,11 @@
 
 body {
 	font-family: "minion-pro";
-	font-family: "franklin-gothic-urw";
+	/*font-family: "franklin-gothic-urw";
 	font-family: "mostra-nuova-alt-d";
-	font-family: "teimer-web";
+	font-family: "teimer-web";*/
 	font-weight: 700;
-	background: #000;
+	background: #fff;
 	margin:0;
 	min-width: 1000px;
 	cursor: url(../img/cursor.png), default;
@@ -120,6 +304,7 @@ a:hover {
 	z-index: 3;
 	/*padding:0 0 10px;*/
 	background: #000;
+	box-shadow: 0 0 5px #000;
 	/*border-bottom: 6px solid #000;*/
 	/*font-family: "minion-pro-condensed-subhead";*/
 	/*font-family: "league-gothic";*/
@@ -131,16 +316,17 @@ a:hover {
 #masthead nav {
 	text-align: center;
 	display: block;
-	padding:6px 0 3px 0;
+	padding:6px 0 0px 0;
 	background: #fff;
 	text-transform: uppercase;
-	font-size: 21px;
+	font-size: 23px;
+	line-height: 23px;
 	word-spacing: 30px;
 	/*border-top: 1px solid #999;*/
 	letter-spacing: 1px;
 	font-weight: 700;
 	font-family: "minion-pro";
-	font-family: "teimer-web";
+	/*font-family: "teimer-web";*/
 	/*font-family: "mostra-nuova-alt-d";*/
 }
 
@@ -227,7 +413,7 @@ header h1 img{
 	padding:5px 0;
 }
 
-header #weather {
+header #} {
 	position:absolute;
 	z-index: 1;
 	/*height:100%;*/
@@ -236,25 +422,13 @@ header #weather {
 	right:50%;
 	margin-right:220px;
 	left:0px;
-	font-family: "mostra-nuova-alt-d";
+
+	font-family: "proxima-nova-extra-condensed";
+	font-weight: 300;
+
 	top:0;
 	bottom:0px;
 	top:0px;
-}
-
-#weather h2 {
-	text-align: center;
-	font-size: 18px;
-	text-transform: uppercase;
-	position: absolute;
-	width: 100%;
-	top:50%;
-	height:25px;
-	/*line-height: 40px;*/
-	margin-top: -12px;
-	z-index: 2;
-	visibility: hidden;
-	/*font-weight: normal;*/
 }
 
 #weather_box {
@@ -262,7 +436,6 @@ header #weather {
 	height:130px;
 	margin-top:-65px;
 	margin-left: -65px;
-	/*background: #000;*/
 	top:50%;
 	left:50%;
 	border-radius:100%;
@@ -270,19 +443,17 @@ header #weather {
 	-webkit-border-radius:100%;
 	position: absolute;
 	border:6px solid #fff;
-	font-size: 14px;
-	/*-moz-animation:pulse2 2s infinite linear; */
-
+	font-size: 15px;
 }
 
 #low {
 	bottom: 10px;
 	background: #fff;
 	position: absolute;
-	left:-50px;
+	left:-45px;
 	padding:10px;
 	width:80px;
-	font-weight: 400;
+	font-weight: 300;
 }
 
 
@@ -290,9 +461,9 @@ header #weather {
 	top: 10px;
 	background: #fff;
 	position: absolute;
-	left:-50px;
+	left:-45px;
 	padding:10px;
-	font-weight: 400;
+	font-weight: 300;
 	width:80px;
 }
 
@@ -301,8 +472,6 @@ header #weather {
 	position: absolute;
 	top:-2px;
 	z-index: 2;
-	
-
 	left:-2px;
 	left:50%;
 	margin-left: -67px;
@@ -312,8 +481,8 @@ header #weather {
 /*BOTTOM SECTION*/
 #magazine {
 	position: relative;
+	background: #000;
 }
-
 
 
 #sidebar {
@@ -325,8 +494,8 @@ header #weather {
 	/*border-right: 1px solid #fff;*/
 	box-shadow:0px 0 50px #000;
 	-moz-box-shadow:0px 0 50px #000;
-	font-family: "minion-pro"
-	font-family: "teimer-web";
+	font-family: "minion-pro";
+	font-weight:700;
 }
 
 
@@ -335,32 +504,46 @@ header #weather {
 	padding:0px 0 0px;
 	/*border-bottom: 10px solid #555;*/
 	border-top: 1px solid #000;
-	font-family: "mostra-nuova-alt-d";
-	font-family: "teimer-web";
 	/*background:#000 ;*/
+	position: relative;
+}
+
+#bangbangbang {
+	position: absolute;
+
+	top:10px;
+	bottom:5px;
+	width:35px;
+	/*background-color:red;*/
+	background-image:url(../img/bangbangbang.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: auto 100%;
+	right:5px;
+	max-height: 400px;
 }
 
 #news #updates_list a {
 	color:navy;
 }
 
-#news h2 {
-	font-size: 30px;
-	line-height: 30px;
-	white-space: nowrap;
+#sidebar h2 {
+	font-family: "proxima-nova-extra-condensed";
+	font-size: 40px;
+	line-height: 40px;
+	/*white-space: nowrap;*/
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-weight: 700;
+	font-weight: 900;
 	color:#000;
-	background-color: #fff;
+	text-align: left;
 	/*-webkit-transform: perspective(500px) rotateY(-25deg);*/
 	/*-moz-transform: perspective(500px) rotateY(-25deg);*/
-	position: relative;
-	/*left:-10px;*/
-	padding:8px 0 8px 10px;
+	
+	
+	padding:8px 10px 8px 10px;
 	/*border-bottom: 5px solid #aaa;*/
 	/*margin-bottom: 8px;*/
-	text-align: left;
 	
 
 }
@@ -376,28 +559,33 @@ header #weather {
 #updates_list li {
 	/*position: absolute;*/
 	font-weight: 600;
-	font-size: 15px;
-	letter-spacing: 1px;
-	line-height: 18px;
+	
+	/*letter-spacing: 1px;*/
+
+	line-height: 25px;
+	font-size:23px;
+
 	/*font-family: georgia;*/
-	text-transform: uppercase;
+	/**/
 	background: #fff;
 	color: #000;
 	/*margin:20px;*/
-	padding:0px 10px 20px;
-	/*border-top:1px solid #000;*/
+	margin-right: 40px;
+	padding:8px 10px 7px 10px;
+	border-top:1px dotted #000;
 }
 
 #updates_list li:first-line {
 	/*font-weight: 700;*/
 	/*font-size:20px;*/
+	text-transform: uppercase;
 }
 
 #updates_list li:first-child {
-	line-height: 23px;
-	font-size:20px;
+	
+	border-top: none;
 }
-
+/*
 
 #updates_list li:nth-child(2) {
 	line-height: 23px;
@@ -409,7 +597,7 @@ header #weather {
 	line-height: 23px;
 	font-size:20px;
 }
-
+*/
 
 /*#updates_list li:nth-child(even){
 
@@ -436,29 +624,20 @@ header #weather {
 #pong {
 	/*font-family: "mostra-nuova-alt-d";*/
 	font-family: "teimer-web";
+	font-family: "proxima-nova-extra-condensed";
 }
 
-#pong h2{
-	text-transform: uppercase;
-	color: #000;
-	font-size: 30px;
-	text-align: left;
-	line-height: 30px;
-	letter-spacing: 1px;
-
-	padding:8px 10px;
-}
 
 #pong p {
 	color:#000;
 	line-height: 17px;
 
-	font-size:14px;
+	font-size:15px;
 	text-transform: uppercase;
-	font-weight: 400;
+	font-weight: 300;
 	text-align: left;
 	padding: 3px 10px 5px;
-	font-family: "mostra-nuova-alt-d";
+	font-family: "proxima-nova-extra-condensed";
 }
 
 /*TOC*/
@@ -469,7 +648,7 @@ header #weather {
 
 
 #table_of_contents .placeholder_content {
-	height:800px;
+	/*height:800px;*/
 	margin-left: 250px;
 	background:#333;
 	/*border-top: 1px solid #fff;*/
@@ -571,16 +750,17 @@ header #weather {
 #issue h1 {
 	/*font-weight: normal;*/
 	font-size:30px;
+	font-size: 40px;
+	font-weight: 900;
+	letter-spacing: 1px;
+	line-height: 40px;
 	padding:8px 0;
 	letter-spacing: 2px;
 	/*text-align: left;*/
 	text-transform: uppercase;
 	word-spacing: 20px;
 	color: #fff;
-	/*font-family: "franklin-gothic-urw";
-
-	font-weight: 300;*/
-	font-family: "mostra-nuova-alt-d";
+	font-family: "proxima-nova-extra-condensed";
 }
 
 #issue h2 {
@@ -626,76 +806,88 @@ header #weather {
 
 
 footer {
-	background: #fff;
+	/*background: #fff;*/
 	padding:25px 0 15px;
-	
+	border-top: 15px solid #000;
+	box-shadow: 0 0 50px #000;
 	position: relative;
 	z-index: 3;
+	animation:lightup 20s infinite linear;
+	-moz-animation:lightup 20s infinite linear; 
+	-webkit-animation:lightup 20s infinite linear;
 	/*background-color:#000;
+
 	color: #fff;*/
 }
 
 footer h2 {
 	
-	
-	
-	
-	font-family: "teimer-web";
-	font-family: "mostra-nuova-alt-d";
-	font-weight: 400;
-	display: inline;
+	font-family: "proxima-nova-extra-condensed";
 	
 }
 
 
 #contributors {
-	padding:20px 0;
+	padding:25px 0 5px;
 	/*width: 768px;*/
-	margin: 0 75px;
+	border-bottom: 1px dotted #000;
+	/*margin: 0 75px;*/
+
 }
 
 footer h3 {
 	text-align: center;
 	/*color:#fff;*/
 	padding: 8px 0;
-	font-family: "cooper std";
-	font-size: 38px;
-	font-style: italic;
+	
+	font-family: "proxima-nova-extra-condensed";
+	font-size: 23px;
+	line-height: 23px;
+	/*font-size: 15px;*/
+
+	font-weight: 300;
+	text-transform: uppercase;
+	/*font-style: italic;*/
 }
 
-#contributors ul {
-	word-spacing: 15px;
-	font-size: 24px;
-	line-height: 27px;
+#contributors h2 {
+	
+	/*padding: 0 20px;*/
+	font-size: 60px;
+	line-height: 60px;
 	text-align: center;
-	font-weight: 600;
+	font-weight: 900;
+	/*display: inline;*/
+	/*white-space: nowrap;*/
 }
 
-#contributors li {
-	display: inline;
+#contributors h2 span {
 	word-spacing: normal;
 	white-space: nowrap;
 }
 
-
-
-
-
+#people {
+	text-align: center;
+	
+	word-spacing: 20px;
+}
 
 #editors {
 
 	/*width: 768px;*/
 	margin: 0 75;
-	padding:20px 0;
+	padding:0 0 5px;
+	border-bottom: 1px dotted #000;
 }
 
 
 
 #editors ul {
 	word-spacing: 15px;
-	font-size: 24px;
-	line-height: 27px;
-	font-weight: 600;
+	font-size: 40px;
+	line-height: 40px;
+
+	font-weight: 900;
 	text-align: center;
 }
 
@@ -703,6 +895,10 @@ footer h3 {
 	display: inline;
 	word-spacing: normal;
 	white-space: nowrap;
+}
+
+#editors li h2 {
+	display: inline;
 }
 
 
@@ -730,4 +926,15 @@ footer h1 {
 
 footer h1 span {
 	word-spacing: normal;
+}
+
+#salutation {
+	text-align: center;
+	font-family: "proxima-nova-extra-condensed";
+	font-size: 23px;
+	line-height: 23px;
+	/*font-size: 15px;*/
+	padding: 25px 0;
+	font-weight: 300;
+	text-transform: uppercase;
 }

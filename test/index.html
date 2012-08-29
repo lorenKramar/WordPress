@@ -22,7 +22,7 @@
 			$.ajax({
 				url:'https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=megazinemag&count=3',
 				success:function(data, resp){
-					// console.log(data, resp)
+					
 					var newsList = $('#updates_list'),
 						count =1;
 
@@ -33,7 +33,7 @@
 						// go through all of the urls in the tweet and replace the text with an html "a" tag
 						$.each(status.entities.urls, function(i, url){
 							text = text.replace(url.url, '<a href="' + url.expanded_url + '">' + url.display_url + '</a>');
-							console.log(text);
+					
 						});
 
 						newsList.append(text);
@@ -56,6 +56,88 @@
 
 
 			$(function(){
+
+
+				$('#decoy_email_sub').click(function(){
+					$('#real_email_sub').trigger('click');
+					return false;
+				})
+
+				var closeDialog = function(){
+
+		        	// unbind window evt
+		        	$(window).off('keyup.dia');
+
+		        	// hide the big bitch
+		        	$('#signup_popup').removeClass('active');
+
+		        	// show the form
+		        	$('#subForm').css('display', 'block');
+
+		        	//  replace the text in the header
+		        	$('#signup_popup h2').text('To hear about events and new issues,');
+
+		        	// remove any prev errors
+		        	$('#signup_popup p.error').text('');
+
+		        	$('#signup_popup input[type=text]').attr('value', '');
+
+		        };
+
+		        $('#subForm').submit(function (e) {
+		        	
+		        	$('#signup_popup p.error').text('');
+
+		            e.preventDefault();
+		            $.getJSON(
+		            	this.action + "?callback=?",
+		            	$(this).serialize(),
+			            function (data) {
+			                if (data.Status === 400) {
+			                	$('#signup_popup p.error').text(data.Message);
+			                } else { // 200
+			                	$('#signup_popup h2').html('Done! You&rsquo;ll hear from us shortly!');
+			                	$('#subForm').css('display', 'none');
+
+			                	setTimeout(closeDialog, 2000);
+			                }
+			            });
+		        });
+		    	
+
+		        
+
+	        	$('#signup_popup .dialog').on('click', function(e){
+	        		e.stopPropagation();
+	        	});
+
+	        	$('#signup_popup').on('click', function(){
+	        		//close dialog
+	        		closeDialog();
+	        	});
+
+		        $('#signup .callout').on('click', function(){
+
+		        	// bind the events to get rid of the dialog
+		        	$(window).on('keyup.dia', function(e){
+	        		
+		        		if(e.which === 27){
+		        			// close the dialog, unbind the close events
+		        			closeDialog();
+		        		}
+		        	});
+
+		        	// invoke the signup dialog
+		        	$('#signup_popup').addClass('active');
+
+		        	
+
+		        	return false;
+		        });
+
+
+
+
 
 
 				var letterSpinner = function(elm){
@@ -123,12 +205,146 @@
 			});
 
 		</script>
+		<style>
 
+			#signup_popup {
+				position: fixed;
+				top:0;
+				/*right:0;*/
+				bottom:0;
+				left:-200%;
+				width: 100%;
+				background:rgba(0,0,0,.75);
+				z-index: 100;
+				/*display: none;*/
+				opacity: 0;
+				transition: 150ms ease-in-out;
+  				-moz-transition: 150ms ease-in-out;
+  				-webkit-transition:150ms ease-in-out;
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+			}
+
+			#signup_popup.active {
+				/*display: block;*/
+				opacity: 1;
+				left:0;
+				right: 0;
+				transition: 150ms ease-in-out;
+  				-moz-transition: 150ms ease-in-out;
+  				-webkit-transition:150ms ease-in-out;
+
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+			}
+
+
+
+			#signup_popup .dialog {
+				position: absolute;
+				top:50%;
+				width:500px;
+				height:175px;
+				background:#fff;
+				left:50%;
+				margin-left:-250px;
+				box-shadow: 0 0 50px #000;
+				margin-top:-125px;
+			}
+
+			#signup_popup input, #signup_popup .submit{
+				float:left;
+				font-weight: 300;
+				font-family: "proxima-nova-extra-condensed";
+				text-transform: uppercase;
+			}
+
+			#signup_popup input[type=text] {
+				width:300px;
+				height:30px;
+				padding:10px 5px 0 10px;
+				border:1px solid #ccc;
+				font-size: 23px;
+				line-height: 23px;
+				margin: 20px 0 0 20px;
+				outline: none;
+				/*border:none;*/
+				/*background:black;*/
+			}
+
+			#signup_popup a.submit {
+				background-color: #fff;
+				cursor:url(/test/img/pointer.png), pointer;
+				margin: 20px 0 0 0px;
+				padding:11px 10px 0px;
+				text-align: center;
+				height:29px;
+				border: 1px solid #ccc;
+				/*width:100px;*/
+				font-size: 23px;
+				line-height: 23px;
+				border-left:none;
+				display: block;
+				float:left;
+				text-decoration: none;
+				color:#000;
+				font-weight: 900;
+				/*border:none;*/
+			}
+
+			#signup_popup h2 {
+				font-family: "minion-pro";
+				font-size: 23px;
+				font-weight: 700;
+				clear:both;
+				padding:20px 31px 0 31px;
+				
+			}
+
+			#real_email_sub {
+				display: none;
+			}
+
+			#signup_popup p.error {
+				color:#ff0000;
+				clear:both;
+				padding:15px 31px;
+				font-weight: 300;
+				font-family: "proxima-nova-extra-condensed";
+				font-size: 15px;
+				line-height: 18px;
+			}
+
+
+		</style>
 	</head>
 	<!-- TODO:
 		contributors
 		issue title -->
 	<body>
+
+
+
+
+		<div id="signup_popup">
+			<div class="dialog">
+
+				<!-- <div class="input_wrapper"> -->
+					<h2>To hear about events and new issues,</h2>
+					<form action="http://megazine.createsend.com/t/j/s/krtld/" method="post" id="subForm">
+						<input type="text" placeholder="youremail@megazine.xxx" name="cm-krtld-krtld" />
+						<a class="submit" id="decoy_email_sub"  href="#">Subscribe!</a>
+						<input type="submit" id="real_email_sub" value="Subscribe" />
+					</form>					
+					<p class="error"></p>
+				<!-- </div> -->
+			</div>
+		</div>
+
 		<section id="masthead">
 			<header>
 				<div id="weather" class="rain">
@@ -168,12 +384,15 @@
 				<div id="news">
 					<h2>This Just In</h2>
 					<ul id="updates_list"></ul>
+					<div id="bangbangbang"></div>
 				</div>
+
+
 
 				<div id="pong">
 					<h2>Play pong!</h2>
 					<div id="pong"><div id="table"></div></div>
-					<p>Click to start. <br />Arrow keys to move.</p>
+					<p>Click to start. <br />Arrow keys to move.<br />Esc. to stop.</p>
 				</div>
 
 				<!-- PUT THE TWITTER FEED IN HERE! -->
@@ -199,43 +418,30 @@
 			</section>
 
 
-			<footer>
-				<div id="editors">
+
+		</div>
+		<footer>
+			<div id="editors">
 				<h3>Editors</h3>
 				<ul>
 					<li><h2>LOREN KRAMAR</h2></li>
 					<li><h2>MAREN MILLER</h2></li>
 					<li><h2>JOE KENDALL</h2></li>
 				</ul>
-				</div>
+			</div>
 
-				<div id="contributors">
-					<h3>Contributors</h3>
-					<ul>
-						<li><h2>MIRACLE JONES</h2></li>
-						<li><h2>THE BRUCE HIGH QUALITY FOUNDATION</h2></li>
-						<li><h2>EBECHO MUSLIMOVA</h2></li>
-						<li><h2>AUREL SCHMIDT</h2></li>
-						<li><h2>OTO GILLEN</h2></li>
-						<li><h2>JOANA AVILLEZ</h2></li>
-						<li><h2>SNOOCHIE BOOCHIES</h2></li>
-						<li><h2>NICK LEMMIN</h2></li>
-						<li><h2>CYNTHIA BROTHERS</h2></li>
-						<li><h2>JAKE BROWER</h2></li>
-						<li><h2>AVERY K. SINGER</h2></li>
-						<li><h2>SISTERY MYSTERY</h2></li>
-						<li><h2>OLIVER LOAIZA</h2></li>
-						<li><h2>KEEGAN MONAGHAN</h2></li>
-						<li><h2>SASHA GROSSMAN</h2></li>
-						<li><h2>TAYLOR SHIELDS</h2></li>
-						<li><h2>LOBESIAN PRESS</h2></li>
-						<!-- <li><h2>LOREN KRAMAR</h2></li>
-						<li><h2>MAREN MILLER</h2></li>
-						<li><h2>JOE KENDALL</h2></li> -->
-					</ul>
+			<div id="contributors">
+				<h3>In this issue</h3>
+				<div id="people">
+					<h2><span>MIRACLE JONES</h2> <h2><span>THE BRUCE HIGH QUALITY FOUNDATION</span></h2> <h2><span>EBECHO MUSLIMOVA</span></h2> <h2><span>AUREL SCHMIDT</span></h2> <h2><span>OTO GILLEN</span></h2> <h2><span>JOANA AVILLEZ</span></h2> <h2><span>SNOOCHIE BOOCHIES</span></h2> <h2><span>NICK LEMMIN</span></h2> <h2><span>CYNTHIA BROTHERS</span></h2> <h2><span>JAKE BROWER</span></h2> <h2><span>AVERY K. SINGER</span></h2> <h2><span>SISTERY MYSTERY</span></h2> <h2><span>OLIVER LOAIZA</span></h2> <h2><span>KEEGAN MONAGHAN</span></h2> <h2><span>SASHA GROSSMAN</span></h2> <h2><span>TAYLOR SHIELDS</span></h2> <h2><span>LOBESIAN PRESS</span></h2>
+					<!-- <li><h2>LOREN KRAMAR</h2></li>
+					<li><h2>MAREN MILLER</h2></li>
+					<li><h2>JOE KENDALL</h2></li> -->
 				</div>
-			</footer>
-		</div>
+			</div>
+
+			<p id="salutation">Thank you for your visit!</p>
+		</footer>
 		<script type="text/javascript" src="js/jqueryPong.js"></script>
 
 		<script type="text/javascript" src="//use.typekit.net/wzt6iot.js"></script>
