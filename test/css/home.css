@@ -505,8 +505,15 @@ header #weather {
 	/*border-bottom: 10px solid #555;*/
 	border-top: 1px solid #000;
 	/*background:#000 ;*/
+	display: none;
 	position: relative;
 }
+
+#news.active {
+	display: block;
+}
+
+
 
 #bangbangbang {
 	position: absolute;
