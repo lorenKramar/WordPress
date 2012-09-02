@@ -364,7 +364,7 @@ a:hover {
 }
 
 
-#masthead nav a .bang {
+/*#masthead nav a .bang {
 	position: absolute;
 	right:0;
 	top:31px;
@@ -386,7 +386,7 @@ a:hover {
 	padding-top:30px;
 	color:#fff;
 	letter-spacing: 2px;
-}
+}*/
 
 header {
 	position:relative;
@@ -564,19 +564,11 @@ header #weather {
 }
 
 #updates_list li {
-	/*position: absolute;*/
 	font-weight: 600;
-	
-	/*letter-spacing: 1px;*/
-
 	line-height: 25px;
 	font-size:23px;
-
-	/*font-family: georgia;*/
-	/**/
 	background: #fff;
 	color: #000;
-	/*margin:20px;*/
 	margin-right: 40px;
 	padding:8px 10px 7px 10px;
 	border-top:1px dotted #000;
@@ -629,8 +621,7 @@ header #weather {
 }
 
 #pong {
-	/*font-family: "mostra-nuova-alt-d";*/
-	font-family: "teimer-web";
+	
 	font-family: "proxima-nova-extra-condensed";
 }
 
@@ -944,4 +935,136 @@ footer h1 span {
 	padding: 25px 0;
 	font-weight: 300;
 	text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*signup popout*/
+
+#signup_popup {
+	position: fixed;
+	top:0;
+	/*right:0;*/
+	bottom:0;
+	left:-200%;
+	width: 100%;
+	background:rgba(0,0,0,.75);
+	z-index: 100;
+	/*display: none;*/
+	opacity: 0;
+	transition: 150ms ease-in-out;
+		-moz-transition: 150ms ease-in-out;
+		-webkit-transition:150ms ease-in-out;
+
+	transition-property:opacity;
+	-moz-transition-property:opacity;
+	-webkit-transition-property:opacity;
+}
+
+#signup_popup.active {
+	/*display: block;*/
+	opacity: 1;
+	left:0;
+	right: 0;
+	transition: 150ms ease-in-out;
+		-moz-transition: 150ms ease-in-out;
+		-webkit-transition:150ms ease-in-out;
+
+
+	transition-property:opacity;
+	-moz-transition-property:opacity;
+	-webkit-transition-property:opacity;
+}
+
+
+
+#signup_popup .dialog {
+	position: absolute;
+	top:50%;
+	width:500px;
+	height:175px;
+	background:#fff;
+	left:50%;
+	margin-left:-250px;
+	box-shadow: 0 0 50px #000;
+	margin-top:-125px;
+}
+
+#signup_popup input, #signup_popup .submit{
+	float:left;
+	font-weight: 300;
+	font-family: "proxima-nova-extra-condensed";
+	text-transform: uppercase;
+}
+
+#signup_popup input[type=text] {
+	width:300px;
+	height:30px;
+	padding:10px 5px 0 10px;
+	border:1px solid #ccc;
+	font-size: 23px;
+	line-height: 23px;
+	margin: 20px 0 0 20px;
+	outline: none;
+	/*border:none;*/
+	/*background:black;*/
+}
+
+#signup_popup a.submit {
+	background-color: #fff;
+	cursor:url(/test/img/pointer.png), pointer;
+	margin: 20px 0 0 0px;
+	padding:11px 10px 0px;
+	text-align: center;
+	height:29px;
+	border: 1px solid #ccc;
+	/*width:100px;*/
+	font-size: 23px;
+	line-height: 23px;
+	border-left:none;
+	display: block;
+	float:left;
+	text-decoration: none;
+	color:#000;
+	font-weight: 900;
+	/*border:none;*/
+}
+
+#signup_popup h2 {
+	font-family: "minion-pro";
+	font-size: 23px;
+	font-weight: 700;
+	clear:both;
+	padding:20px 31px 0 31px;
+	
+}
+
+#real_email_sub {
+	display: none;
+}
+
+#signup_popup p.error {
+	color:#ff0000;
+	clear:both;
+	padding:15px 31px;
+	font-weight: 300;
+	font-family: "proxima-nova-extra-condensed";
+	font-size: 15px;
+	line-height: 18px;
 }

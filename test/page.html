@@ -3,9 +3,211 @@
 
 	<head>
 		<meta charset="utf-8" />
+
+
+
+
+
+		<!-- FACEBOOK META -->
+		<meta property="fb:admins" content="309260325792555" />
+
+		<!-- PAGE TITLE GOES HERE -->
+		<meta property="og:title" content="Megazine" />
+
+		<meta property="og:type" content="website" />
+
+		<!-- FEATURED IMG GOES HERE -->
+		<meta property="og:image" content="" />
+
+		<meta property="og:site_name" content="MEGAZINE.XXX" />
+		<!-- END FB META -->
+
+
+
+
+
+
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 
+
+
+
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+		<!-- GREENISH EXAMPLE -->
+		<link rel="stylesheet" type="text/css" href="example.css">
+		
+		<script type="text/javascript" src="greenishSlides/jquery.greenishSlides-v0.2-beta.js"></script>
+		<script type="text/javascript" src="jquery.greenishSlides.pictureGrid-v0.1-alpha.js"></script>
+		<script type="text/javascript">
+			(function($) {
+				$(document).ready(function() {
+					$(".pictureGrid").pictureGrid({
+						resizable:true
+
+					});
+				});
+			})(jQuery);
+		</script>	
+
+
+
+
+		<script>
+
+			$(function(){
+
+
+				$('#decoy_email_sub').click(function(){
+					$('#real_email_sub').trigger('click');
+					return false;
+				})
+
+				var closeDialog = function(){
+
+		        	// unbind window evt
+		        	$(window).off('keyup.dia');
+
+		        	// hide the big bitch
+		        	$('#signup_popup').removeClass('active');
+
+		        	// show the form
+		        	$('#subForm').css('display', 'block');
+
+		        	//  replace the text in the header
+		        	$('#signup_popup h2').text('To hear about events and new issues,');
+
+		        	// remove any prev errors
+		        	$('#signup_popup p.error').text('');
+
+		        	$('#signup_popup input[type=text]').attr('value', '');
+
+		        };
+
+		        $('#subForm').submit(function (e) {
+		        	
+		        	$('#signup_popup p.error').text('');
+
+		            e.preventDefault();
+		            $.getJSON(
+		            	this.action + "?callback=?",
+		            	$(this).serialize(),
+			            function (data) {
+			                if (data.Status === 400) {
+			                	$('#signup_popup p.error').text(data.Message);
+			                } else { // 200
+			                	$('#signup_popup h2').html('Done! You&rsquo;ll hear from us shortly!');
+			                	$('#subForm').css('display', 'none');
+
+			                	setTimeout(closeDialog, 2000);
+			                }
+			            });
+		        });
+		    	
+
+		        
+
+	        	$('#signup_popup .dialog').on('click', function(e){
+	        		e.stopPropagation();
+	        	});
+
+	        	$('#signup_popup').on('click', function(){
+	        		//close dialog
+	        		closeDialog();
+	        	});
+
+		        $('#signup .callout').on('click', function(){
+
+		        	// bind the events to get rid of the dialog
+		        	$(window).on('keyup.dia', function(e){
+	        		
+		        		if(e.which === 27){
+		        			// close the dialog, unbind the close events
+		        			closeDialog();
+		        		}
+		        	});
+
+		        	// invoke the signup dialog
+		        	$('#signup_popup').addClass('active');
+
+		        	
+
+		        	return false;
+		        });
+		    });
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<style>
+
+
+
+
+
+			@keyframes pulse {
+			  0% { 
+				transform: scale3d(1,1,1) rotateZ(0);
+			  }
+			  50%   { 
+			  	
+				transform: scale3d(1.33,1.33,1.33) rotateZ(-180deg);
+			  }
+			  100%	{
+			  	transform: scale3d(1,1,1) rotateZ(-360deg);	
+			  }
+			}
+
+			@-moz-keyframes pulse {
+			  0% { 
+				-moz-transform: scale3d(1,1,1) rotateZ(0);
+			  }
+			  50%   { 
+			  	
+				-moz-transform: scale3d(1.33,1.33,1.33) rotateZ(-180deg);
+			  }
+			  100%	{
+			  	-moz-transform: scale3d(1,1,1) rotateZ(-360deg);	
+			  }
+			}
+			@-webkit-keyframes pulse {
+			  0% { 
+				-webit-transform: scale3d(1,1,1) rotateZ(0);
+			  }
+			  50%   { 
+			  	
+				-webkit-transform: scale3d(1.33,1.33,1.33) rotateZ(-180deg);
+			  }
+			  100%	{
+			  	-webkit-transform: scale3d(1,1,1) rotateZ(-360deg);	
+			  }
+			}
+
+			body {
+				min-width:768px;
+			}
+
+
+
 			.hidden {
 				display: none;
 			}
@@ -20,30 +222,65 @@
 
 			header {
 				padding:5px;
-				border-bottom: 2px solid #000;
+				/*border-bottom: 3px solid #de4400;*/
 				position: relative;
+				height:15px;
+				z-index: 2;
+			}
+
+			header hr.left {
+				position: absolute;
+				top:15px;
+				left:40px;
+				right:50%;
+				margin-right:60px;
+				border-color:#000;
+				margin-top:0;
+				margin-bottom:0;
+			}
+
+			header hr.right {
+				position: absolute;
+				top:15px;
+				left:50%;
+				right:10px;
+				margin-left:60px;
+				border-color:#000;
+				margin-top:0;
+				margin-bottom:0;
 			}
 
 			header .content_wrapper {
 				max-width: 768px;
+				
+
 			}
 
-			header h1 img {
-				display: block;
-				/*padding:5px;*/
+			header h1 {
+				height:38px;
+				width:20px;
+				position: relative;
+				animation:pulse 2s infinite linear;
+				-moz-animation:pulse 2s infinite linear; /* Firefox */
+				-webkit-animation:pulse 2s infinite linear; /* Safari and Chrome */
+
+				animation-play-state:paused;
+				-moz-animation-play-state:paused; /* Firefox */
+				-webkit-animation-play-state: paused; /* Safari and Chrome */
 			}
 
+			
+
+			header:hover h1 {
+				animation-play-state:running;
+				-moz-animation-play-state:running; /* Firefox */
+				-webkit-animation-play-state: running; /* Safari and Chrome */
+				
+			}
 			header h1 {
 				padding-left: 5px;
 				position: relative;
 				z-index: 2;
-			}
-
-			header h1, header h2 {
-				float: left;
-				height:38px;
-				line-height: 38px;
-				/*font-size:38px;*/
 			}
 
 			header h2 {
@@ -51,51 +288,615 @@
 				position: absolute;
 				right: 0;
 				left:0;
+				top:5px;
 				/*height:100%;*/
 				text-align: center;
 				text-transform: uppercase;
 				font-family: "proxima-nova-extra-condensed";
 				font-weight: 300;
 				font-size: 18px;
-				line-height: 64px;
+				/*line-height: 64px;*/
 				/*padding-right: 10px;*/
 			}
 
 			#sidebar {
-				width:300px;
-				height:1000px;
-				background:red;
+				width:250px;
+				/*height:1000px;*/
+				margin-top:20px;
+				/*background:yellow;*/
+				
 				float:left;
+				/*padding-top:70px;*/
+				z-index: 1;
+				position: relative;
+				/*top:-50px;*/
+			}
+
+			#sidebar h5 {
+				font-family: "cooper std";
+				font-size: 28px;
+				line-height: 40px;
+				/*white-space: nowrap;*/
+				/*text-transform: uppercase;*/
+				/*letter-spacing: 1px;*/
+				/*-webkit-transform: rotate(-5deg); */
+				/*-moz-transform: rotate(-5deg);*/
+				/*font-weight: 900;*/
+				font-weight: bold;
+				font-style:italic;
+				color:#000;
+				text-align: left;
+				white-space: nowrap;
+				/*-webkit-transform: perspective(500px) rotateY(-25deg);*/
+				/*-moz-transform: perspective(500px) rotateY(-25deg);*/
+				
+				position: relative;
+				/*left:-3px;*/
+				padding:12px 10px 10px 10px;
 			}
 
 			#feature {
 				margin-left:300px;
-				height:1500px;
-				background: yellow;
+				/*background: yellow;*/
 			}
+			#related {
+				border-right:1px solid #000;
+			}
+
+			#related img {
+				/*-webkit-transform:  scale3d(.45,.45,.45);*/
+				/*-moz-transform: scale3d(.45,.45,.45);*/
+				width:175px;
+				margin:0px 0;
+				display: block;
+			}
+			#related li {
+				padding:5px 0px;
+				margin: 0 10px;
+				/*border-bottom:5px dotted yellow;*/
+			}
+
+			#related li:first-child {
+				padding-top:0;
+			}
+
+			#related li h3 {
+				font-family: "minion-pro";
+				font-family: "proxima-nova-extra-condensed";
+				font-weight: 900;
+				line-height: 25px;
+				text-transform: uppercase;
+				font-size:23px;
+				
+				padding:8px 0 2px;
+				
+			}
+
+			#related li h2 {
+				font-family: "proxima-nova-extra-condensed";
+				font-weight: 300;
+				line-height: 25px;
+				font-size:15px;
+				padding:0px 0 7px;
+				text-transform: uppercase;
+			}
+
+
+
+
+
+
+/*footer*/
+
+			footer {
+				width: 100%;
+				clear:both;
+				background:#fff;
+			}
+
+			#extra {
+				padding:20px;
+				/*height:600px;*/
+				/*width:100%;*/
+				max-width: 1000px;
+				margin:0 auto;
+			}
+
+			#extra h2 {
+				color:#000;
+				font-family: "proxima-nova-extra-condensed";
+				font-weight: 300;
+				line-height: 25px;
+				font-size:15px;
+				padding:8px 0 7px;
+				text-transform: uppercase;
+				text-align: right;
+
+			}
+
+			#placeholder {
+				height:600px;
+				max-width:800px;
+				width: 100%;
+				/*border: 1px solid #ccc;*/
+				margin:0 auto;
+				background:#fff;
+			}
+
+			footer nav {
+				text-align: center;
+				display: block;
+				padding:8px 0 2px 0;
+				background: #000;
+				text-transform: uppercase;
+				font-size: 23px;
+				line-height: 23px;
+				word-spacing: 30px;
+				
+				letter-spacing: 1px;
+				font-weight: 700;
+				
+				font-family: "minion-pro";
+				
+			}
+
+			footer nav a {
+				color:#fff;
+				font-weight: 700;
+				text-decoration: none;
+
+				
+				/*position: relative;*/
+			}
+
+			footer nav a .text_wrapper {
+				position:relative;
+			}
+
+			footer nav a .hidden_text {
+				visibility: hidden;
+
+				color:#000;
+				z-index: 1;
+			}
+
+			footer nav a .visible_text {
+				position: absolute;
+
+
+				-webkit-transform:  scale3d(1.01,1.01,1.01);
+				-moz-transform: scale3d(1.01,1.01,1.01);
+				
+				transition: all 2s linear;
+				-webkit-transition: all 2s linear;
+				-moz-transition: all 2s linear;
+
+				z-index: 2;
+				/*display: none;*/
+				/*height: 100%;*/
+				/*width: 100%;*/
+				left:0;
+				top:2px;
+			}
+
+
+
+			footer nav a:hover .visible_text{
+
+				transition: all 2s linear;
+				-webkit-transition: all 2s linear;
+				-moz-transition: all 2s linear;
+				color:#000;
+				-webkit-transform: scale3d(.75,.75,.75); 
+				-moz-transform: scale3d(.75,.75,.75);
+				/*text-shadow:1px 1px 0 #aaa;*/
+				/*color:red;*/
+			}
+
+
+
+
+
+
+/*signup button*/
+
+/*SIGNUP CSS*/
+
+#signup {
+	width:100%;
+	
+	
+	width:200px;
+	margin:0 auto;
+	padding:10px 0 40px;
+	color:#000;
+}
+
+#signup .callout {
+	
+	
+	background: url(img/bang.png);
+	background-repeat: no-repeat;
+	height:160px;
+	
+}
+
+
+#signup .callout:hover {
+	background: url(img/bang_yellow.png);
+	background-repeat: no-repeat;
+	cursor: url(img/pointer.png), pointer;
+}
+
+
+
+#signup .callout h2 {
+	font-family: 'cooper std';
+	font-style: italic;
+	font-size:36px;
+	padding-top:65px;
+	text-align: center;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg);
+}
+
+#signup .callout:hover h2 {
+	text-shadow:2px 2px 0 #fff;
+	color:#000;
+}
+
+
+
+
+
+
+/*signup popout*/
+			#signup_popup {
+				position: fixed;
+				top:0;
+				/*right:0;*/
+				bottom:0;
+				left:-200%;
+				width: 100%;
+				background:rgba(0,0,0,.75);
+				z-index: 100;
+				/*display: none;*/
+				opacity: 0;
+				transition: 150ms ease-in-out;
+  				-moz-transition: 150ms ease-in-out;
+  				-webkit-transition:150ms ease-in-out;
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+			}
+
+			#signup_popup.active {
+				/*display: block;*/
+				opacity: 1;
+				left:0;
+				right: 0;
+				transition: 150ms ease-in-out;
+  				-moz-transition: 150ms ease-in-out;
+  				-webkit-transition:150ms ease-in-out;
+
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+			}
+
+
+
+			#signup_popup .dialog {
+				position: absolute;
+				top:50%;
+				width:500px;
+				height:175px;
+				background:#fff;
+				left:50%;
+				margin-left:-250px;
+				box-shadow: 0 0 50px #000;
+				margin-top:-125px;
+			}
+
+			#signup_popup input, #signup_popup .submit{
+				float:left;
+				font-weight: 300;
+				font-family: "proxima-nova-extra-condensed";
+				text-transform: uppercase;
+			}
+
+			#signup_popup input[type=text] {
+				width:300px;
+				height:30px;
+				padding:10px 5px 0 10px;
+				border:1px solid #ccc;
+				font-size: 23px;
+				line-height: 23px;
+				margin: 20px 0 0 20px;
+				outline: none;
+				/*border:none;*/
+				/*background:black;*/
+			}
+
+			#signup_popup a.submit {
+				background-color: #fff;
+				cursor:url(/test/img/pointer.png), pointer;
+				margin: 20px 0 0 0px;
+				padding:11px 10px 0px;
+				text-align: center;
+				height:29px;
+				border: 1px solid #ccc;
+				/*width:100px;*/
+				font-size: 23px;
+				line-height: 23px;
+				border-left:none;
+				display: block;
+				float:left;
+				text-decoration: none;
+				color:#000;
+				font-weight: 900;
+				/*border:none;*/
+			}
+
+			#signup_popup h2 {
+				font-family: "minion-pro";
+				font-size: 23px;
+				font-weight: 700;
+				clear:both;
+				padding:20px 31px 0 31px;
+				
+			}
+
+			#real_email_sub {
+				display: none;
+			}
+
+			#signup_popup p.error {
+				color:#ff0000;
+				clear:both;
+				padding:15px 31px;
+				font-weight: 300;
+				font-family: "proxima-nova-extra-condensed";
+				font-size: 15px;
+				line-height: 18px;
+			}
+
+
+			
+
+
+			/*SHARE COMPONENTS*/
+			#share {
+				float:right;
+			}
+
 		</style>
 	</head>
 
 
 	<body>
+
+
+
+		<!-- FACEBOOK JS -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+
+
+		<div id="signup_popup">
+			<div class="dialog">
+
+				<!-- <div class="input_wrapper"> -->
+					<h2>To hear about events and new issues,</h2>
+					<form action="http://megazine.createsend.com/t/j/s/krtld/" method="post" id="subForm">
+						<input type="text" placeholder="youremail@megazine.xxx" name="cm-krtld-krtld" />
+						<a class="submit" id="decoy_email_sub"  href="#">Subscribe!</a>
+						<input type="submit" id="real_email_sub" value="Subscribe" />
+					</form>					
+					<p class="error"></p>
+				<!-- </div> -->
+			</div>
+		</div>
+
+
+
+
 		<div id="all">
 			<header>
-				<div class="content_wrapper">
+
+				
 					<!-- MAKE THIS follow the mouse on the x axis across the header -->
 					<h1><img src="img/page_logo.png" width="20" /><span class="hidden">MEGAZINE!</span></h1>
 					<!-- <nav></nav> -->
 					<h2>The Septober Issue</h2>
-				</div>
+					<hr class="left" />
+					<hr class="right" />
+<!-- SHARE -->
+				<!-- 
+					<div id="share">
+						<div class="share_button">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-via="MegaMaxims" data-count="none" data-dnt="true">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						
+						
+						<div class="share_button">
+							<div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+						</div>
+					</div> -->
+
 			</header>
 
 			<div id="sidebar">
-				<h2>Related Content</h2>
+				<h5>On that note!</h5>
+
+
+				<div id="related">
+
+					<ul>
+						<li>
+							<img src="img/rel_bb.jpg" width="280" />
+							<h3>100 photos of a beautiful boy</h3>
+							<h2>SISTERY MYSTERY</h2>
+						</li>
+						<li>
+							
+							<img src="img/rel_skull.jpg" width="280" />
+							<h3>Skull</h3>
+							<h2>The Bruce High Quality Foundation</h2>
+						</li>
+						<li>
+							<img src="img/rel_pipe.jpg" width="280" />
+							<h3>Pipe Collection</h3>
+							<h2>CYNTHIA BROTHERS</h2>
+						</li>
+						
+					</ul>
+				</div>
+
+				<div id="signup">
+					<div class="callout">
+						<h2>Subscribe!</h2>
+					</div>
+				</div>
+
 			</div>
 			
 
 			<div id="feature">
 
+
+				<div id="slides">
+					<ul class="pictureGrid">
+						<li>		
+							<ul class="vertical">
+									
+									
+									<li><img src="PIPE_4.jpg" /></li>
+									<li><img src="PIPE_5.jpg" /></li>
+									<li><img src="PIPE_16.jpg" /></li>
+									<li><img src="PIPE_10.jpg" /></li>
+									<li><img src="PIPE_6.jpg" /></li>
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									
+									<li><img src="PIPE_8.jpg" /></li>
+									<li><img src="PIPE_9.jpg" /></li>
+									<li><img src="PIPE_25.jpg" /></li>
+									<li><img src="PIPE_23.jpg" /></li>
+									<li><img src="PIPE_17.jpg" /></li>
+									<li><img src="PIPE_11.jpg" /></li>
+									
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_18.jpg" /></li>
+									<li><img src="PIPE_13.jpg" /></li>
+									<li><img src="PIPE_34.jpg" /></li>
+									<li><img src="PIPE_15.jpg" /></li>
+									
+									<li><img src="PIPE_3.jpg" /></li>
+									
+									
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_19.jpg" /></li>
+									
+									<li><img src="PIPE_30.jpg" /></li>
+									<li><img src="PIPE_24.jpg" /></li>
+									<li><img src="PIPE_22.jpg" /></li>
+									
+									<li><img src="PIPE_7.jpg" /></li>
+									
+									<li><img src="PIPE_28.jpg" /></li>
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_12.jpg" /></li>
+									<li><img src="PIPE_26.jpg" /></li>
+									
+									<li><img src="PIPE_20.jpg" /></li>
+									
+									<li><img src="PIPE_29.jpg" /></li>
+									
+									<li><img src="PIPE_21.jpg" /></li>
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_27.jpg" /></li>
+									<li><img src="PIPE_32.jpg" /></li>
+									<li><img src="PIPE_33.jpg" /></li>
+									<li><img src="PIPE_14.jpg" /></li>
+									
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+
+
+
+
+
+
+
+
+
 			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<footer>
+				<nav>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Genesis</span><span class="visible_text">Genesis</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Radio</span><span class="visible_text">Radio</span></span></a>
+				<!-- <a href<span class="text_wrapper" ="#">Contributors<span class="bang"><span class="bang_text">Boing!</span></span></a> -->
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">About</span><span class="visible_text">About</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Shop</span><span class="visible_text">Shop</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Menu</span><span class="visible_text">Menu</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Interests</span><span class="visible_text">Interests</span><!-- <span class="bang"><span class="bang_text">Boing!</span></span> --></span></a></nav>
+
+
+
+
+
+
+
+
+
+
+				<div id="extra">
+					<div id="placeholder">
+						<img src="img/joana.jpg" width="100%" />
+					</div>
+					<h2>Illustration Joana Avillez</h2>
+				</div>
+
+			</footer>
 		</div>	
 
 
