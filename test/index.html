@@ -3,7 +3,27 @@
 <html>
 	<head>
 		<meta charset='utf-8' /> 
+
+
+
+		<!-- FACEBOOK META -->
+		<meta property="fb:admins" content="309260325792555" />
+
+		<!-- PAGE TITLE GOES HERE -->
+		<meta property="og:title" content="Megazine" />
+
+		<meta property="og:type" content="website" />
+
+		<!-- FEATURED IMG GOES HERE -->
+		<meta property="og:image" content="" />
+
+		<meta property="og:site_name" content="MEGAZINE.XXX" />
+
+		<!-- END FB META -->
+
 		<link href="css/reset.css" rel="stylesheet" />
+
+
 		<title>Megazine! A Magazine of Amazing Art!</title>
 
 
@@ -16,46 +36,125 @@
 
 
 
+			$(function(){
+				// Twitter JAM
+				$.ajax({
+					url:'https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=megazinemag&count=3',
+					success:function(data, resp){
+						
+						var newsList = $('#updates_list'),
+							count =1;
 
+						$('#news').addClass('active');
 
-			// Twitter JAM
-			$.ajax({
-				url:'https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=megazinemag&count=3',
-				success:function(data, resp){
-					// console.log(data, resp)
-					var newsList = $('#updates_list'),
-						count =1;
+						$.each(data, function(i, status){
+							// + count + '.) '
+							var text = '<li>' + status.text + '</li>';
+							count++;
+							// go through all of the urls in the tweet and replace the text with an html "a" tag
+							$.each(status.entities.urls, function(i, url){
+								text = text.replace(url.url, '<a href="' + url.expanded_url + '">' + url.display_url + '</a>');
+						
+							});
 
-					$.each(data, function(i, status){
-						// + count + '.) '
-						var text = '<li>' + status.text + '</li>';
-						count++;
-						// go through all of the urls in the tweet and replace the text with an html "a" tag
-						$.each(status.entities.urls, function(i, url){
-							text = text.replace(url.url, '<a href="' + url.expanded_url + '">' + url.display_url + '</a>');
-							console.log(text);
+							newsList.append(text);
 						});
 
-						newsList.append(text);
-					});
+					},
+					error: function(err, resp){
 
-				},
-				error: function(err, resp){
-					console.log(err, resp)
-				},
-				dataType:'jsonp'
-			})
+						// console.log(err, resp)
+					},
+					dataType:'jsonp'
+				});
 
-
-
-
-
-
-
+			});
 
 
 
 			$(function(){
+
+
+				$('#decoy_email_sub').click(function(){
+					$('#real_email_sub').trigger('click');
+					return false;
+				})
+
+				var closeDialog = function(){
+
+		        	// unbind window evt
+		        	$(window).off('keyup.dia');
+
+		        	// hide the big bitch
+		        	$('#signup_popup').removeClass('active');
+
+		        	// show the form
+		        	$('#subForm').css('display', 'block');
+
+		        	//  replace the text in the header
+		        	$('#signup_popup h2').text('To hear about events and new issues,');
+
+		        	// remove any prev errors
+		        	$('#signup_popup p.error').text('');
+
+		        	$('#signup_popup input[type=text]').attr('value', '');
+
+		        };
+
+		        $('#subForm').submit(function (e) {
+		        	
+		        	$('#signup_popup p.error').text('');
+
+		            e.preventDefault();
+		            $.getJSON(
+		            	this.action + "?callback=?",
+		            	$(this).serialize(),
+			            function (data) {
+			                if (data.Status === 400) {
+			                	$('#signup_popup p.error').text(data.Message);
+			                } else { // 200
+			                	$('#signup_popup h2').html('Done! You&rsquo;ll hear from us shortly!');
+			                	$('#subForm').css('display', 'none');
+
+			                	setTimeout(closeDialog, 2000);
+			                }
+			            });
+		        });
+		    	
+
+		        
+
+	        	$('#signup_popup .dialog').on('click', function(e){
+	        		e.stopPropagation();
+	        	});
+
+	        	$('#signup_popup').on('click', function(){
+	        		//close dialog
+	        		closeDialog();
+	        	});
+
+		        $('#signup .callout').on('click', function(){
+
+		        	// bind the events to get rid of the dialog
+		        	$(window).on('keyup.dia', function(e){
+	        		
+		        		if(e.which === 27){
+		        			// close the dialog, unbind the close events
+		        			closeDialog();
+		        		}
+		        	});
+
+		        	// invoke the signup dialog
+		        	$('#signup_popup').addClass('active');
+
+		        	
+
+		        	return false;
+		        });
+
+
+
+
 
 
 				var letterSpinner = function(elm){
@@ -123,12 +222,36 @@
 			});
 
 		</script>
+		<style>
 
+
+
+
+		</style>
 	</head>
 	<!-- TODO:
 		contributors
 		issue title -->
 	<body>
+
+
+
+
+		<div id="signup_popup">
+			<div class="dialog">
+
+				<!-- <div class="input_wrapper"> -->
+					<h2>To hear about events and new issues,</h2>
+					<form action="http://megazine.createsend.com/t/j/s/krtld/" method="post" id="subForm">
+						<input type="text" placeholder="youremail@megazine.xxx" name="cm-krtld-krtld" />
+						<a class="submit" id="decoy_email_sub"  href="#">Subscribe!</a>
+						<input type="submit" id="real_email_sub" value="Subscribe" />
+					</form>					
+					<p class="error"></p>
+				<!-- </div> -->
+			</div>
+		</div>
+
 		<section id="masthead">
 			<header>
 				<div id="weather" class="rain">
@@ -168,12 +291,34 @@
 				<div id="news">
 					<h2>This Just In</h2>
 					<ul id="updates_list"></ul>
+					<div id="bangbangbang"></div>
 				</div>
+
+
 
 				<div id="pong">
 					<h2>Play pong!</h2>
 					<div id="pong"><div id="table"></div></div>
-					<p>Click to start. <br />Arrow keys to move.</p>
+					<p>Click to start. <br />Arrow keys to move.<br />Esc. to stop.</p>
+				</div>
+
+
+
+
+
+				<div id="ads">
+
+					<h2>Ads!</h2>
+					<script type="text/javascript"><!--
+						google_ad_client = "ca-pub-7353120595663628";
+						/* Homepage */
+						google_ad_slot = "2967773886";
+						google_ad_width = 250;
+						google_ad_height = 250;
+						//-->
+					</script>
+					<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
 				</div>
 
 				<!-- PUT THE TWITTER FEED IN HERE! -->
@@ -199,43 +344,30 @@
 			</section>
 
 
-			<footer>
-				<div id="editors">
+
+		</div>
+		<footer>
+			<div id="editors">
 				<h3>Editors</h3>
 				<ul>
 					<li><h2>LOREN KRAMAR</h2></li>
 					<li><h2>MAREN MILLER</h2></li>
 					<li><h2>JOE KENDALL</h2></li>
 				</ul>
-				</div>
+			</div>
 
-				<div id="contributors">
-					<h3>Contributors</h3>
-					<ul>
-						<li><h2>MIRACLE JONES</h2></li>
-						<li><h2>THE BRUCE HIGH QUALITY FOUNDATION</h2></li>
-						<li><h2>EBECHO MUSLIMOVA</h2></li>
-						<li><h2>AUREL SCHMIDT</h2></li>
-						<li><h2>OTO GILLEN</h2></li>
-						<li><h2>JOANA AVILLEZ</h2></li>
-						<li><h2>SNOOCHIE BOOCHIES</h2></li>
-						<li><h2>NICK LEMMIN</h2></li>
-						<li><h2>CYNTHIA BROTHERS</h2></li>
-						<li><h2>JAKE BROWER</h2></li>
-						<li><h2>AVERY K. SINGER</h2></li>
-						<li><h2>SISTERY MYSTERY</h2></li>
-						<li><h2>OLIVER LOAIZA</h2></li>
-						<li><h2>KEEGAN MONAGHAN</h2></li>
-						<li><h2>SASHA GROSSMAN</h2></li>
-						<li><h2>TAYLOR SHIELDS</h2></li>
-						<li><h2>LOBESIAN PRESS</h2></li>
-						<!-- <li><h2>LOREN KRAMAR</h2></li>
-						<li><h2>MAREN MILLER</h2></li>
-						<li><h2>JOE KENDALL</h2></li> -->
-					</ul>
+			<div id="contributors">
+				<h3>In this issue</h3>
+				<div id="people">
+					<h2><span>MIRACLE JONES</h2> <h2><span>THE BRUCE HIGH QUALITY FOUNDATION</span></h2> <h2><span>EBECHO MUSLIMOVA</span></h2> <h2><span>AUREL SCHMIDT</span></h2> <h2><span>OTO GILLEN</span></h2> <h2><span>JOANA AVILLEZ</span></h2> <h2><span>SNOOCHIE BOOCHIES</span></h2> <h2><span>NICK LEMMIN</span></h2> <h2><span>CYNTHIA BROTHERS</span></h2> <h2><span>JAKE BROWER</span></h2> <h2><span>AVERY K. SINGER</span></h2> <h2><span>SISTERY MYSTERY</span></h2> <h2><span>OLIVER LOAIZA</span></h2> <h2><span>KEEGAN MONAGHAN</span></h2> <h2><span>SASHA GROSSMAN</span></h2> <h2><span>TAYLOR SHIELDS</span></h2> <h2><span>LOBESIAN PRESS</span></h2>
+					<!-- <li><h2>LOREN KRAMAR</h2></li>
+					<li><h2>MAREN MILLER</h2></li>
+					<li><h2>JOE KENDALL</h2></li> -->
 				</div>
-			</footer>
-		</div>
+			</div>
+
+			<p id="salutation">Thank you for your visit!</p>
+		</footer>
 		<script type="text/javascript" src="js/jqueryPong.js"></script>
 
 		<script type="text/javascript" src="//use.typekit.net/wzt6iot.js"></script>
