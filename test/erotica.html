@@ -13,10 +13,27 @@
 
 
 		// set this to the container of the lims and head classes
-		$('#slides').cycle({
-			speed:200,
-			timeout:2000
-		});
+		var index = 0,
+			rotateLim = function(){
+
+				slides.fadeOut(200);
+
+				if(index === slides.length) {
+					index=0;
+				}
+				setTimeout(function(){
+
+					$(slides[index]).fadeIn(200, function(){
+						setTimeout(rotateLim, 4000);
+					});
+
+					index++;
+
+				}, 200)
+				
+
+				
+			};
 
 	});
 	
