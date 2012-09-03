@@ -324,14 +324,14 @@ a:hover {
 	font-size: 24px;
 	line-height: 23px;
 	word-spacing: 30px;
-	/*border-top: 1px solid #999;*/
+
 	/*letter-spacing: 1px;*/
 	/*font-weight: 700;*/
 
-	/*font-family: "minion-pro";*/
+	
 	font-family: 'cooper std';
-	/*font-family: "teimer-web";*/
-	/*font-family: "mostra-nuova-alt-d";*/
+	
+	
 }
 
 #masthead nav a {
@@ -545,29 +545,31 @@ header #weather {
 	background-repeat: no-repeat;
 	background-position: top right;
 	background-size: auto 100%;
-	right:5px;
-	max-height: 400px;
+	left:-5px;
+	max-height: 350px;
 }
 
 #news #updates_list a {
 	color:navy;
 }
 
-#sidebar h2 {
-	font-family: "proxima-nova-extra-condensed";
-	font-size: 40px;
-	line-height: 40px;
-	/*white-space: nowrap;*/
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 900;
+#sidebar h5 {
+	font-family: "cooper std";
+	font-size: 36px;
+	line-height: 36px;
+	white-space: nowrap;
+	/*text-transform: uppercase;*/
+	/*letter-spacing: 1px;*/
+	font-style: italic;
+	/*font-weight: 900;*/
 	color:#000;
 	text-align: left;
-	/*-webkit-transform: perspective(500px) rotateY(-25deg);*/
-	/*-moz-transform: perspective(500px) rotateY(-25deg);*/
+	/*text-align: center;*/
+	-webkit-transform: rotateZ(-2deg);
+	-moz-transform: rotateZ(-2deg);
 	
 	
-	padding:8px 10px 8px 10px;
+	padding:18px 10px 8px 10px;
 	/*border-bottom: 5px solid #aaa;*/
 	/*margin-bottom: 8px;*/
 	
@@ -582,21 +584,22 @@ header #weather {
 	/*height:110px;*/
 }
 
-#updates_list li {
-	font-weight: 600;
-	line-height: 25px;
-	font-size:23px;
+#updates_list li h2 {
+	font-weight: 200;
+	line-height: 28px;
+	font-size:28px;
 	background: #fff;
 	color: #000;
-	margin-right: 40px;
+	margin-left: 35px;
 	padding:8px 10px 7px 10px;
-	border-top:1px dotted #000;
+	border-top:1px solid #ccc;
+	font-family: "proxima-nova-extra-condensed";
 }
 
 #updates_list li:first-line {
 	/*font-weight: 700;*/
 	/*font-size:20px;*/
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 
 #updates_list li:first-child {
@@ -890,8 +893,6 @@ footer h3 {
 }
 
 #editors {
-
-	/*width: 768px;*/
 	margin: 0 75;
 	padding:0 0 5px;
 	border-bottom: 1px dotted #000;
@@ -901,9 +902,6 @@ footer h3 {
 
 #editors ul {
 	word-spacing: 15px;
-	font-size: 40px;
-	line-height: 40px;
-
 	font-weight: 900;
 	text-align: center;
 }
@@ -916,30 +914,12 @@ footer h3 {
 
 #editors li h2 {
 	display: inline;
+	font-size: 40px;
+	line-height: 40px;
 }
 
 
 
-
-
-footer h1 {
-	text-align: center;
-	padding:7px 0 7px 0;
-	text-transform: uppercase;
-	font-size: 20px;
-
-	word-spacing: 30px;
-	/*letter-spacing: 1px;*/
-	
-
-	font-weight: 700;
-	font-family: 'cooper std';
-	/*font-style: italic;*/
-	font-size:38px;
-	/*-webkit-transform: rotate(-5deg); 
-	-moz-transform: rotate(-5deg);*/
-	/*font-family: "minion-pro";*/
-}
 
 footer h1 span {
 	word-spacing: normal;

@@ -42,20 +42,20 @@
 	top:50%;
 	margin-top:-266px;
 	/*min-width:400px;*/
-	-webkit-transform:  scale3d(.45,.45,.45);
-	-moz-transform: scale3d(.45,.45,.45);
+	-webkit-transform:  scale(.45,.45);
+	-moz-transform: scale(.45,.45);
 	
-	transition: all 400ms linear;
-	-webkit-transition: all 400ms linear;
-	-moz-transition: all 400ms linear;
+	transition: all 450ms linear;
+	-webkit-transition: all 450ms linear;
+	-moz-transition: all 450ms linear;
 
 }
 
 
 #slides  .gsActive img {
 
-	-webkit-transform:  scale3d(1,1,1);
-	-moz-transform: scale3d(1,1,1);
+	-webkit-transform:  scale(1,1);
+	-moz-transform: scale(1,1);
 	
 	transition: all 450ms linear;
 	-webkit-transition: all 450ms linear;

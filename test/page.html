@@ -28,7 +28,7 @@
 
 
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
-
+		<link rel="stylesheet" type="text/css" href="css/jones.css" />
 
 
 
@@ -57,6 +57,55 @@
 				});
 			})(jQuery);
 		</script>	
+
+
+
+
+
+
+
+
+
+<script>
+
+	
+		$(function(){
+
+			var gradients = $('.gradient'),
+				docHeight = $(document).height(),
+				winHeight = $(window).height(),
+				scrollArea = docHeight - winHeight,
+				mask = $('.mask'),
+				leftImg = $('#left_gutter .img_box'),
+				rightImg = $('.story_title');
+
+			$(window).on('resize', function(){
+				scrollArea = docHeight - $(this).height();
+			})
+
+			$(window).on('scroll', function(){
+
+				var scrollPercent = Math.round(($(this).scrollTop()/scrollArea) * 1000) / 1000;
+
+				mask.css({opacity:1 - scrollPercent});
+
+				gradients.css({top:(scrollPercent * -500) + '%'});
+
+				leftImg.css({marginLeft:(scrollPercent * -10) * 823 + 'px'});
+
+				rightImg.css({marginLeft:(scrollPercent * -10) * 823 + 'px'});
+
+			})
+
+		});
+</script>
+
+
+
+
+
+
+
 
 
 
@@ -224,32 +273,23 @@
 				padding:5px;
 				/*border-bottom: 3px solid #de4400;*/
 				position: relative;
-				height:15px;
-				z-index: 2;
+				height:33px;
+				z-index: 4;
+				background: #fff;
 			}
 
-			header hr.left {
+			header hr {
 				position: absolute;
 				top:15px;
 				left:40px;
-				right:50%;
-				margin-right:60px;
-				border-color:#000;
-				margin-top:0;
-				margin-bottom:0;
-			}
-
-			header hr.right {
-				position: absolute;
-				top:15px;
-				left:50%;
 				right:10px;
-				margin-left:60px;
+				/*margin-right:60px;*/
 				border-color:#000;
 				margin-top:0;
 				margin-bottom:0;
 			}
 
+			
 			header .content_wrapper {
 				max-width: 768px;
 				
@@ -283,37 +323,50 @@
 				z-index: 2;
 			}
 
-			header h2 {
+			header h3 {
 				/*float:right;*/
 				position: absolute;
-				right: 0;
+				/*right: 0;*/
+				z-index: 2;
 				left:0;
 				top:5px;
 				/*height:100%;*/
 				text-align: center;
 				text-transform: uppercase;
 				font-family: "proxima-nova-extra-condensed";
-				font-weight: 300;
+				font-weight: 200;
 				font-size: 18px;
+				left:150px;
+				right:150px;
 				/*line-height: 64px;*/
 				/*padding-right: 10px;*/
 			}
 
+			header h3 span {
+				background: #fff;
+				padding:5px;
+			}
+
+			
 			#sidebar {
 				width:250px;
 				/*height:1000px;*/
-				margin-top:20px;
-				/*background:yellow;*/
-				
+				padding-top:0px;
+				background:#fff;
+				-moz-border-radius:0 50px  0 50px;
+				-webkit-border-radius:0 50px  0 50px;
+				border-radius:0 0px 150px 150px;
 				float:left;
 				/*padding-top:70px;*/
-				z-index: 1;
+				z-index: 3;
 				position: relative;
 				/*top:-50px;*/
 			}
 
 			#sidebar h5 {
 				font-family: "cooper std";
+				-webkit-transform: rotateZ(-2deg);
+				-moz-transform: rotateZ(-2deg);
 				font-size: 28px;
 				line-height: 40px;
 				/*white-space: nowrap;*/
@@ -336,18 +389,50 @@
 			}
 
 			#feature {
-				margin-left:300px;
+				margin-left:250px;
+				overflow: hidden;
+				overflow-x:auto;
+				/*position: relative;*/
+				z-index: 5;
 				/*background: yellow;*/
 			}
 			#related {
-				border-right:1px solid #000;
+				/*border-right:1px solid #000;*/
+			}
+
+			#related .img_wrapper {
+				border: 1px solid #000;
+				width:175px;
+				height:175px;
+				background:#ffea00;
+				
+			}
+
+
+			#sidebar:hover #related img {
+				opacity: 1;
+				transition: 150ms ease-in-out;
+				-moz-transition: 150ms ease-in-out;
+				-webkit-transition:150ms ease-in-out;
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
 			}
 
 			#related img {
 				/*-webkit-transform:  scale3d(.45,.45,.45);*/
 				/*-moz-transform: scale3d(.45,.45,.45);*/
+				opacity: 0;
 				width:175px;
-				margin:0px 0;
+				transition: 150ms ease-in-out;
+				-moz-transition: 150ms ease-in-out;
+				-webkit-transition:150ms ease-in-out;
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+				
 				display: block;
 			}
 			#related li {
@@ -361,12 +446,12 @@
 			}
 
 			#related li h3 {
-				font-family: "minion-pro";
+				
 				font-family: "proxima-nova-extra-condensed";
-				font-weight: 900;
-				line-height: 25px;
-				text-transform: uppercase;
-				font-size:23px;
+				font-weight: 200;
+				line-height: 28px;
+				/*text-transform: uppercase;*/
+				font-size:28px;
 				
 				padding:8px 0 2px;
 				
@@ -374,7 +459,7 @@
 
 			#related li h2 {
 				font-family: "proxima-nova-extra-condensed";
-				font-weight: 300;
+				font-weight: 900;
 				line-height: 25px;
 				font-size:15px;
 				padding:0px 0 7px;
@@ -392,6 +477,8 @@
 				width: 100%;
 				clear:both;
 				background:#fff;
+				position: relative;
+				z-index: 5;
 			}
 
 			#extra {
@@ -426,17 +513,21 @@
 			footer nav {
 				text-align: center;
 				display: block;
-				padding:8px 0 2px 0;
+				padding:7px 0 2px 0;
 				background: #000;
-				text-transform: uppercase;
-				font-size: 23px;
+				/*text-transform: uppercase;*/
+				font-style: italic;
+
+				font-size: 24px;
 				line-height: 23px;
 				word-spacing: 30px;
+
+				/*letter-spacing: 1px;*/
+				/*font-weight: 700;*/
+
 				
-				letter-spacing: 1px;
-				font-weight: 700;
-				
-				font-family: "minion-pro";
+				font-family: 'cooper std';
+
 				
 			}
 
@@ -669,10 +760,73 @@
 
 			/*SHARE COMPONENTS*/
 			#share {
-				float:right;
+				position:absolute;
+				top:0;
+				width:300px;
+				right: 0;
+				
 			}
 
+			#share .share_button {
+				background: #fff;
+			}
+
+			#share .share_button > * {
+				opacity: .7;
+			}
+
+			header:hover #share .share_button > * {
+				opacity: 1;
+			}
+
+			#share .twitter {
+				/*top:10px;*/
+				padding:5px;
+				right:15px;
+				background: #fff;
+				position: absolute;
+			}
+
+
+			#share .facebook {
+				/*top:10px;*/
+				position: absolute;
+				padding:5px;
+				background: #fff;
+				right:80px;
+			}
+
+
+
+
+
+			#fixed_space {
+				position: fixed;
+				top:0px;
+				bottom:0px;
+				right:0;
+				left:0px;
+				/*background: red*/
+			}
+
+
+
 		</style>
+
+
+
+
+
+		<!-- required for adding the scrollbar in the right place on the feature pages -->
+		<script type="text/javascript">
+			$(function(){
+				$('#feature').css({minHeight: $('#sidebar').height() + 'px'});
+			});
+		</script>
+
+
+
+
 	</head>
 
 
@@ -717,22 +871,23 @@
 					<!-- MAKE THIS follow the mouse on the x axis across the header -->
 					<h1><img src="img/page_logo.png" width="20" /><span class="hidden">MEGAZINE!</span></h1>
 					<!-- <nav></nav> -->
-					<h2>The Septober Issue</h2>
-					<hr class="left" />
-					<hr class="right" />
+					<h3><span>The Septober Issue</span></h3>
+					
+					<hr />
+					
 <!-- SHARE -->
-				<!-- 
+				
 					<div id="share">
-						<div class="share_button">
+						<div class="share_button twitter">
 							<a href="https://twitter.com/share" class="twitter-share-button" data-via="MegaMaxims" data-count="none" data-dnt="true">Tweet</a>
 							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 						</div>
 						
 						
-						<div class="share_button">
+						<div class="share_button facebook">
 							<div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
 						</div>
-					</div> -->
+					</div> 
 
 			</header>
 
@@ -744,18 +899,18 @@
 
 					<ul>
 						<li>
-							<img src="img/rel_bb.jpg" width="280" />
+							<div class="img_wrapper"><img src="img/rel_bb.jpg" width="280" /></div>
 							<h3>100 photos of a beautiful boy</h3>
 							<h2>SISTERY MYSTERY</h2>
 						</li>
 						<li>
 							
-							<img src="img/rel_skull.jpg" width="280" />
+							<div class="img_wrapper"><img src="img/rel_skull.jpg" width="280" /></div>
 							<h3>Skull</h3>
 							<h2>The Bruce High Quality Foundation</h2>
 						</li>
 						<li>
-							<img src="img/rel_pipe.jpg" width="280" />
+							<div class="img_wrapper"><img src="img/rel_pipe.jpg" width="280" /></div>
 							<h3>Pipe Collection</h3>
 							<h2>CYNTHIA BROTHERS</h2>
 						</li>
@@ -772,10 +927,1787 @@
 			</div>
 			
 
-			<div id="feature">
+			<div id="feature" class="">
 
 
-				<div id="slides">
+
+		<div id="fixed_space">
+
+
+
+
+
+			<div id="band_box">
+				<div class="band"><div class="gradient"></div></div>
+				<div class="band"><div class="gradient"></div></div>
+				<div class="band"><div class="gradient"></div></div>
+				<div class="band"><div class="gradient"></div></div>
+				<div class="band"><div class="gradient"></div></div>
+				<div class="band"><div class="gradient"></div></div>
+				<div class="band"><div class="gradient"></div></div>
+				<div class="band"><div class="gradient"></div></div>
+			</div>
+
+
+
+
+
+			<div id="right_gutter">
+
+				<div class="elastic_box">
+					<div class="mask">
+						<div class="hole"></div>
+					</div>
+					<div class="img_box"></div>
+				</div>
+			</div>
+
+
+			<h2 class="story_title">Kickstart My Bad Life</h2>
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+	<!-- <div id="view"></div> -->
+	<div id="flow_content_wrapper">
+	<article>
+		<h3 class="title">Kickstart my Bad Life</h3>
+		<h2>by <em>Miracle Jones</em></h2>	
+		<h5 id="recording_heading">Listen to the recording!</h5>
+		<div id="recording_box">
+			<object height="18" width="100%"> <param name="movie" value="https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F58518863&amp;auto_play=false&amp;player_type=tiny&amp;font=Courier&amp;color=000000"></param> <param name="allowscriptaccess" value="always"></param> <param name="wmode" value="transparent"></param><embed wmode="transparent" allowscriptaccess="always" height="18" src="https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F58518863&amp;auto_play=false&amp;player_type=tiny&amp;font=Courier&amp;color=000000" type="application/x-shockwave-flash" width="100%"></embed> </object>   
+		</div>
+		<section>
+			<p>
+				<span class="dropcap"><img src="w.png" height="50"/></span>hen a famous writer wants to write an exquisite porn story&mdash;a story with no other purpose but to get people off&mdash;all they must do to protect their career is to use a pseudonym.
+			</p>
+
+			<p>
+				When a famous director wants to make an exquisite porn movie&mdash;a movie with no other purpose but to get people off&mdash;their task is much more difficult.  Making a movie requires substantial resources, and the artistic flourishes that separate a good director from a clumsy hack instantly mark the film as coming from the hand of a master.  Additionally, so many people must be involved that the secret is nearly impossible to keep.
+			</p>
+
+			<p>
+				Even if no one tattles, it doesn&#8217;t require sophisticated forensics to determine the creator of an anonymous film: the telltale obsessions of the visual artist reveal everything.
+			</p>
+
+			<p>
+				Famous directors solve this problem by never showing the pornography that they make to anyone.  If they are compelled to make something particularly stunning, they only show it to each other.
+			</p>
+
+			<p>
+				I learned about the process from my sister, the famous actress.  I won&#8217;t tell you her name, but you can probably figure it out from context.
+			</p>
+
+			<p>
+				I hadn&#8217;t seen my sister since she went out to California to &#8220;get so famous she needed a bodyguard for her boyfriend,&#8221; but here she was outside of my damp, reeking Queens apartment, &#8220;forgiving me&#8221; for ignoring her for years, saying how she understood that I needed to do things my own way instead of shamelessly mooching off her celebrity fortune like the rest of our family.
+			</p>
+
+			<p>
+				&#8220;Just say you need my help,&#8221; I said.  "Just say the words and you can come inside and tell me all about it.&#8221;
+			</p>
+
+			<p>
+				I wasn&#8217;t jealous.  I avoided her movies because watching them made me embarrassed for her.
+			</p>
+
+			<p>
+				I shared parts of her face.  I shared the line of her nose and the curve of her cheekbones.  When I tried to watch one of her movies, it felt like it was me who was being merciless squeezed into desiccated pulp by the relentlessly-vapid Hollywood shit machine, twisted and wrenched dry for my life juices.
+			</p>
+
+			<p>
+				Because I knew her better than anybody, I was aware of the sheer despair in her eyes, especially when she was doing comedy.  On the screen&mdash;in her eyes&mdash;I could tell she was barely holding on to the last animal remnants of her bartered soul.
+			</p>
+
+			<p>
+				&#8220;You are my sister,&#8221; she said.  &#8220;And I love you.&#8221;
+			</p>
+
+			<p>
+				&#8220;We both know why you are here," I seethed through the crack in the door. "You are drowning again and everyone is laughing at you, aren't they?"
+			</p>
+
+			<p>
+				When I was twelve and she was fifteen, E______ was pushed into the deep end of the public swimming pool by this guy she liked named Kurt Danner.  It was his birthday party.  All of her supposed friends watched and laughed as she struggled, drowning.  They thought she was trying to be funny.  Kurt Danner laughed the loudest of all, mocking the way she drowned by pretending to choke on a piece of his birthday cake.
+			</p>
+
+			<p>
+				I hadn&#8217;t been invited to the party, but our Dad said I had to go anyway because he had to work and he didn&#8217;t want me to stay home alone.  I didn&#8217;t even want to be there.
+			</p>
+
+			<p>
+				The only joy I got from the experience was seeing that my attendance pissed E_______ off so much.  I sat in the shade of the pump-house, stewing, watching everyone interact with each other and noting the way that these tan, slender children tortured each other to aggrandize themselves, knowing they would never grow out of it, knowing they would only get better and sneakier at it.
+			</p>
+
+			<p>
+				However, I was the only one at the party who knew that E________ couldn&#8217;t swim.
+			</p>
+
+			<p>
+				I was the only one who knew how deathly afraid she was of deep water, and how much she had to steel herself even to come near the water&#8217;s edge where Kurt Danner reclined in his lawn chair.
+			</p>
+
+			<p>
+				Without thinking, I leaped into the pool and dragged her to safety.  She clung to me so hard that I had bruises for weeks.  She held onto me, shivering, until she realized who I was.
+			</p>
+
+			<p>
+				She never forgave me for saving her life.
+			</p>
+
+			<p>
+				&#8220;I should have let you drown,&#8221; I said later, after listening to a solid hour of her ungrateful theatrics.
+			</p>
+
+			<p>
+				&#8220;He would have saved me,&#8221; she said.  &#8220;I knew exactly what I was doing.  I can&#8217;t believe I brought you along.  I&#8217;m never bringing you anywhere again.&#8221;
+			</p>
+
+			<p>
+				&#8220;He would have stood there eating cake until you swallowed a gallon of water and went brain dead,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;Don&#8217;t ever try to help me.  You don&#8217;t know as much as you think you do.  You are just a little girl from Tennessee.  I live in the whole world.&#8221;
+			</p>
+
+			<p>
+				Three years later, E_____ got her first starring role in a shitty television show.  It wasn&#8217;t long before she graduated to shitty movies.  Over the years, she offered me more free money than most people earn honestly in their entire lives.  I didn&#8217;t take a single dime.
+			</p>
+
+			<p>
+				She went West and I went East.
+			</p>
+
+			<p>
+				On Christmas and on my birthday, I sent back the titles to automobiles and the deeds to beach houses.  When my medical bills were mysteriously paid, I argued with the hospital to get the bills reinstated, claiming a breach of my privacy rights.
+			</p>
+
+			<p>
+				The other members of our family weren&#8217;t so spiteful, but they also didn&#8217;t have the same history with E______ that I did.  Her success ensured that our father and our little brother didn&#8217;t have to work.  I was glad for them.
+			</p>
+
+			<p>
+				But I would rather starve to death than take money from E_______ and her little world.  I wasn&#8217;t going to help E_______ justify her own self-destruction by taking money from her and from the commercial film industry that I loathed.
+			</p>
+
+			<p>
+				&#8220;It doesn&#8217;t cost me anything to say it,&#8221; she said, leaning against my doorjamb, putting one hand inside my home.  &#8220;I&#8217;ll say it if you need to hear it.  There is no one else I can go to.&#8221;
+			</p>
+
+			<p>
+				&#8220;And?&#8221;
+			</p>
+
+			<p>
+				She swallowed.
+			</p>
+
+			<p>
+				&#8220;And I need your help.&#8221;
+			</p>
+
+			<p>
+				I opened the door for her, allowing her to cross the threshold into my apartment.  I tried not to notice how she looked both ways along the hallway, making sure that no &#8220;normal people&#8221; saw her go into such a normal, disgusting place.  She took off her baseball cap and sunglasses and sat down in the easy chair that I had rescued from the garbage.  I sat down across from her on my coffee table, a footlocker with a blanket over it, the only other piece of furniture in my den.
+			</p>
+
+			<p>
+				I got out the bottle of vodka that was always in the freezer and I set it between us.
+			</p>
+
+			<p>
+				&#8220;You are still with Marcher & Mandrake,&#8221; she said, rolling her eyes around my empty apartment.  &#8220;Did I get that right?  That&#8217;s the name of your agency?&#8221;
+			</p>
+
+			<p>
+				&#8220;Yes,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;Have you sold any novels lately?&#8221;
+			</p>
+
+			<p>
+				&#8220;No,&#8221; I said.  &#8220;Why are you here?  Did you get burned on some bad coke?  Is somebody holding your rat terrier hostage?  Don&#8217;t you have billionaire friends out there in California who can help you with your problem?&#8221;
+			</p>
+
+			<p>
+				&#8220;I am coming to you because you are the only person I can trust,&#8221; she said quietly.
+			</p>
+
+			<p>
+				I put my hand on her knee.
+			</p>
+
+			<p>
+				&#8220;That would be so sad,&#8221; I said, &#8220;if I believed you.&#8221;
+			</p>
+
+			<p>
+				&#8220;I don&#8217;t trust you because I think you care about me,&#8221; she said without losing her cool.  &#8220;I trust you because I know you have too much pride to hurt me.&#8221;
+			</p>
+
+			<p>
+				I opened the bottle of vodka and drank a slug straight from the neck.  I offered it to her.  Fuck glasses.  Was she too good to drink straight from the bottle?
+			</p>
+
+			<p>
+				She sighed.
+			</p>
+
+			<p>
+				&#8220;Also, you are smart,&#8221; she said.  &#8220;Do you know how furious it makes me to say it out loud?  I need help and you are smart and you can help me.&#8221;
+			</p>
+
+			<p>
+				I shook the bottle of vodka at her until she took it from me.
+			</p>
+
+			<p>
+				&#8220;So tell me what&#8217;s wrong,&#8221; I said.  &#8220;Remember: details are food for smart people.&#8221;
+			</p>
+
+			<p>
+				&#8220;It started with my publicist,&#8221; she said.  &#8220;She said that if I didn&#8217;t win an Academy Award in the next five years, then my career would disappear when I got my first wrinkle.  The world wants to fuck me, not listen to me, she said.  I decided that it was time to do something dangerous.  Do you know Frank Fry?&#8221;
+			</p>
+
+			<p>
+				&#8220;I don&#8217;t know any of your movie people,&#8221; I seethed.  &#8220;I don&#8217;t want to know them.&#8221;
+			</p>
+
+			<p>
+				&#8220;He is European,&#8221; said E_________.  &#8220;Maybe Norwegian?  Anyway, it doesn&#8217;t matter.  He has never made an American film before.  He is a deaf-mute.  He can&#8217;t hear and he can&#8217;t speak.&#8221;
+			</p>
+
+			<p>
+				&#8220;And he&#8217;s the one who wants to listen to you and not fuck you?&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;He is also a genius film savant.  When I auditioned for the part, he put his head to my chest and he listened to my heart beat while he showed me a video of a baby being born.  When the video was over, he left the room, and I didn&#8217;t find out that I got the part until a week later.&#8221;
+			</p>
+
+			<p>
+				&#8220;Of course you got the part,&#8221; I said.  &#8220;You are E______ H______.  He rubbed his face all over your tits and you didn&#8217;t even flinch.  That&#8217;s good acting.&#8221;
+			</p>
+
+			<p>
+				&#8220;He has this helper guy, this guy named Whistle,&#8221; said my sister.  &#8220;Whistle does all his business for him and he also translates for him.  Whistle knows Scandinavian sign language or whatever.  Whistle is hideous.  He was in some kind of a fire and he burned off most of his face, so he always looks like he&#8217;s smiling.  He wears these fantastic blonde wigs made with real human hair.  His skin looks like a leather purse.&#8221;
+			</p>
+
+			<p>
+				&#8220;Sounds charming,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;Anyway, Frank Fry wants to make an American film.  The project is called &#8220;Symphony for Signs and Flesh.&#8221;  It is supposed to be a metaphysical horror movie.  You know: high art.  The premise is that after this scientist&#8217;s wife is horrifically burned in a fire, the scientist develops this method where people can change their skin.  They can change their features and skin color using little robots that chew up their hair follicles and rearrange their cells. At first, she changes back to her old skin, but then she wants more, and she starts acquiring the faces of celebrities and so on.  That&#8217;s my role in the movie.  The scientist&#8217;s wife desperately wants to be me, E________ H_______ the actress, and so she makes her face look like mine and pretends to be me, seducing neighborhood boys and ruining my reputation.  Anyway, you get the idea.  Lots of long, still shots of people gazing into mirrors with ambient animal noises and the sound of a crackling fire.&#8221;
+			</p>
+
+			<p>
+				&#8220;Naturally,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;We started filming six months ago.  The entire project has been like some cult.  I can&#8217;t say no to Frank.  Frank is the devil.  He has some uncanny power over me.  I will do whatever he wants.&#8221;
+			</p>
+
+			<p>
+				&#8220;A silent Scandinavian svengali and his fire-obsessed attaché,&#8221; I muttered.  My mind wandered, trying to imagine them.
+			</p>
+
+			<p>
+				&#8220;The other actors and actresses working on &#8220;Symphony&#8221; were not Hollywood types like me.  Frank found people from the streets by doing open casting in Amsterdam and Paris.  The movie was in English, but I was the only native English speaker.  That was part of Frank&#8217;s power.  There was no one else I could talk to.  He started making strange demands for scenes that weren&#8217;t in the script.&#8221;
+			</p>
+
+			<p>
+				&#8220;What kinds of scenes?&#8221; I asked.
+			</p>
+
+			<p>
+				&#8220;I thought it was just going to be a normal art movie,&#8221; she said.  &#8220;But it seemed like every day we did more sex stuff.&#8221;
+			</p>
+
+			<p>
+				&#8220;Sex stuff?&#8221;
+			</p>
+
+			<p>
+				&#8220;Yes,&#8221; said E_______, timidly.  &#8220;My agent told me how good the project would be for my career and how it would help me get more serious work.  She said I needed to make people think about me differently.  But all Frank Fry wanted to shoot were sex scenes.  I don&#8217;t think I&#8217;ve ever done so many sex scenes for all my other movies combined.  And it wasn&#8217;t just me:  all the extras and no-names were doing hardcore sex scenes with Frank and Whistle every day. We had all these prop faces, you know, since the whole movie is about changing skin.  Everyone was changing faces all the time, and Frank had a whole team of people who were using digital effects to change the way people looked.&#8221;
+			</p>
+
+			<p>
+				&#8220;And none of this stuff was in the script?&#8221;
+			</p>
+
+			<p>
+				&#8220;No,&#8221; said E_______.  &#8220;That&#8217;s the thing.  We would be making the movie, following the script, and then all of a sudden we would stop everything, get out the prop skins, and start doing sex scenes with Frank and Whistle in this one room with this giant golden bed.&#8221;
+			</p>
+
+			<p>
+				I stared at her.  She looked at me, searching for sympathy.  Instead, I shut my eyes and sighed.
+			</p>
+
+			<p>
+				&#8220;I got this horrible feeling in the pit of my stomach,&#8221; said E________.  &#8220;I left the set and went to London.  My agent and I went to Frank and we demanded to see the movie that was going to be released with my name on it. He showed us &#8220;Symphony.&#8221;  But there wasn&#8217;t any sex in it at all.  It was all blood and gore.  All the scenes we had been shooting for the past six months, all the face-changing orgies, were gone.  I was confused.  My agent made him sign papers saying that he would use the cut without the sex.  I refused to do any more work on the project. I talked to some of the other actors and actresses involved in the project, and they were also relieved that the orgies weren&#8217;t going to be included in the movie.  Everyone praised the director for his vision, and for his decision to sacrifice the shocking material for the sake of the story.&#8221;
+			</p>
+
+			<p>
+				&#8220;I bet deaf-mutes get praised for their vision all the time,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;But I wasn&#8217;t happy at all,&#8221; said E________.  &#8220;I wanted to know what he was going to do with the scenes he shot.  Was he going to watch them?  Was he going to show them to his friends? I couldn&#8217;t eat.  I couldn&#8217;t sleep.  I went to him, furious, and demanded that he destroy the footage.  But he just sat there, smiling, pretending he couldn&#8217;t understand me.  Whistle translated, but he still wouldn&#8217;t talk to me.  I got mad.  I wanted to murder him.&#8221;
+			</p>
+
+			<p>
+				She took a long swallow of vodka, and then sighed, hanging her head.
+			</p>
+
+			<p>
+				She stared at the ground.  Her fingers twitched on the neck of the bottle.
+			</p>
+
+			<p>
+				&#8220;Did you?&#8221; I asked.
+			</p>
+
+			<p>
+				&#8220;Did I what?&#8221;
+			</p>
+
+			<p>
+				&#8220;Did you murder him?  Is that what this is about?&#8221;
+			</p>
+
+			<p>
+				&#8220;No,&#8221; she said.  &#8220;I didn&#8217;t even raise my voice.  But I thought about it.  Very hard.&#8221;
+			</p>
+
+			<p>
+				&#8220;I see,&#8221; I said.  &#8220;And so here we are.&#8221;
+			</p>
+
+			<p>
+				&#8220;I want that footage back,&#8221; she said, her eyes blazing.  &#8220;He convinced me to do things that I never would have done if there hadn&#8217;t been a camera rolling.  He made this psychological space where it was okay to do the things he said.  I thought he was going to turn the sex scenes into a great film.  But he is cutting them and keeping them for himself.  Why?&#8221;
+			</p>
+
+			<p>
+				&#8220;You signed a contract,&#8221; I suggested.  &#8220;So did he.&#8221;
+			</p>
+
+			<p>
+				&#8220;Those scenes don&#8217;t belong to him,&#8221; she said.  &#8220;I want to know what he is going to do with them.  I want to know why he spent so much time making us fuck each other if he wasn&#8217;t going to show anybody. Maybe another actress wouldn&#8217;t care.  But all that footage could end up on the internet.  And then it would look like I did it in secret.  Like I enjoyed it.  Like doing porn was my hobby.&#8221;
+			</p>
+
+			<p>
+				&#8220;I can&#8217;t help you,&#8221; I said.  &#8220;You did what you did.  This isn&#8217;t a problem.  This is paranoia and vanity.&#8221;
+			</p>
+
+			<p>
+				&#8220;He&#8217;s here in New York,&#8221; said E________.  &#8220;We are supposed to do interviews and talk shows to promote the film.  When Frank Fry does interviews, he smiles like an idiot and then acts out little mime scenes.  Sometimes he draws pictures on a little chalkboard.  Everybody thinks it&#8217;s adorable.&#8221;
+			</p>
+
+			<p>
+				&#8220;And you have to sit next to him, restrained and demure, as part of your contract,&#8221; I said, imagining the scene.
+			</p>
+
+			<p>
+				&#8220;Will you please just go talk to him?&#8221; she begged.  &#8220;Why isn&#8217;t this making you angry?  This is exactly the sort of thing that makes you angry.&#8221;
+			</p>
+
+			<p>
+				I sipped my vodka, watching her squirm, agreeing to nothing.
+			</p>
+
+		</section>
+		<h5>To be continued...</h5>
+
+		<section>
+
+			<p>
+				Hotel Panopticon was once the top four floors of a Bowery tenement, but it had been renovated into a low-key facsimile of a Southern-style bed and breakfast, trimmed with cheap frilly curtains, throw pillows, banker&#8217;s lamps, red velvet, and lacquered wood.
+			</p>
+
+			<p>
+				According to E________, whenever Frank Fry came to New York City, he always holed up at Hotel Panopticon.
+			</p>
+
+			<p>
+				Hotel Panopticon&#8217;s real gimmick is that all the rooms have cameras and all the rooms have closed-circuit television displays of every other room.  It is the perfect place for voyeurs and exhibitionists to mingle.  Or rather: it is the perfect place for voyeurs and exhibitionists to never meet each other at all and yet perfectly achieve mutual satisfaction of complementary obsessions.
+			</p>
+
+			<p>
+				I didn&#8217;t bother with the concierge.  E________ finagled Frank Fry&#8217;s room number from the film&#8217;s publicist, and so I went straight up.
+			</p>
+
+			<p>
+				I knocked on the door.  When no one answered, I tried the knob and found that it was open.  I slipped inside, unable to keep myself from baring my teeth in an involuntary grimace at Hotel Panopticon&#8217;s silly opulence.
+			</p>
+
+			<p>
+				Most of the room was in shadow.  There was a man passed out on the floor, with his arms and legs spread out so wide that he looked like he was leaping from an airplane.  Another man was standing in front of the wall of televisions, watching the hotel&#8217;s guests with his hands on his hips.
+			</p>
+
+			<p>
+				He stood there until I tapped him on the shoulder.  He turned around.  I recognized him at once as Frank Fry, which meant that the man passed out on the floor was his assistant, Whistle.    When the man saw who I was, he blinked at me, confused.
+			</p>
+
+			<p>
+				He couldn&#8217;t speak and he couldn&#8217;t hear.  I tried mouthing &#8220;hello&#8221; at him.
+			</p>
+
+			<p>
+				Though I am stringy, mean, and manly, my sister and I have almost the same exact features.  We are not twins, but our mother&#8217;s heritage was so strong&mdash;and my father&#8217;s so bland&mdash;that it is like our faces were machine-stamped into soft wax.
+			</p>
+
+			<p>
+				Frank Fry stared at me, squinting, and stepped over to his assistant. Frank Fry started kicking Whistle in the ribs.
+			</p>
+
+			<p>
+				At first, Whistle didn&#8217;t move.  Frank kept prodding him.   Whistle curled up around Frank Fry&#8217;s foot.  Finally, Whistle peeled himself from the ground and stood up, blinking and rubbing the leathery skin of his ruined face.
+			</p>
+
+			<p>
+				Whistle&#8217;s nose and eyelids were new skin that had been grafted onto his face, probably from his nether regions, but the rest of him was red and smooth from his scalp to his Adam&#8217;s apple.  His mouth had the permanent sneer of a fresh skull.
+			</p>
+
+			<p>
+				I sneered back at him, unable to help myself.
+			</p>
+
+			<p>
+				Whistle retrieved his blonde wig from the ground and pressed it to his scalp.  The fresh hair made him look much jauntier, but no less disturbing.
+			</p>
+
+			<p>
+				Frank Fry signed something to Whistle, and Whistle nodded.
+			</p>
+
+			<p>
+				&#8220;Who? Might you be?&#8221; Whistle rasped.  &#8220;You are new.   To us.  And we don&#8217;t.  Know you.&#8221;
+			</p>
+
+			<p>
+				He looked at Frank Fry.  Frank Fry smiled.
+			</p>
+
+			<p>
+				&#8220;We would.  Like.  To know you,&#8221; said Whistle.
+			</p>
+
+			<p>
+				Whistle seemed to have only enough air in his lungs for a few words at a time.
+			</p>
+
+			<p>
+				&#8220;I&#8217;m E_______ H______&#8217;s spunky little sister, obviously,&#8221; I said.  &#8220;I&#8217;m here to thwart your evil plan.&#8221;
+			</p>
+
+			<p>
+				Frank Fry and Whistle exchanged glances.
+			</p>
+
+			<p>
+				&#8220;Which evil plan? Might that be?&#8221; asked Whistle.  &#8220;We.  Have many.&#8221;
+			</p>
+
+			<p>
+				He gestured to an ottoman across the room. I walked past it and sat down in the hotel room&#8217;s sprawling leather recliner.
+			</p>
+
+			<p>
+				Whistle sat down on the ottoman and Frank Fry sat on the edge of the four-poster bed.
+			</p>
+
+			<p>
+				&#8220;You are going to try and blackmail her,&#8221; I said.  &#8220;You hypnotized her into doing sex scenes and now you are going to release them on the internet if she doesn&#8217;t give you money, right?&#8221;
+			</p>
+
+			<p>
+				Whistle translated this to Frank Fry.  Frank Fry smiled.
+			</p>
+
+			<p>
+				&#8220;No one. Had a gun.  To her head. During those scenes,&#8221; said Whistle.  &#8220;She.  Enjoyed them.  We have.  Documentation.  Proving that. Everything.  Was legal.&#8221;
+			</p>
+
+			<p>
+				&#8220;I&#8217;m not going to let you hurt her reputation,&#8221; I said.  &#8220;Whether I like it or not, her reputation is also my reputation.  Not socially, mind you, but certainly spiritually.&#8221;
+			</p>
+
+			<p>
+				&#8220;There is no,&#8221; said Whistle.  &#8220;Evil plan.  We are.  Artists.  All.  The footage. Was necessary.  For art.&#8221;
+			</p>
+
+			<p>
+				While Whistle spoke, Frank Fry peered at my face, scrutinizing me.  I stared back at him, making owl eyes to mock his unsettling attention.
+			</p>
+
+			<p>
+				&#8220;Listen,&#8221; I said.  &#8220;I need a guarantee that you aren&#8217;t going to try and ruin my sister&#8217;s career.  The truth is that my sister and I don&#8217;t even like each other very much.  What do you want from her?  If what you want is reasonable, then I don&#8217;t see any reason why she shouldn&#8217;t pay you off.  It was my sister&#8217;s fault for performing in your movie.  But now that the deed is done, obviously she is not the sort of actress who could survive a sex scandal.  She isn&#8217;t very talented.&#8221;
+			</p>
+
+			<p>
+				Frank Fry shook his head sadly.
+			</p>
+
+			<p>
+				&#8220;Sex.  Scandal,&#8221; said Whistle.  &#8220;How.  Boring.  You have.  A low opinion.  Of filmmakers.  We are.  Artists.  What?  Do you?  Do?&#8221;
+			</p>
+
+			<p>
+				&#8220;I&#8217;m an agent,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;A film?  Agent?&#8221;
+			</p>
+
+			<p>
+				&#8220;No,&#8221; I said.  &#8220;A literary agent.&#8221;
+			</p>
+
+			<p>
+				&#8220;Are you?  Good?&#8221;
+			</p>
+
+			<p>
+				&#8220;The best,&#8221; I said.  Why not?  Maybe I was the best.  There is no way to gauge your talent in an utterly dead industry.
+			</p>
+
+			<p>
+				Frank Fry considered this, tapping the end of his nose with his index finger.  He looked purposefully at Whistle.  Whistle shrugged, and when Frank looked away, Whistle leaned close to me and drew me in conspiratorially, grabbing the front of my t-shirt.
+			</p>
+
+			<p>
+				Whistle covered his mouth.
+			</p>
+
+			<p>
+				&#8220;I have.  A novel.  That Frank.  Doesn&#8217;t.  Know about.  It is about.  Our time.  Together.&#8221;
+			</p>
+
+			<p>
+				He let go of me and smiled knowingly.
+			</p>
+
+			<p>
+				&#8220;Listen,&#8221; I said.  &#8220;I don&#8217;t want to be here.  Frankly, I hate movies.  I hate the entire movie industry.  I think the whole world&#8217;s culture has been more deranged by film than by any other human technology.  For centuries, writers were unlocking people&#8217;s imaginations with the power of the written word, allowing people the freedom to invent without the fascism of strong images or the charisma of childish actors populating their dreams.  For a brief period, we were free from the tyranny of beauty, privilege, and power, since most of the world had beheaded their kings and disgraced their nobles.  Then movies came along and now we are right back where we started.  Instead of aristocrats, we have celebrities.  Instead of dictators, we have directors.  The limited narrative capacities of film actually make people dumber.  While the written word helps you climb down into depths that go on forever, movies just get you off.&#8221;
+			</p>
+
+			<p>
+				Whistle and Frank Fry looked at each other.
+			</p>
+
+			<p>
+				&#8220;We agree.  With you.&#8221;
+			</p>
+
+			<p>
+				&#8220;No you don&#8217;t,&#8221; I said.  &#8220;I don&#8217;t think independent art movies are any better.  I hate the very idea of cinema.  Independent movies steal the place that actual art ought to have.  Instead of being a massive waste of money, indie movies are merely trivial.  They are precious ornaments for people&#8217;s masturbatory wunderkammers. I&#8217;d rather see a helicopter explode, honestly.&#8221;
+			</p>
+
+			<p>
+				I walked across the room and pointed at the bank of televisions, some of which were showing people fucking their brains out in rooms exactly like the one we were in.
+			</p>
+
+			<p>
+				&#8220;There&#8217;s only one proper use for a video camera, if you want my opinion, and that is to point it at people having sex.  Real sex.  Real pleasure.  Real exploitation.  Real self-indulgence and real gratification. If I want to connect emotionally with another human being, I will go to the theater and see a play.  If I want to see new things from a unique perspective, I will read a novel.  The primal emotions that cinema provokes are the same emotions as porn.  Why can&#8217;t you people be honest about that?&#8221;
+			</p>
+
+			<p>
+				I took a deep breath.
+			</p>
+
+			<p>
+				&#8220;I&#8217;m sorry,&#8221; I said. &#8220;I am crazy-ranting.  I am here to do a deal, not lecture you.&#8221;
+			</p>
+
+			<p>
+				As I spoke, I noticed that Frank Fry had become extraordinarily excited.  He bounced up and down on the edge of the bed.  He reached out and touched Whistle&#8217;s knee.  Whistle sucked in spittle that had drifted down his chin, making the red leather of his face shine.
+			</p>
+
+			<p>
+				&#8220;You understand,&#8221; he said.  &#8220;You see.  It.  You see. The lie.  Don&#8217;t you?&#8221;
+			</p>
+
+			<p>
+				&#8220;What do you mean?&#8221; I asked, not expecting to generate such excitement and sympathy from my invective.
+			</p>
+
+			<p>
+				&#8220;The whole thing,&#8221; said Whistle.  &#8220;Is a lie.  Everyone.  Who matters.  Knows this.&#8221;
+			</p>
+
+			<p>
+				&#8220;Of course,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;No,&#8221; said Whistle.  &#8220;It is.  REALLY.  A lie.  Movies make money.  By being.  Bad.  But real.  Artists.  Make.  CREAM.&#8221;
+			</p>
+
+			<p>
+				&#8220;Cream?&#8221; I asked, confused.
+			</p>
+
+			<p>
+				&#8220;The movies.  You hate.  Are&#8230;&#8221; He took a deep breath.  &#8220;Milk.&#8221;
+			</p>
+
+			<p>
+				&#8220;Okay. Now you are crazy-ranting.&#8221;
+			</p>
+
+			<p>
+				&#8220;The work.  The real.  Work.  Is the cream. Of the milk.  That no one sees.  The secret movies.  Are the cream.&#8221;
+			</p>
+
+			<p>
+				&#8220;I don&#8217;t understand,&#8221; I said.
+			</p>
+
+			<p>
+				Whistle signed something to Frank Fry.  They spoke with their hands for awhile while I frowned at them, waiting.
+			</p>
+
+			<p>
+				Frank Fry stood up and steered me over to the bed.  He invited me to take his place on the edge.  I sat down.  He backed away from me and then he moved in close, holding his hands up in a square and squinting through his fingers.
+			</p>
+
+			<p>
+				He looked at Whistle.
+			</p>
+
+			<p>
+				&#8220;Yes.  She would be.  Perfect.  For the ending.  That we.  Do not have,&#8221; said Whistle.
+			</p>
+
+			<p>
+				Frank Fry began furiously pacing between the bed and video screens, looking at Whistle every now and then with pregnant eyes.  He fluttered his fingers in front of his face and then stuck his finger in his cheek and popped it out, making a champagne-cork noise.
+			</p>
+
+			<p>
+				&#8220;What do you mean about milk and cream?&#8221; I asked. &#8220;Talk sense!&#8221;
+			</p>
+
+			<p>
+				&#8220;It is one of.  The biggest.  Secrets.  In the world.  It is so big.  That.  No one believes it.&#8221;
+			</p>
+
+			<p>
+				&#8220;Tell me,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;I will tell you.  But. You will not.  Believe me.  You will.  Laugh.&#8221;
+			</p>
+
+			<p>
+				&#8220;I am surprisingly open-minded,&#8221; I said.  I covered my mouth with my hand.  &#8220;And I am also damned good at selling first novels.&#8221;
+			</p>
+
+			<p>
+				Whistle looked at Frank Fry.  He nodded.
+			</p>
+
+			<p>
+				&#8220;Nobody.  Really makes.  Movies.  The good directors.  The ones with.  Talent.  The ones with.  Ambition.  Make cream.&#8221;
+			</p>
+
+			<p>
+				&#8220;What is cream?&#8221;
+			</p>
+
+			<p>
+				&#8220;Cream is.  The distillation.  Of a film&#8217;s. Sexual essence.  Cream is the reality.  In the margins.  Of every shot.  Cream is what.  You really make.  While you are.  Supposedly. Making.  A Hollywood movie.  For many movies.  There is. Often!  A secret.  Much shorter.  Movie.  This is. The real. Movie.  It is. Art.  It is.  Dangerous.  It is.  Unsellable. You divert.  The resources.  From milk.  To cream.&#8221;
+			</p>
+
+			<p>
+				&#8220;You are trying to tell me that all these horseshit movies are part of some clandestine underground where directors divert money to make secret masterworks?&#8221;
+			</p>
+
+			<p>
+				&#8220;Secret masterworks.  That no one.  Sees.  Because.  They are illegal.  They have not been.  Approved.  By the studios.&#8221;
+			</p>
+
+			<p>
+				&#8220;You are right,&#8221; I said.  &#8220;I don&#8217;t believe you.&#8221;
+			</p>
+
+			<p>
+				&#8220;Cream began. As porn.  Cream is mainly.  Still porn.  But cream is.  The best porn.  Cream is the essence.  Of action.  And image.  Given unlimited.  Budgets.  And unlimited.  Social.  Freedom.  And access.  To.  The most malleable. And beautiful.  People.  Actors and actresses.  You can make.  Stunning.  Narratives.  With stunning. Special effects.  With professional. Soundtracks.  With such visual.  Strength. That all other films. Are stunted.  Garbage.  But. These awful.  Hollywood.  Films. Are how. We.  Finance.  And structure.  Our cream.&#8221;
+			</p>
+
+			<p>
+				&#8220;You are telling me that for every single shitty movie that gets made there is a secret porn movie made from the scraps?&#8221;
+			</p>
+
+			<p>
+				&#8220;Not every.  Movie.  But.  Many.  Movies. Some movies.  Are just bad.  It is.  A sadness.  The Hollywood movie. Is the scraps.  The cream is the.  Reason.  For the project.&#8221;
+			</p>
+
+			<p>
+				&#8220;I get it,&#8221; I said.  &#8220;You are making porn on the side while you are filming your stupid art movie starring my sister.&#8221;
+			</p>
+
+			<p>
+				&#8220;And,&#8221; said Whistle.  &#8220;Now.  You are here. Like an angel.  To help us. Finish.  When we need you.  Most.&#8221;
+			</p>
+
+			<p>
+				&#8220;What are you talking about?&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;There is a contest.  In New York.  City.  Every year.  The greatest.  Directors.  Bring the cream.  They have made.  This year. We have entered.  This contest.  We want.  To win.  To enter.  Bad cream.  Is an embarrassment.  Before.  Your peers.  We know we.  Can.  Win.  But our cream.  Is lacking.  Vital shots.  Of your sister.  She became.  Frightened.  And would not.  Finish.  Our project.&#8221;
+			</p>
+
+			<p>
+				&#8220;What are you talking about?  There is a contest?&#8221;
+			</p>
+
+			<p>
+				&#8220;A great contest.  Every year.  We meet here.  In.  The city.  The only city.  The perpetual.  City.  And here. We share.  Our cream.  What we have.  Skimmed.  From the milk.  Of the masses.&#8221;
+			</p>
+
+			<p>
+				I thought about this.  Frank Fry continued to pace, while Whistle sat with his hands on his knees.  Whistle stared at me, his lips forever burned backward into a tight sneer.  I wondered how he really felt.
+			</p>
+
+			<p>
+				&#8220;I came here for my sister,&#8221; I said.
+			</p>
+
+			<p>
+				Whistle laughed.
+			</p>
+
+			<p>
+				&#8220;Yes,&#8221; he said.  &#8220;But. Never mind.  About.  Your sister.  She.  Is silly.  And rich.  She is.  No artist.  She has.  No vision.  She has.  No taste.  She will be.  Fine.  You are here.  Now.  For.  Yourself.&#8221;
+			</p>
+
+			<p>
+				&#8220;Show me this movie,&#8221; I said. &#8220;Show me the cream you made from &#8220;Symphony for Signs and Flesh.&#8221;
+			</p>
+
+			<p>
+				Whistle signed my request to Frank Fry.  Frank Fry threw his hands up in the air in disgust and stared at me with malevolence.
+			</p>
+
+			<p>
+				&#8220;It is.  Not finished.&#8221;
+			</p>
+
+			<p>
+				&#8220;I want to see it anyway,&#8221; I said.
+			</p>
+
+			<p>
+				Whistle bit his knuckle.  He stared at me, squinting, and then he signed my request once more to the great, silent, Scandinavian director.
+			</p>
+
+			<p>
+				Frank Fry lowered his head, and twirled a finger in the air toward Whistle.
+			</p>
+
+			<p>
+				&#8220;You may see.  Our film,&#8221; said Whistle.  &#8220;He is.  Not happy.  But he.  Respects.  Your courage.  In coming.  Here.&#8221;
+			</p>
+
+			<p>
+				Whistle walked over to the wall full of video screens showing every room in the Hotel Panopticon.  He opened a laptop and plugged a grey cord into one of the screens, muttering and swearing in his halting way.  He typed a few commands and then the entire bank of screens went white.  I sat down on the edge of the bed next to Frank Fry.  There was a hissing noise, and then screens showed a massive golden bed in the center of an emerald room.  Each screen showed a piece of the whole picture.
+			</p>
+
+			<p>
+				&#8220;We have been.  Experimenting.  With multiple screens.  For years,&#8221; said Whistle.  &#8220;That is.  Why.  We come.  To this hotel.  This film.  Can only be watched.  On twelve screens.&#8221;
+			</p>
+
+			<p>
+				Music started to play.  It was fast, throbbing techno.  Violin loops were mixed into the high registers.
+			</p>
+
+			<p>
+				&#8220;The cream,&#8221; said Whistle.  &#8220;Does not have.  A different name.  It is.  Also.  Called.&#8221;
+			</p>
+
+			<p>
+				He took a deep breath.
+			</p>
+
+			<p>
+				&#8220;Symphony.  For signs!  And flesh.&#8221;
+			</p>
+
+			<p>
+				He coughed.
+			</p>
+
+			<p>
+				&#8220;This is. Tradition.  To name cream. After. The original.  Milk.&#8221;
+			</p>
+
+			<p>
+				The music stopped.  There was a moment of brown noise.  One of the screens showed a door.  The rest of the screens focused on the golden bed.
+			</p>
+
+			<p>
+				My sister entered the room with a severe expression on her face and her chin held high.  She walked across the room, wearing a red dress that swept to her feet, showing skin in a line from her jaw to her navel.
+			</p>
+
+			<p>
+				My sister surveyed the room, intense and unsmiling.  The camera from one of the screens tracked her as she took a position near the room&#8217;s single window.  She climbed into the windowsill, and light streamed out from behind her.  She took a baton from her pocket.
+			</p>
+
+			<p>
+				She was the conductor of this symphony.
+			</p>
+
+			<p>
+				The cameras tracked other people as they streamed into the room.  E________ pointed her baton at them, and they spread around the bed.  Each stood motionless an arms length away.  Men and women from every ethnicity were represented.  There were eleven of them.  Twelve including E________.  One for every sign of the zodiac, perhaps.  There was an astronaut, a priest, a carpenter, a farmer, a business executive, a mother, a soldier, an employee at a fast food restaurant (wearing a collared shirt and a paper hat), a police officer, a baker, and a professor.  Six men and six women.
+			</p>
+
+			<p>
+				They were beautiful.  Trim and fit, nearly interchangeable, yet from all different parts of the world and all walks of life.
+			</p>
+
+			<p>
+				&#8220;Most of our budget.  For the.  Whole film.  Was spent.  On special effects.  For this.  Coordinated orgy.&#8221;
+			</p>
+
+			<p>
+				The music swelled.  The music was a glorious orchestra of machine noise, violins, and piano.
+			</p>
+
+			<p>
+				&#8220;We commissioned.  The music.  From Germany.&#8221;
+			</p>
+
+			<p>
+				The men and women took off their clothes as E_______ pointed the baton at them.  They began to do as the baton commanded.
+			</p>
+
+			<p>
+				Each camera focused on a different angle of frenzied, orgiastic copulation.  Twelve screens showed twelve different angles, close-up and wide, shots of movement in and out of bodies, penetration and release, violence and softness all mixed up together, all expertly metered and tempered.
+			</p>
+
+			<p>
+				The baton directed and flesh obeyed.  I could not look away.
+			</p>
+
+			<p>
+				&#8220;A blowjob.  Is the most.  Aggressive. Sex act.  Don&#8217;t?  You think?  The hole.  With teeth. Hungers.  The hole.  Pounces.  The target. Is paralyzed. With fear. And pleasure. Competes.  Against the fear.  And wins.&#8221;
+			</p>
+
+			<p>
+				I was mesmerized.  I had never seen sex so beautiful.  The bodies became a living kaleidoscope of color and skin.  This is what Catholics meant by communion.
+			</p>
+
+			<p>
+				Frank Fry and Whistle leaned toward the screen.  They both twisted the sheets of the bed in their hands.
+			</p>
+
+			<p>
+				Then things got really interesting.
+			</p>
+
+			<p>
+				&#8220;Now they will change faces,&#8221; whispered Whistle.  &#8220;They will exchange.  Forms.&#8221;
+			</p>
+
+			<p>
+				On the twelve-screen orgy in front of me, people started to switch faces and bodies.  Skin shimmered and melted like heat baking from asphalt.  Faces leaped from man to woman and from woman to man.  The throbbing chorus of music, exultation, and orgasm caused arms to switch places with legs.  Faces sloughed off like feathers from a bird and traveled around the room with each flick of E______&#8217;s baton.
+			</p>
+
+			<p>
+				She stepped into the middle of the melee, directing and dancing.  Her red dress was ripped from her shoulders.  She threw her head back, licking her chops.  Her famous tits were as hard as rose thorns.
+			</p>
+
+			<p>
+				The golden bed became red, then bright blue.  The room melted into colors and pure information.  Text.  Numbers.  Silhouettes.  Beats.  Then people again.
+			</p>
+
+			<p>
+				Something was happening to my brain.  I felt myself screaming forward through time and space.  On either side of me, Frank Fry and Whistle were now watching my reaction to their movie.
+			</p>
+
+			<p>
+				My whole body tingled.  I wanted to put my hands into my pants.  I wondered if Frank Fry and Whistle were gay and if it would be okay to touch myself.  They seemed gay.
+			</p>
+
+			<p>
+				I could not look away.  I could feel their eyes on my cheeks.  E________&#8217;s face filled the screen.  It was impossible not to touch myself.  I gripped my own knees and clenched my jaw.
+			</p>
+
+			<p>
+				The movie had fingers.  My body was wracked with pulsations of pleasure that submerged my will and made me cry out.
+			</p>
+
+			<p>
+				The eleven performers lined up behind E_______ on the screen.  They were covered in sweat, blood, shit, and come.
+			</p>
+
+			<p>
+				The screen went black.
+			</p>
+
+			<p>
+				&#8220;What?&#8221; I said.  Standing.  &#8220;That&#8217;s it? She was going to say something.&#8221;
+			</p>
+
+			<p>
+				&#8220;We did not.  Make.  An ending.  Yet.&#8221;
+			</p>
+
+			<p>
+				&#8220;That can&#8217;t be all,&#8221; I said.  &#8220;You have to finish.  It is beautiful.  It is divine.&#8221;
+			</p>
+
+			<p>
+				&#8220;Yes. It is. A sadness. That.  The world.  Only wants.  Special effects.  For violence. And death.  They.  Do not want.  Our cream.  Sex.  Is terrifying. To them.&#8221;
+			</p>
+
+			<p>
+				&#8220;You have to finish the movie,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;We want,&#8221; said Whistle.  &#8220;To finish.  We need.  Your help.&#8221;
+			</p>
+
+			<p>
+				Frank Fry stood in front of me and put his hands on my cheeks.  He squeezed my face and held a hand to my forehead so that he couldn&#8217;t see the color of my hair.
+			</p>
+
+			<p>
+				&#8220;What better ending,&#8221; said Whistle.  &#8220;Than the sister.  Of our star.  Saying the words. We wrote. For.  Her.&#8221;
+			</p>
+
+			<p>
+				Whistle joined Frank in peering into my face.
+			</p>
+
+			<p>
+				&#8220;Real. Metamorphosis.&#8221;
+			</p>
+
+			<p>
+				I backed away from them, scrambling away to crouch near the headboard.
+			</p>
+
+			<p>
+				&#8220;When you. Are intimate,&#8221; said Whistle.  &#8220;With.  Another person.  You.  Exchange faces.&#8221;
+			</p>
+
+			<p>
+				He touched his own face.  E______ was right.  It was as smooth and shiny as a handbag.
+			</p>
+
+			<p>
+				&#8220;We can wear.  The leather.  Of the heart.  Like a new face.&#8221;
+			</p>
+
+			<p>
+				Frank Fry reached out and put his hand on Whistle&#8217;s shoulder sympathetically.
+			</p>
+
+			<p>
+				My mind was a mess.  My own arousal combined with the closeness of the room was making me panic.
+			</p>
+
+			<p>
+				&#8220;The contest,&#8221; said Whistle.  &#8220;Is tomorrow.  The film.  Must be.  Finished.  Tonight!&#8221;
+			</p>
+
+			<p>
+				I didn&#8217;t know what to do.  I had come here for one reason, but now I knew my sister was wrong.  She had never been involved in anything so brilliant in her life.  I also knew that she would never be able to see how brilliant this &#8220;cream&#8221; was.  These two psychotic perverts had made the best porn I had ever seen using big budget Hollywood dollars.
+			</p>
+
+			<p>
+				E_______ would only see the perversion.  She would not see the truth of it.  How could she?  She had a face that everyone wanted.  She had no cravings.  She had no desires she couldn&#8217;t fulfill.  There was nothing she desperately needed.
+			</p>
+
+			<p>
+				Or was there?  Was there something she wanted in this world that this cream could get for her?
+			</p>
+
+			<p>
+				Yes, there was.  But she didn&#8217;t have the eggs for it.  She needed me, even if she didn&#8217;t know it.
+			</p>
+
+			<p>
+				I wondered what other &#8220;cream&#8221; I was missing.  I wondered what other secret, beautiful films were hidden from me.
+			</p>
+
+			<p>
+				&#8220;I&#8217;ll do it,&#8221; I said.  &#8220;I&#8217;ll help you finish your movie.  But only on the condition that you take me with you to the contest.  I want to be part of this movie.  Not just a mere actor.&#8221;
+			</p>
+
+			<p>
+				Whistle signed my demands to Frank Fry.
+			</p>
+
+			<p>
+				Frank Fry bowed to me, his eyes never leaving mine.  His eyes were suddenly wise and sad.
+			</p>
+
+			<p>
+				Though I knew she would see it as a betrayal, I knew that finishing the &#8220;cream&#8221; would be the best thing I could ever do for E______.  Any casting agent that saw it would know that she really was a formidable actress with impenetrable depths.  With the proper direction, her demonic intensity could be turned into great performances.  Her body had no boundaries.
+			</p>
+
+			<p>
+				The truth of the matter was that the &#8220;cream&#8221; of &#8220;Symphony for Signs and Flesh&#8221; was the best acting that E______ had ever done.
+			</p>
+
+		</section>
+
+		<section>
+
+			<p>
+				New York City has levels.  It has levels like a garbage dump has levels, but it also has levels like a video game has levels.  Activities that are trivial in other places become impossible challenges here.
+			</p>
+
+			<p>
+				Level one is basic survival.  This takes place in the outer boroughs.  The end boss is a teenage kid who beats the shit out of you and takes everything but your pants.  If you can beat this kid, you get a Metrocard for the subway.  Now you can go &#8220;wherever you want.&#8221;
+			</p>
+
+			<p>
+				Level two is getting a job.  This takes place at street level.  The end boss is a washed-up Broadway actor who is now your floor manager at some restaurant where you wait tables or wash dishes.  If you manage not to kill this asshole, then you win a paycheck.
+			</p>
+
+			<p>
+				Level three is finding a place to live.  This is more like a constant mini-game.  Basically, you have to do this every day.
+			</p>
+
+			<p>
+				Level four is surviving the drugs that you must do in order to keep your soul alive.  This takes place in night clubs, in bars, and in run-down studio apartments.  Alcohol is the most basic opponent, but plenty of people prefer to challenge heroin, cocaine, acid, or ecstasy.  If you can survive the drugs, congratulations!  Now you have friends.
+			</p>
+
+			<p>
+				Level five is getting a sex partner.  The boss is also the prize.  You lose if you ever say the word &#8220;love.&#8221;
+			</p>
+
+			<p>
+				But the best part about New York City are the bonus levels.  These bonus levels are why people live here in the first place.
+			</p>
+
+			<p>
+				In the city, even though you can&#8217;t see it, there is magic happening around you all the time. Eventually you get so you can smell it.  It can make you crazy.
+			</p>
+
+			<p>
+				If you are lucky and brave, and if you are accustomed to knocking down walls and going where you don&#8217;t belong, sometimes you will stumble onto something amazing that you could never see anywhere else in the world or at any other time in human history.  These are the bonus levels.
+			</p>
+
+			<p>
+				For instance, one time this author I was representing got drunk and convinced me to go along with him to this apartment on the Upper West Side and he wouldn&#8217;t tell me why.  I didn&#8217;t want to seem like a coward since I was trying to sell his book, so I went.
+			</p>
+
+			<p>
+				All the furniture had been cleared out of this apartment and the floors had been draped in white sheets.  The apartment was filled with fashion students.
+			</p>
+
+			<p>
+				&#8220;Model boxing,&#8221; he told me.  &#8220;You have to be a working male model to compete.  Male models are very competitive, you see.  But they aren&#8217;t very good at boxing.  They are too worried about how they look.  It is fun to watch them fight.  They do not take getting hit very well.&#8221;
+			</p>
+
+			<p>
+				Sure enough, the boxers were as ginger with each other as cats batting yarn.  They pawed each other&#8217;s gloves from across the room while the fashion students giggled.  After being egged on by a mean drunk with a black eye who had been brought along by one of the girls, one of the models accidentally landed a sharp blow to the other&#8217;s cheek.  The model that got punched went ape-shit, pounding his opponent in the back of the head as his opponent fell to his knees and covered his face.
+			</p>
+
+			<p>
+				The models had to be separated by willowy dark-haired girls wearing massive fashion glasses.
+			</p>
+
+			<p>
+				&#8220;I write short stories to get rid of bad ideas,&#8221; the writer told me later.  &#8220;And I write novels to escape for years from this horrible world.  I envy models.  Some day models will be the only artists left.  People write stories because there are problems.  No problems?  No writers.  No writers?  No problems!  A perfect world!&#8221;
+			</p>
+
+			<p>
+				Like model boxing, the 112th American Cream Contest was another bonus level that you could only encounter as a reward for surviving long enough in New York.  These bonus levels come suddenly and without warning.  You grit your teeth and take the ride.
+			</p>
+
+			<p>
+				During the entire journey to the contest, I kept asking Frank Fry and Whistle if they were going to kill me.
+			</p>
+
+			<p>
+				They kept laughing at me every time I asked this question.  Over and over again they laughed.  To be fair, the question started as a joke, but by the end, I was asking it seriously.
+			</p>
+
+			<p>
+				&#8220;Seriously, are you guys going to kill me?&#8221; I asked.
+			</p>
+
+			<p>
+				Frank Fry laughed wordlessly, holding his belly and rolling his eyes up to heaven.  Whistle laughed with half of his mouth, making a noise like a pan of sizzling fat being waved over an open fire.
+			</p>
+
+			<p>
+				We took the train to the ferry.
+			</p>
+
+			<p>
+				We took the ferry to Staten Island.
+			</p>
+
+			<p>
+				We got in a cab.
+			</p>
+
+			<p>
+				Frank Fry handed the cab driver a slip of paper and put his finger to his lips.  He also handed the cab driver a hundred dollar bill.
+			</p>
+
+			<p>
+				The cab driver took us out to the middle of nowhere.  The cab came to a slow stop. We were now beside a muddy swamp at the end of a long, deserted road.  We were still in New York City, but just barely.
+			</p>
+
+			<p>
+				&#8220;Seriously, guys&mdash;are you going to kill me?&#8221;  I asked.
+			</p>
+
+			<p>
+				The night was darker than the cab's tinted windows.  I looked over my shoulder at the lights of Manhattan and saw boats going back and forth on the water.  We got out of the cab, standing at the edge of the swamp.
+			</p>
+
+			<p>
+				The cab driver took off before I could ask him for help.  I thought about screaming, but it was like there was a staple through my jaws.
+			</p>
+
+			<p>
+				I wasn&#8217;t the one who needed help.
+			</p>
+
+			<p>
+				My sister was the one who needed help.
+			</p>
+
+			<p>
+				Was I going to die out here for helping her?
+			</p>
+
+			<p>
+				&#8220;Fine,&#8221; I mumbled to myself as we stumbled out into the muddy swamp in the middle of nowhere.  &#8220;Fine.&#8221;
+			</p>
+
+			<p>
+				We marched out into the darkness.  I kept looking at the lights of Manhattan, just in case they were the last thing I ever saw.  I followed Frank Fry.  Whistle came behind me, ostensibly to &#8220;keep me from getting lost.&#8221;
+			</p>
+
+			<p>
+				&#8220;The contest,&#8221; he said.  &#8220;Is. A very solemn.  And secret. Tradition.&#8221;
+			</p>
+
+			<p>
+				I could sense there were shapes in the darkness.  Big shapes, like buildings, but with strange dimensions.  At first, I thought they were the carcasses of giant animals.  Whales or mastodons. We threaded through these shadowy monuments, and it wasn&#8217;t until I nearly tripped on a rusted anchor half-buried in the mud that I realized that these shapes were beached ships.
+			</p>
+
+			<p>
+				We were in a graveyard for the old boats that had once sailed around New York harbor.
+			</p>
+
+			<p>
+				The boats were fascinating enough to make me forget my impending doom. I tried to make out their names in the darkness.  Most of the boats were tugs and ferries.
+			</p>
+
+			<p>
+				We stopped in front of one of the dark shapes.  Frank Fry tapped his nose, considering this boat.  It was different than the others.  It was longer and sleeker. There was no second story.
+			</p>
+
+			<p>
+				I turned my head to to the side.  It was a beached submarine.
+			</p>
+
+			<p>
+				&#8220;It is funny,&#8221; said Whistle.  &#8220;That you. Should think. That.  We might want.  To murder you.  That is precisely.  What happened.  Here.  On this submarine.  Many years ago.  It ran aground.  In the shallows.  It is a German.  Vessel.  But a diver!  Found it.  In the harbor.  This diver.  Was trying to find.  A place in the city.  Where he could have.  Privacy.  For his.  Experiments.  He would kidnap.  Girls.  And row them.  To this submarine.  There.  He would perform.  Lobotomies.  On them.  And use them.  However he wanted.  Until the girls died.  Of starvation.  There was no.  Escape.  From the.  Partially sunken.  Submarine.&#8221;
+			</p>
+
+			<p>
+				He took a deep breath.
+			</p>
+
+			<p>
+				&#8220;It is.  The perfect place.  For.  A film contest.&#8221;
+			</p>
+
+			<p>
+				He put his hand on my arm.
+			</p>
+
+			<p>
+				&#8220;Isn&#8217;t that?  What?  Cinema does?  Performs?  Lobotomies?&#8221;
+			</p>
+
+			<p>
+				&#8220;The Irish tell stories of fish-people that steal souls and keep them underwater in pots meant for lobsters,&#8221; I blurted.
+			</p>
+
+			<p>
+				&#8220;Sounds like.  What.  Good directors do. With movie cameras.  Steal souls.  And keep them.  In pots.&#8221;
+			</p>
+
+			<p>
+				We climbed a ladder on the side of the submarine, climbing over the rounded belly of the vessel and scaling a gate that went all the way around the cylindrical top.  We crawled along the top of the submarine to a hatch that Frank Fry twisted open.
+			</p>
+
+			<p>
+				He opened the hatch and went down into the darkness.  I followed him.  Whistle followed me, closing the hatch above us.
+			</p>
+
+			<p>
+				&#8220;Oh thank god,&#8221; I mumbled as soon as I came down the ladder.
+			</p>
+
+			<p>
+				There were people everywhere.  They were drinking and laughing.  The submarine had been gutted from the inside out and the German steel had been replaced with Danish pine and Swedish plastic.
+			</p>
+
+			<p>
+				There were couches along the walls and stacks of folding chairs.  There was an open bar, and a pair of bartenders were furiously making drinks and doling them out to the gathered partygoers.  Most of the men and women were wearing tuxedos.
+			</p>
+
+			<p>
+				I had never been so glad that I didn&#8217;t know anything about popular culture.  I had the vague impression that I was in a room full of famous people, but I didn&#8217;t know any of them by name or reputation.
+			</p>
+
+			<p>
+				I had a feeling like I had seen most of them before, but I didn&#8217;t know where or when.  It was like being on a subway platform in your neighborhood.  You know that you have seen all the people standing with you, possibly hundreds of times, but you have deleted them from your mind so often to save room for actual memories that they remain unknown to you.
+			</p>
+
+			<p>
+				The only person I recognized was a man who was two feet taller than everyone else in the room.  He was wearing a cowboy hat and he had long, lanky arms and legs.  I couldn&#8217;t remember his name, but the media had been selling him to the entire country for several years now.  He was the one responsible for all those billion dollar movies where huge robots beat the shit out of each other in order to keep the planet safe for cars, cell phones, soft drinks, and miniskirts.
+			</p>
+
+			<p>
+				The tall director seemed nervous.
+			</p>
+
+			<p>
+				&#8220;The kids are learning to make cream on the internet,&#8221; I overheard him saying to a tiny man with a thick black beard.  &#8220;They are re-cutting our piece-of-shit films into short art movies.  We won&#8217;t be an exclusive club forever.  We ought to just release a torrent of the whole collection and be done with it.  Why live in fear?&#8221;
+			</p>
+
+			<p>
+				&#8220;When I make cream, there are only five of us on-set who know what I am doing,&#8221; said the man with the beard.  &#8220;I have been working with the same inner circle for decades now.  What do we gain from going public?&#8221;
+			</p>
+
+			<p>
+				&#8220;I want to show people,&#8221; said the tall man.  &#8220;There are people out there who are ready for what we do.  You have a good reputation.  My reputation is shit.&#8221;
+			</p>
+
+			<p>
+				I wandered toward the bar, pushing through the excited crowd.
+			</p>
+
+			<p>
+				&#8220;Hello there,&#8221; said a Latin American man with huge, flat white teeth, sliding up to me and filling my field of vision with his smile.  He handed me a flute of champagne.  His eyes went in two separate directions like a frog.  &#8220;Did you know that I have just been voted the worst director of all time by Entertainment magazine?&#8221;
+			</p>
+
+			<p>
+				&#8220;Who are you?&#8221; I asked.
+			</p>
+
+			<p>
+				He laughed at me and downed his own glass of champagne.
+			</p>
+
+			<p>
+				&#8220;This is the only day of the year when I am not a fool to the world,&#8221; he said.  &#8220;It is all worth it.&#8217;
+			</p>
+
+			<p>
+				&#8220;It must be very liberating,&#8221; I suggested.
+			</p>
+
+			<p>
+				&#8220;I make cream out of video game movies,&#8221; he said.  &#8220;I finance them by running a shell game on my Brazilian investors.  They are always paying me for my last project, and then I take money off the top for my next one.  I am in so much debt.  My corporations are bankrupt a thousand times.  No one sees my movies except as a joke.  They receive zero stars, and I cannot blame the reviewers.  But I am making them into something truly beautiful and truly transgressive.  You have to believe me.&#8221;
+			</p>
+
+			<p>
+				&#8220;I believe you,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;You have never been here before.  I would have noticed you.  You will see.  Tonight, I am not the worst director in the world.  Tonight, perhaps I am the best.&#8221;
+			</p>
+
+			<p>
+				He swayed on his feet.  He was drunk and he was staring down my dress, but there was something charming about him anyway.  He was like a little boy escaping school for the summer, running down the hall and banging on lockers.
+			</p>
+
+			<p>
+				&#8220;Who brought you here?&#8221; he asked.
+			</p>
+
+			<p>
+				&#8220;I am here with Frank Fry,&#8221; I said, feeling a measure of pride.
+			</p>
+
+			<p>
+				&#8220;Whistle is the real genius, isn&#8217;t he?&#8221; he whispered to me.  &#8220;He and Frank are never far apart from each other, are they?  Their relationship is part of their art, isn&#8217;t it?&#8221;
+			</p>
+
+			<p>
+				&#8220;I haven&#8217;t thought about it,&#8221; I admitted.
+			</p>
+
+			<p>
+				&#8220;One is the body, the other is the voice,&#8221; he said.  &#8220;But they both have eyes.  They both have very good eyes.  The eyes are the soul, you know.  Vision is all in the eyes.  I have always said this.  You can read it in my interviews.&#8221;
+			</p>
+
+			<p>
+				&#8220;I will run right home and read them,&#8221; I said.
+			</p>
+
+			<p>
+				He laughed at me, putting one meaty paw on my shoulder.  I excused myself, slipping out from under his embrace.
+			</p>
+
+			<p>
+				While I was talking to the video game director, the submarine became a flurry of activity.  People set up folding chairs, lining them into rows.  Everyone was helping.  The two bartenders directed the directors.  Everyone was laughing and downing last shots of liquor.
+			</p>
+
+			<p>
+				I watched an old man find a place for himself in the back row, and I realized that of all the famous directors here, he was the only one who was familiar to me.  It was Alejandro Jodorowski, the Chilean filmmaker.  I was obsessed with his movies in college.
+			</p>
+
+			<p>
+				He sat with an aluminum cane across his knees.
+			</p>
+
+			<p>
+				&#8220;He comes every year but he never votes,&#8221; said a handsome, well-dressed man with a pencil-thin mustache who caught me staring.  The man had a Baltimore accent.  &#8220;He used to make the best cream of all time.  But the studios figured out what he was doing.  He wouldn't let George Harrison be in one of his movies because George Harrison refused to get naked, and so the Beatles ruined him.&#8221;
+			</p>
+
+			<p>
+				Jodorowski seemed to be meditating.  His bright eyes were full of wonder and mischief.
+			</p>
+
+			<p>
+				The tall director who made the expensive movies about robots (Was his name Tony Scott?  Or was it Michael Bay?  I knew his name was something simple and short) pulled a screen down to cover one whole wall of the beached submarine.
+			</p>
+
+			<p>
+				The smell of buttery popcorn tantalized my nose.  The bar became a concession stand.
+			</p>
+
+			<p>
+				The bartenders set up trays full of cherry chocolates, bowls full of red caviar, stacks of griddle cakes, and fried oysters.  Popcorn churned inside huge plastic cubes, and the bartenders shoveled out popcorn into paper bags for the directors, drizzling real butter on top.
+			</p>
+
+			<p>
+				A wiry man in wire-frame spectacles went to the front of the room and stood in front of the screen.  His black skin in front of the white screen made him look like a stick figure.
+			</p>
+
+			<p>
+				&#8220;Please, everyone,&#8221; he said quietly.  &#8220;Please find a seat.  It is now midnight, and we must begin.  As tradition says, we have five films to watch tonight, and then we will vote for a winner.  Each of you should have received your silver ball in the mail.  As you know, if you do not cast your vote now, you may save your silver ball for another year if you so desire.  The teacups are over here.&#8221;
+			</p>
+
+			<p>
+				He gestured to a table with five teacups on it, each of which had a placard in front of it with a different director&#8217;s name written in elaborate cursive.  Behind the table, there was a whole cabinet full of teacups, all of them from different epochs and countries.
+			</p>
+
+			<p>
+				&#8220;Remember that a vote cannot be taken back once it is cast.  I urge you to screen all of the films before voting, but tradition says you may cast your vote at any time.&#8221;
+			</p>
+
+			<p>
+				He sighed and wiped his spectacles on his shirt.
+			</p>
+
+			<p>
+				&#8220;One day men will have sex robots and women will be able to reproduce at will, selecting whatever genes are most satisfactory to them from a list.  Until then, there must be sex.  Where there is sex, there is drama.  But this drama need not be dull.  Our first film will be &#8220;Dinosaur Vampire.&#8221;
+			</p>
+
+			<p>
+				The whip-thin black man sat down in the front row and the lights went down.
+			</p>
+
+			<p>
+				I sat down in the closest chair I could find.  Though the room was full of smoke, everyone was respectfully silent.  The film quality from the tiny projector was perfect.  A million lumens!  I ate dark chocolate and oysters from a silver plate.
+			</p>
+
+			<p>
+				&#8220;Dinosaur Vampire&#8221; turned out to be cream from the very same video game director who had accosted me.
+			</p>
+
+			<p>
+				The original film was about prehistoric vampires living among dinosaurs and preying upon early human beings, and it was evidently based on a popular video game.  In the game, human beings banded together to fight vampires, using the dinosaurs as unlikely allies.
+			</p>
+
+			<p>
+				However, the cream from &#8220;Dinosaur Vampire&#8221; was a ten minute short film where a vampire and human woman had violent sex inside the belly of a brontosaurus.  The brontosaurus, in turn, was having violent sex with another brontosaurus.  The scene juxtaposed both sex acts with roaring speed-metal and footage of cell division.  At the end, the brontosaurus was torn apart by a pack of condors that rescued the delirious human and then slaughtered the vampire.
+			</p>
+
+			<p>
+				Naked, the human woman rode a condor toward the sun while more heavy metal music played.  It was simultaneously breathtaking and childish.  It was undeniably art.
+			</p>
+
+			<p>
+				&#8220;Dinosaur Vampire&#8221; finished, and the director stood up and took a short bow.  His eyes found mine from across the room and he saluted me with his glass of champagne.
+			</p>
+
+			<p>
+				The next movie was much more subdued, though no less mesmerizing.
+			</p>
+
+			<p>
+				This cream was cut from a movie called &#8220;God Killers,&#8221; a movie about Vatican assassins.  The cream had nothing to do with any of that.  Evidently, the director of &#8220;God Killers&#8221; had been able to get special access to hidden parts of the Vatican while filming her movie there.  Specifically, the cream of &#8220;God Killers&#8221; was filmed in the room where the stone penises were kept that had been cut off the statues during the &#8220;Fig Leaf Revolution&#8221; of Pope Clement XIII.
+			</p>
+
+			<p>
+				These holy penises could obviously not be thrown away, so they were wrapped in oiled rags in cabinets in one of the Vatican&#8217;s deepest sub-basements.  They were indexed according to size and shape.
+			</p>
+
+			<p>
+				The cream of &#8220;God Killers&#8221; was a gay romp through this penis room, where priests, bishops, cardinals, and the Pope serviced each other using the castrated genitals of God, David, Mercury, and Apollo.  The sex scenes took place all over the Vatican, and culminated in ritual sodomy atop the glass tomb of Pope Pius IV.
+			</p>
+
+			<p>
+				The camera angles made it seem as though Pius was watching the debauchery through the window of a jack-off booth in an adult bookstore.
+			</p>
+
+			<p>
+				This cream got substantially more applause than &#8220;Dinosaur Vampire,&#8221; and a few directors dropped their silver balls into this director&#8217;s teacup, praising the director&#8217;s audacity out loud.  The director waved shyly from the corner of the room.  She didn&#8217;t seem to want attention.
+			</p>
+
+			<p>
+				&#8220;She finally cracked the Vatican,&#8221; said a woman next to me who was smoking a joint.  She wore cat&#8217;s eye glasses and a cable-knit sweater.  &#8220;She's been trying for decades.  I love that old bitch.&#8221;
+			</p>
+
+			<p>
+				The third cream took me by surprise.  It was cream made out of the same robot movie that had been storming the country all year long.
+			</p>
+
+			<p>
+				The cream from the robot movie was utterly abstract.  It reminded me of the classic wizard&#8217;s duel where wizards take the forms of different creatures and concepts in order to gain an advantage over one another.
+			</p>
+
+			<p>
+				In the cream, the robots kept transforming into different shapes in order to fuck each other.  The savagery of their sex destroyed entire cities.  Gears penetrated grindshafts.  Motor oil spurted everywhere.  The noise was deafening, and the machine screams of technological orgasm made my own insides churn.
+			</p>
+
+			<p>
+				A robot the size of an airplane turned into a massive penis, penetrating a robot the size of an ocean liner.  They fucked, becoming dogs, becoming flowers, becoming murderous insects.  They transformed into oil derricks and starships.  Grasping hands reached out of the metal anarchy.  The hands twisted around metal breasts and gripped metal thighs.
+			</p>
+
+			<p>
+				The technical achievement was outstanding, even if I didn&#8217;t quite understand the point.  The directors in the room marveled at the pyrotechnic display.
+			</p>
+
+			<p>
+				&#8220;As you can see,&#8221; said the tall, lanky director of the film, standing up in front of the movie, taking off his cowboy hat and letting images from the film wash over him.  &#8220;We won&#8217;t need actors very much longer.  Actors just get in the way of the action.&#8221;
+			</p>
+
+			<p>
+				There was a manic gleam in his eyes.  He sat back down.
+			</p>
+
+			<p>
+				&#8220;Backflip,&#8221; the fourth cream film of the evening, was a biography of the gymnast Olga Korbut set during the glory days of the Soviet Union.
+			</p>
+
+			<p>
+				This pornography was like a circus performance.  The combination of sex and extremely talented gymnastics was jaw-dropping.  It was exactly what everyone had always wanted to see.
+			</p>
+
+			<p>
+				During the gymnastic porn, I went to the back of the room to help myself to some caviar.  It seemed appropriate on account of all the Russians in red uniforms penetrating each other while bent over pommel horses and tossing each other into the air to land split on phalluses, twisted, like graceful pretzels.
+			</p>
+
+			<p>
+				I clamped my mouth around a heaping spoonful of caviar and closed my eyes, savoring the squish of the salty jelly between my teeth and gums.
+			</p>
+
+			<p>
+				There was a hand on my shoulder.
+			</p>
+
+			<p>
+				I swallowed the caviar, sucking it through my teeth like jello, turning to look.
+			</p>
+
+			<p>
+				It was my sister.  She wore a headscarf and sunglasses.
+			</p>
+
+			<p>
+				&#8220;How did you get in here?&#8221; I asked.
+			</p>
+
+			<p>
+				She didn&#8217;t say anything.  She took off her sunglasses.  All I could see in the darkness was the unswerving hate that burned in her eyes.
+			</p>
+
+			<p>
+				&#8220;You followed me,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;I thought they might hurt you,&#8221; she said.  &#8220;I didn&#8217;t expect&#8230;this.  But you love it, don&#8217;t you?  Are you enjoying your caviar?&#8221;
+			</p>
+
+			<p>
+				Her lips trembled.
+			</p>
+
+			<p>
+				&#8220;You think I deserve to be a porn star,&#8221; she said.  "You hate me."
+			</p>
+
+			<p>
+				I didn&#8217;t respond.  She advanced on me until her mouth was inches from my ear.  I thought she might bite it off.
+			</p>
+
+			<p>
+				&#8220;You have always hated me,&#8221; she said.  &#8220;You have always wanted me to fail.  I can&#8217;t believe I trusted you.  I can&#8217;t believe I thought you would help me.&#8221;
+			</p>
+
+			<p>
+				&#8220;E______, trust me, this is bigger than the Academy Awards.  Take a look around you!  The most creative people in film are in this room.&#8221;
+			</p>
+
+			<p>
+				&#8220;You have proved your point about the moral bankruptcy of my medium.  Are you happy?&#8221;
+			</p>
+
+			<p>
+				&#8220;Wait a second,&#8221; I said.  &#8220;Actually, I love this stuff.  I like being a part of great art. That&#8217;s why I try so hard to sell novels.  I never thought you would be a real artist who would make something good.&#8221;
+			</p>
+
+			<p>
+				She thought I was mocking her.  She slapped me.  Luckily, her slap coincided with a triple backflip on parallel bars that ended in a shuddering cum-shot.  The actress playing Olga Korbut stuck the landing.  The slap of my sister&#8217;s hand to my face coincided perfectly with the onscreen slap of a perfectly-muscled ass to a perfectly-muscled thigh and the shudder of semen drizzling from a perfectly-muscled cock.
+			</p>
+
+			<p>
+				&#8220;I&#8217;m not kidding,&#8221; I said.  &#8220;Did you see that?  These movies are amazing.&#8221;
+			</p>
+
+			<p>
+				She frowned.  I realized that we had changed places.  Here I was defending cinema for what it could be.
+			</p>
+
+			<p>
+				&#8220;You haven&#8217;t even seen the film yet,&#8221; I said.  &#8220;It is not just the content that is brilliant, it is the medium.  The way the &#8216;cream&#8217; is stolen from the studios is what makes it brilliant.  The way these crude masterpieces are embezzled from an audience that doesn&#8217;t deserve them is what makes them honest.&#8221;
+			</p>
+
+			<p>
+				&#8220;Don&#8217;t you dare try to be intellectual with me, little sister,&#8221; she said.  &#8220;Don&#8217;t you dare talk down to me about my own art form.&#8221;
+			</p>
+
+			<p>
+				&#8220;Art form?&#8221; I repeated.  &#8220;Symphony for Flesh and Signs &#8211; the cream, not the film &#8211; is the best work you have ever done.  All these people here will see that.  You will be able to get any role you want.  Not as a movie actress, but as a cream goddess.  If you knew anything at all about your &#8216;art form,&#8217; then you would&#8230;&#8221;
+			</p>
+
+			<p>
+				She grabbed my arm, squeezing it.
+			</p>
+
+			<p>
+				&#8220;I am going to tell the whole world about these perverts,&#8221; she said, brandishing her phone.  &#8220;I have recorded everything.  I don&#8217;t care about my own reputation.  All of our reputations will be ruined together when I reveal the truth about this sick cult.&#8221;
+			</p>
+
+			<p>
+				&#8220;But the cream is what makes the whole goddamn motion picture industry worth it.&#8221;
+			</p>
+
+			<p>
+				There were tears in her eyes.
+			</p>
+
+			<p>
+				The room filled with applause.  &#8220;Backflip&#8221; was over.  There was only one film left to screen.
+			</p>
+
+			<p>
+				&#8220;Don&#8217;t you see?&#8221; I said.  &#8220;Cream changes everything.  I am the biggest snob in the world, but now I can watch any movie and enjoy it.  I can watch romantic comedies, action movies, sports movies, melodramas, biographies, costume dramas, and even science fiction with total interest.  I know that there are shadows now.  I know that there are margins.  Even if I never get a chance to see the cream, I can imagine the fruit by studying the peelings.&#8221;
+			</p>
+
+			<p>
+				She opened her mouth to speak, but the room filled instead with the opening overture from the &#8220;Symphony for Signs and Flesh.&#8221;
+			</p>
+
+			<p>
+				Violins.  Techno.
+			</p>
+
+			<p>
+				Twelve boxes were projected onto the screen in front of us, and my sister&#8217;s face filled all twelve of them.  She turned to watch herself, mesmerized.
+			</p>
+
+			<p>
+				&#8220;It&#8217;s very complex,&#8221; she said.  &#8220;All these movies are so filthy.  But so complex.&#8221;
+			</p>
+
+			<p>
+				The movie began.
+			</p>
+
+			<p>
+				&#8220;Watch,&#8221; I said.  &#8220;See what they made from you.  See how they captured the truth about you.&#8221;
+			</p>
+
+			<p>
+				&#8220;The robot movie was a surprise,&#8221; she admitted.  &#8220;I don&#8217;t know what to think about any of this.&#8220;
+			</p>
+
+			<p>
+				Suddenly she was desperate.  She wasn&#8217;t angry at all anymore.
+			</p>
+
+			<p>
+				&#8220;Tell me what to think,&#8221; she said.
+			</p>
+
+			<p>
+				&#8220;Feel it with your body,&#8221; I said.
+			</p>
+
+			<p>
+				My sister couldn&#8217;t help herself.  She had always loved looking in the mirror.  And here were twelve mirrors at once.  She watched herself.  Her features became feral and hungry.
+			</p>
+
+			<p>
+				The whole submarine was captivated by the kaleidoscopic orgy that she conducted.  At one point, I grabbed her hand and squeezed it.  The audience hooted and hollered, becoming more excited around us than they had at any of the other films.
+			</p>
+
+			<p>
+				&#8220;I didn&#8217;t know it would be like this,&#8221; she whispered beside me.  &#8220;It is not what I expected.  It is not dirty, somehow.  It&#8217;s like melting.&#8221;
+			</p>
+
+			<p>
+				The screens blended together, rotating around each other as the orgy built to climax.  On the screen, men were spurting like kinked garden hoses and women were shrieking like tea kettles.  Faces and bodies blurred in patterns, morphing into each other.  In the center screen, my sister&#8217;s face flickered into my own face and then back again.
+			</p>
+
+			<p>
+				In the back of the theater, Alejandro Jodorowski stood up on his chair.
+			</p>
+
+			<p>
+				&#8220;What is the sound of one hand clapping?&#8221; he shouted.  "Gentlemen and ladies, WHAT IS THE SOUND OF ONE HAND CLAPPING?"
+			</p>
+
+			<p>
+				He was holding his erect penis with one hand.
+			</p>
+
+			<p>
+				In the submarine, there was the sudden noise of belts being unzipped and pants falling to the ground.
+			</p>
+
+			<p>
+				We watched, shocked, as all of the men and women in the submarine furiously began to masturbate to the film.
+			</p>
+
+			<p>
+				They cheered!  They cursed!  They threw popcorn!
+			</p>
+
+			<p>
+				&#8220;Salute the film, comrades!&#8221; shouted the tall, lanky director who loved robots so much.  &#8220;Salute the film with all you&#8217;ve got!&#8221;  
+			</p>
+
+			<p>
+				The sex sounds in the submarine mixed with the aggressive, insane pornography and my heart beat so fast that I thought I might pass out.  My sister squeezed my hand and I squeezed back.
+			</p>
+
+			<p>
+				&#8220;We want what we want to be,&#8221; said my face on the screen.  For a moment, my face was the face of God.  &#8220;Feed and be full!  Take and be satisfied!  Come and be whole!&#8221;
+			</p>
+
+			<p>
+				All around us, sperm shot into the air and fluid leaked from shuddering clits. All of the famous directors came together while watching the famous actress, cheering and shouting at the cream they had skimmed.
+			</p>
+
+			<p>
+				&#8220;Applause is only a simulation of this,&#8221; she whispered.  &#8220;I never knew that before.  This is the highest...honor&#8230;for a performer.&#8221;
+			</p>
+
+			<p>
+				I grinned at her.
+			</p>
+
+			<p>
+				When the screen went black and the lights came on, there was a frenzy as the world&#8217;s most famous directors pulled up their pants, reaching into their pockets for the tiny silver balls that were their ballots.
+			</p>
+
+			<p>
+				The directors crowded around the table full of teacups, clamoring to cast their votes.
+			</p>
+
+			<p>
+				We couldn&#8217;t see what was happening, but all of a sudden there was a hush as Alejandro Jodorowski got up and pushed through the crowd, shuffling forward while clutching his cane and commanding everyone to get out of his way.
+			</p>
+
+			<p>
+				The directors cleared a path for the old man.
+			</p>
+
+			<p>
+				Frank Fry and Whistle joined us in the back of the submarine.  I was still squeezing my sister&#8217;s hand, but all the pain and panic had drained out of her.  The room reeked of sex and liquor.
+			</p>
+
+			<p>
+				Jodorowski beat the other directors with his cane until they agreed to lift him onto the table.
+			</p>
+
+			<p>
+				Swaying slightly, the old man stared at the other directors with stony silence.  We could see now that Frank Fry&#8217;s teacup was already half-full of silver balls, while the rest of the teacups only contained a few votes each.
+			</p>
+
+			<p>
+				Jodorowski pulled a plastic bag full of silver balls from his pocket.
+			</p>
+
+			<p>
+				&#8220;As you all know, I have not voted for any cream in over fifty years,&#8221; he said.  &#8220;The last time I voted was for my own film, still regarded as the best cream of all time.&#8221;
+			</p>
+
+			<p>
+				One of the directors coughed.  Another director mumbled &#8220;asshole&#8221; under his breath loud enough to earn a dangerous glare from the old man.  The old man brandished his bag of silver balls as if he was holding a severed head by the hair.
+			</p>
+
+			<p>
+				Jodorowski took a deep breath, and then he dropped the bag full of uncast votes onto the table, smashing Frank Fry&#8217;s teacup.  The bag burst and silver balls went everywhere.
+			</p>
+
+			<p>
+				Jodorowski rubbed his hands together as the room broke into unrestrained cheering.
+			</p>
+
+			<p>
+				My sister collapsed against me.
+			</p>
+
+			<p>
+				I knew there was a good chance that she would hate me later.  I knew there was a good chance that later there would be lawsuits, recriminations, and denials.  But for now, her soul was safe.
+			</p>
+
+			<p>
+				I felt her tremble in my arms, the same way she trembled long ago when I rescued her from the public pool and she began to breathe again, lying there on the concrete, coughing water out of her lungs and embracing all the possibilities of a sunny sky.
+			</p>
+
+		</section> 
+	</article>
+	</div>
+
+
+
+
+
+
+				
+
+				<!-- <div id="slides">
 					<ul class="pictureGrid">
 						<li>		
 							<ul class="vertical">
@@ -851,7 +2783,7 @@
 
 
 
-
+ -->
 
 
 

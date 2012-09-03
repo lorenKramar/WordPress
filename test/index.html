@@ -49,7 +49,7 @@
 
 						$.each(data, function(i, status){
 							// + count + '.) '
-							var text = '<li>' + status.text + '</li>';
+							var text = '<li><h2>' + status.text + '</h2></li>';
 							count++;
 							// go through all of the urls in the tweet and replace the text with an html "a" tag
 							$.each(status.entities.urls, function(i, url){
@@ -289,7 +289,7 @@
 
 
 				<div id="news">
-					<h2>This Just In</h2>
+					<!-- <h5>This Just In</h5> -->
 					<ul id="updates_list"></ul>
 					<div id="bangbangbang"></div>
 				</div>
@@ -297,7 +297,7 @@
 
 
 				<div id="pong">
-					<h2>Play pong!</h2>
+					<h5>Play pong!</h5>
 					<div id="pong"><div id="table"></div></div>
 					<p>Click to start. <br />Arrow keys to move.<br />Esc. to stop.</p>
 				</div>
@@ -306,20 +306,20 @@
 
 
 
-				<div id="ads">
+				<!-- <div id="ads">
 
-					<h2>Ads!</h2>
-					<script type="text/javascript"><!--
+					<h5>Ads!</h5>
+					<script type="text/javascript">\<\!\-\-
 						google_ad_client = "ca-pub-7353120595663628";
 						/* Homepage */
 						google_ad_slot = "2967773886";
 						google_ad_width = 250;
 						google_ad_height = 250;
-						//-->
+						//\-\-\>
 					</script>
 					<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 
-				</div>
+				</div> -->
 
 				<!-- PUT THE TWITTER FEED IN HERE! -->
 			</div>
