@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="cycleLite.js"></script>
+
+		<script>
+			$(function(){
+				$('#slides').cycle({
+					speed:1,
+					timeout:110
+				});
+
+
+				var resizeImg = function(){
+
+
+					if(($('#slides').width() / $('#slides').height()) < 1.509 ){
+						$('#slides img').css({
+							height:'100%',
+							width:'auto'
+						});
+					} else {
+						$('#slides img').css({
+							height:'auto',
+							width:'100%'
+						});
+					}
+
+					
+					
+				};
+
+				$(window).resize(resizeImg)
+
+				resizeImg();
+
+			});
+		</script>
+
+		<style>
+			html {
+				background-color: #000;
+			}
+
+			body {
+				margin:0;
+			}
+
+			#slides {
+				/*margin:0 auto;*/
+				width:100%;
+				/*max-width: 800px;*/
+				/*height:800px;*/
+				position: absolute;
+				top:0;
+				right:0;
+				bottom: 0;
+				left:0;
+				min-width: 488px;
+				overflow: hidden;
+			}
+
+			#slides img {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div id="slides">
+			<img src="bb/_.jpg" />
+			<img src="bb/83660004.jpg" />
+			<img src="bb/83660005.jpg" />
+			<img src="bb/83660006.jpg" />
+			<img src="bb/83660008.jpg" />
+			<img src="bb/83660009.jpg" />
+			<img src="bb/83660010.jpg" />
+			<img src="bb/83660011.jpg" />
+			<img src="bb/83660012.jpg" />
+			<img src="bb/83660014.jpg" />
+			<img src="bb/83660015.jpg" />
+			<img src="bb/83660016.jpg" />
+			<img src="bb/83660017.jpg" />
+			<img src="bb/83660018.jpg" />
+			<img src="bb/83670001.jpg" />
+			<img src="bb/83670002.jpg" />
+			<img src="bb/83670003.jpg" />
+			<img src="bb/83670004.jpg" />
+			<img src="bb/83670008.jpg" />
+			<img src="bb/83670009.jpg" />
+			<img src="bb/83670012.jpg" />
+			<img src="bb/83670014.jpg" />
+			<img src="bb/83670015.jpg" />
+			<img src="bb/83670016.jpg" />
+			<img src="bb/83670017.jpg" />
+			<img src="bb/83670018.jpg" />
+			<img src="bb/83680003.jpg" />
+			<img src="bb/83680004.jpg" />
+			<img src="bb/83680005.jpg" />
+			<img src="bb/83680006.jpg" />
+			<img src="bb/83680007.jpg" />
+			<img src="bb/83680008.jpg" />
+			<img src="bb/83680009.jpg" />
+			<img src="bb/83680010.jpg" />
+			<img src="bb/83680011.jpg" />
+			<img src="bb/83680012.jpg" />
+			<img src="bb/83680015.jpg" />
+			<img src="bb/83680017.jpg" />
+			<img src="bb/83680020.jpg" />
+			<img src="bb/83690001.jpg" />
+			<img src="bb/83690002.jpg" />
+			<img src="bb/83690003.jpg" />
+			<img src="bb/83690004.jpg" />
+			<img src="bb/83690005.jpg" />
+			<img src="bb/83690007.jpg" />
+			<img src="bb/83690009.jpg" />
+			<img src="bb/83690010.jpg" />
+			<img src="bb/83690011.jpg" />
+			<img src="bb/83690012.jpg" />
+			<img src="bb/83690013.jpg" />
+			<img src="bb/83690014.jpg" />
+			<img src="bb/83690016.jpg" />
+			<img src="bb/83690017.jpg" />
+			<img src="bb/83690018.jpg" />
+			<img src="bb/83690019.jpg" />
+			<img src="bb/83690020.jpg" />
+			<img src="bb/83690021.jpg" />
+			<img src="bb/83690022.jpg" />
+			<img src="bb/83700001.jpg" />
+			<img src="bb/83700002.jpg" />
+			<img src="bb/83700003.jpg" />
+			<img src="bb/83700004.jpg" />
+			<img src="bb/83700005.jpg" />
+			<img src="bb/83700006.jpg" />
+			<img src="bb/83700007.jpg" />
+			<img src="bb/83700009.jpg" />
+			<img src="bb/83700010.jpg" />
+			<img src="bb/83700011.jpg" />
+			<img src="bb/83700012.jpg" />
+			<img src="bb/83700013.jpg" />
+			<img src="bb/83700015.jpg" />
+			<img src="bb/83700016.jpg" />
+			<img src="bb/83700017.jpg" />
+			<img src="bb/83700018.jpg" />
+			<img src="bb/83700021.jpg" />
+			<img src="bb/83710001.jpg" />
+			<img src="bb/83710002.jpg" />
+			<img src="bb/83710005.jpg" />
+			<img src="bb/83710006.jpg" />
+			<img src="bb/83710009.jpg" />
+			<img src="bb/83710010.jpg" />
+			<img src="bb/83710013.jpg" />
+			<img src="bb/83710015.jpg" />
+			<img src="bb/83710016.jpg" />
+			<img src="bb/83710017.jpg" />
+			<img src="bb/83710018.jpg" />
+			<img src="bb/83710022.jpg" />
+			<img src="bb/83720003.jpg" />
+			<img src="bb/83720004.jpg" />
+			<img src="bb/83720005.jpg" />
+			<img src="bb/83720006.jpg" />
+			<img src="bb/83720007.jpg" />
+			<img src="bb/83720009.jpg" />
+			<img src="bb/83720011.jpg" />
+			<img src="bb/83720012.jpg" />
+			<img src="bb/83720014.jpg" />
+			<img src="bb/83720018.jpg" />
+			<img src="bb/83720021.jpg" />
+			<img src="bb/83720022.jpg" />
+			<img src="bb/83720025.jpg" />
+		</div>
+
+	</body>
+</html>
