@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+
+
+
+
+
+		<!-- FACEBOOK META -->
+		<meta property="fb:admins" content="309260325792555" />
+
+		<!-- PAGE TITLE GOES HERE -->
+		<meta property="og:title" content="Megazine" />
+
+		<meta property="og:type" content="website" />
+
+		<!-- FEATURED IMG GOES HERE -->
+		<meta property="og:image" content="" />
+
+		<meta property="og:site_name" content="MEGAZINE.XXX" />
+		<!-- END FB META -->
+
+
+
+
+
+
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/pp.css" />
+
+
+
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+		<!-- GREENISH EXAMPLE -->
+		<link rel="stylesheet" type="text/css" href="example.css">
+		
+		<script type="text/javascript" src="greenishSlides/jquery.greenishSlides-v0.2-beta.js"></script>
+		<script type="text/javascript" src="jquery.greenishSlides.pictureGrid-v0.1-alpha.js"></script>
+		<script type="text/javascript">
+			(function($) {
+				$(document).ready(function() {
+					$(".pictureGrid").pictureGrid({
+						resizable:true
+
+					});
+				});
+			})(jQuery);
+		</script>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<script>
+
+			$(function(){
+
+
+				$('#decoy_email_sub').click(function(){
+					$('#real_email_sub').trigger('click');
+					return false;
+				})
+
+				var closeDialog = function(){
+
+		        	// unbind window evt
+		        	$(window).off('keyup.dia');
+
+		        	// hide the big bitch
+		        	$('#signup_popup').removeClass('active');
+
+		        	// show the form
+		        	$('#subForm').css('display', 'block');
+
+		        	//  replace the text in the header
+		        	$('#signup_popup h2').text('To hear about events and new issues,');
+
+		        	// remove any prev errors
+		        	$('#signup_popup p.error').text('');
+
+		        	$('#signup_popup input[type=text]').attr('value', '');
+
+		        };
+
+		        $('#subForm').submit(function (e) {
+		        	
+		        	$('#signup_popup p.error').text('');
+
+		            e.preventDefault();
+		            $.getJSON(
+		            	this.action + "?callback=?",
+		            	$(this).serialize(),
+			            function (data) {
+			                if (data.Status === 400) {
+			                	$('#signup_popup p.error').text(data.Message);
+			                } else { // 200
+			                	$('#signup_popup h2').html('Done! You&rsquo;ll hear from us shortly!');
+			                	$('#subForm').css('display', 'none');
+
+			                	setTimeout(closeDialog, 2000);
+			                }
+			            });
+		        });
+		    	
+
+		        
+
+	        	$('#signup_popup .dialog').on('click', function(e){
+	        		e.stopPropagation();
+	        	});
+
+	        	$('#signup_popup').on('click', function(){
+	        		//close dialog
+	        		closeDialog();
+	        	});
+
+		        $('#signup .callout').on('click', function(){
+
+		        	// bind the events to get rid of the dialog
+		        	$(window).on('keyup.dia', function(e){
+	        		
+		        		if(e.which === 27){
+		        			// close the dialog, unbind the close events
+		        			closeDialog();
+		        		}
+		        	});
+
+		        	// invoke the signup dialog
+		        	$('#signup_popup').addClass('active');
+
+		        	
+
+		        	return false;
+		        });
+		    });
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<style>
+
+
+
+
+
+			@keyframes pulse {
+			  0% { 
+				transform: scale3d(1,1,1) rotateZ(0);
+			  }
+			  50%   { 
+			  	
+				transform: scale3d(1.33,1.33,1.33) rotateZ(-180deg);
+			  }
+			  100%	{
+			  	transform: scale3d(1,1,1) rotateZ(-360deg);	
+			  }
+			}
+
+			@-moz-keyframes pulse {
+			  0% { 
+				-moz-transform: scale3d(1,1,1) rotateZ(0);
+			  }
+			  50%   { 
+			  	
+				-moz-transform: scale3d(1.33,1.33,1.33) rotateZ(-180deg);
+			  }
+			  100%	{
+			  	-moz-transform: scale3d(1,1,1) rotateZ(-360deg);	
+			  }
+			}
+			@-webkit-keyframes pulse {
+			  0% { 
+				-webit-transform: scale3d(1,1,1) rotateZ(0);
+			  }
+			  50%   { 
+			  	
+				-webkit-transform: scale3d(1.33,1.33,1.33) rotateZ(-180deg);
+			  }
+			  100%	{
+			  	-webkit-transform: scale3d(1,1,1) rotateZ(-360deg);	
+			  }
+			}
+
+			body {
+				min-width:768px;
+			}
+
+
+
+			.hidden {
+				display: none;
+			}
+
+			header .content_wrapper:after {
+				content: '.';
+				height:0;
+				clear:both;
+				visibility: hidden;
+				display: block;
+			}
+
+			header {
+				padding:5px;
+				/*border-bottom: 3px solid #de4400;*/
+				position: relative;
+				height:33px;
+				z-index: 4;
+				background: #fff;
+			}
+
+			header hr {
+				position: absolute;
+				top:15px;
+				left:40px;
+				right:10px;
+				/*margin-right:60px;*/
+				border-color:#000;
+				margin-top:0;
+				margin-bottom:0;
+			}
+
+			
+			header .content_wrapper {
+				max-width: 768px;
+				
+
+			}
+
+			header h1 {
+				height:38px;
+				width:20px;
+				position: relative;
+				animation:pulse 2s infinite linear;
+				-moz-animation:pulse 2s infinite linear; /* Firefox */
+				-webkit-animation:pulse 2s infinite linear; /* Safari and Chrome */
+
+				animation-play-state:paused;
+				-moz-animation-play-state:paused; /* Firefox */
+				-webkit-animation-play-state: paused; /* Safari and Chrome */
+			}
+
+			
+
+			header:hover h1 {
+				animation-play-state:running;
+				-moz-animation-play-state:running; /* Firefox */
+				-webkit-animation-play-state: running; /* Safari and Chrome */
+				
+			}
+			header h1 {
+				padding-left: 5px;
+				position: relative;
+				z-index: 2;
+			}
+
+			header h3 {
+				/*float:right;*/
+				position: absolute;
+				/*right: 0;*/
+				z-index: 2;
+				left:0;
+				top:5px;
+				/*height:100%;*/
+				text-align: center;
+				text-transform: uppercase;
+				font-family: "proxima-nova-extra-condensed";
+				font-weight: 200;
+				font-size: 18px;
+				left:150px;
+				right:150px;
+				/*line-height: 64px;*/
+				/*padding-right: 10px;*/
+			}
+
+			header h3 span {
+				background: #fff;
+				padding:5px;
+			}
+
+			
+			#sidebar {
+				width:250px;
+				/*height:1000px;*/
+				padding-top:0px;
+				background:#fff;
+				-moz-border-radius:0 50px  0 50px;
+				-webkit-border-radius:0 50px  0 50px;
+				border-radius:0 0px 150px 150px;
+				float:left;
+				/*padding-top:70px;*/
+				z-index: 3;
+				position: relative;
+				/*top:-50px;*/
+			}
+
+			#sidebar h5 {
+				font-family: "cooper std";
+				-webkit-transform: rotateZ(-2deg);
+				-moz-transform: rotateZ(-2deg);
+				font-size: 28px;
+				line-height: 40px;
+				/*white-space: nowrap;*/
+				/*text-transform: uppercase;*/
+				/*letter-spacing: 1px;*/
+				/*-webkit-transform: rotate(-5deg); */
+				/*-moz-transform: rotate(-5deg);*/
+				/*font-weight: 900;*/
+				font-weight: bold;
+				font-style:italic;
+				color:#000;
+				text-align: left;
+				white-space: nowrap;
+				/*-webkit-transform: perspective(500px) rotateY(-25deg);*/
+				/*-moz-transform: perspective(500px) rotateY(-25deg);*/
+				
+				position: relative;
+				/*left:-3px;*/
+				padding:12px 10px 10px 10px;
+			}
+
+			#feature {
+				margin-left:250px;
+				overflow: hidden;
+				overflow-x:auto;
+				/*position: relative;*/
+				z-index: 5;
+				/*background: yellow;*/
+			}
+			#related {
+				/*border-right:1px solid #000;*/
+			}
+
+			#related .img_wrapper {
+				border: 1px solid #000;
+				width:175px;
+				height:175px;
+				background:#ffea00;
+				
+			}
+
+
+			#sidebar:hover #related img {
+				opacity: 1;
+				transition: 150ms ease-in-out;
+				-moz-transition: 150ms ease-in-out;
+				-webkit-transition:150ms ease-in-out;
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+			}
+
+			#related img {
+				/*-webkit-transform:  scale3d(.45,.45,.45);*/
+				/*-moz-transform: scale3d(.45,.45,.45);*/
+				opacity: 0;
+				width:175px;
+				transition: 150ms ease-in-out;
+				-moz-transition: 150ms ease-in-out;
+				-webkit-transition:150ms ease-in-out;
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+				
+				display: block;
+			}
+			#related li {
+				padding:5px 0px;
+				margin: 0 10px;
+				/*border-bottom:5px dotted yellow;*/
+			}
+
+			#related li:first-child {
+				padding-top:0;
+			}
+
+			#related li h3 {
+				
+				font-family: "proxima-nova-extra-condensed";
+				font-weight: 200;
+				line-height: 28px;
+				/*text-transform: uppercase;*/
+				font-size:28px;
+				
+				padding:8px 0 2px;
+				
+			}
+
+			#related li h2 {
+				font-family: "proxima-nova-extra-condensed";
+				font-weight: 900;
+				line-height: 25px;
+				font-size:15px;
+				padding:0px 0 7px;
+				text-transform: uppercase;
+			}
+
+
+
+
+
+
+/*footer*/
+
+			footer {
+				width: 100%;
+				clear:both;
+				background:#fff;
+				position: relative;
+				z-index: 5;
+			}
+
+			#extra {
+				padding:20px;
+				/*height:600px;*/
+				/*width:100%;*/
+				max-width: 1000px;
+				margin:0 auto;
+			}
+
+			#extra h2 {
+				color:#000;
+				font-family: "proxima-nova-extra-condensed";
+				font-weight: 300;
+				line-height: 25px;
+				font-size:15px;
+				padding:8px 0 7px;
+				text-transform: uppercase;
+				text-align: right;
+
+			}
+
+			#placeholder {
+				height:600px;
+				max-width:800px;
+				width: 100%;
+				/*border: 1px solid #ccc;*/
+				margin:0 auto;
+				background:#fff;
+			}
+
+			footer nav {
+				text-align: center;
+				display: block;
+				padding:7px 0 2px 0;
+				background: #000;
+				/*text-transform: uppercase;*/
+				font-style: italic;
+
+				font-size: 24px;
+				line-height: 23px;
+				word-spacing: 30px;
+
+				/*letter-spacing: 1px;*/
+				/*font-weight: 700;*/
+
+				
+				font-family: 'cooper std';
+
+				
+			}
+
+			footer nav a {
+				color:#fff;
+				font-weight: 700;
+				text-decoration: none;
+
+				
+				/*position: relative;*/
+			}
+
+			footer nav a .text_wrapper {
+				position:relative;
+			}
+
+			footer nav a .hidden_text {
+				visibility: hidden;
+
+				color:#000;
+				z-index: 1;
+			}
+
+			footer nav a .visible_text {
+				position: absolute;
+
+
+				-webkit-transform:  scale3d(1.01,1.01,1.01);
+				-moz-transform: scale3d(1.01,1.01,1.01);
+				
+				transition: all 2s linear;
+				-webkit-transition: all 2s linear;
+				-moz-transition: all 2s linear;
+
+				z-index: 2;
+				/*display: none;*/
+				/*height: 100%;*/
+				/*width: 100%;*/
+				left:0;
+				top:2px;
+			}
+
+
+
+			footer nav a:hover .visible_text{
+
+				transition: all 2s linear;
+				-webkit-transition: all 2s linear;
+				-moz-transition: all 2s linear;
+				color:#000;
+				-webkit-transform: scale3d(.75,.75,.75); 
+				-moz-transform: scale3d(.75,.75,.75);
+				/*text-shadow:1px 1px 0 #aaa;*/
+				/*color:red;*/
+			}
+
+
+
+
+
+
+/*signup button*/
+
+/*SIGNUP CSS*/
+
+#signup {
+	width:100%;
+	
+	
+	width:200px;
+	margin:0 auto;
+	padding:10px 0 40px;
+	color:#000;
+}
+
+#signup .callout {
+	
+	
+	background: url(img/bang.png);
+	background-repeat: no-repeat;
+	height:160px;
+	
+}
+
+
+#signup .callout:hover {
+	background: url(img/bang_yellow.png);
+	background-repeat: no-repeat;
+	cursor: url(img/pointer.png), pointer;
+}
+
+
+
+#signup .callout h2 {
+	font-family: 'cooper std';
+	font-style: italic;
+	font-size:36px;
+	padding-top:65px;
+	text-align: center;
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg);
+}
+
+#signup .callout:hover h2 {
+	text-shadow:2px 2px 0 #fff;
+	color:#000;
+}
+
+
+
+
+
+
+/*signup popout*/
+			#signup_popup {
+				position: fixed;
+				top:0;
+				/*right:0;*/
+				bottom:0;
+				left:-200%;
+				width: 100%;
+				background:rgba(0,0,0,.75);
+				z-index: 100;
+				/*display: none;*/
+				opacity: 0;
+				transition: 150ms ease-in-out;
+  				-moz-transition: 150ms ease-in-out;
+  				-webkit-transition:150ms ease-in-out;
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+			}
+
+			#signup_popup.active {
+				/*display: block;*/
+				opacity: 1;
+				left:0;
+				right: 0;
+				transition: 150ms ease-in-out;
+  				-moz-transition: 150ms ease-in-out;
+  				-webkit-transition:150ms ease-in-out;
+
+
+				transition-property:opacity;
+				-moz-transition-property:opacity;
+				-webkit-transition-property:opacity;
+			}
+
+
+
+			#signup_popup .dialog {
+				position: absolute;
+				top:50%;
+				width:500px;
+				height:175px;
+				background:#fff;
+				left:50%;
+				margin-left:-250px;
+				box-shadow: 0 0 50px #000;
+				margin-top:-125px;
+			}
+
+			#signup_popup input, #signup_popup .submit{
+				float:left;
+				font-weight: 300;
+				font-family: "proxima-nova-extra-condensed";
+				text-transform: uppercase;
+			}
+
+			#signup_popup input[type=text] {
+				width:300px;
+				height:30px;
+				padding:10px 5px 0 10px;
+				border:1px solid #ccc;
+				font-size: 23px;
+				line-height: 23px;
+				margin: 20px 0 0 20px;
+				outline: none;
+				/*border:none;*/
+				/*background:black;*/
+			}
+
+			#signup_popup a.submit {
+				background-color: #fff;
+				cursor:url(/test/img/pointer.png), pointer;
+				margin: 20px 0 0 0px;
+				padding:11px 10px 0px;
+				text-align: center;
+				height:29px;
+				border: 1px solid #ccc;
+				/*width:100px;*/
+				font-size: 23px;
+				line-height: 23px;
+				border-left:none;
+				display: block;
+				float:left;
+				text-decoration: none;
+				color:#000;
+				font-weight: 900;
+				/*border:none;*/
+			}
+
+			#signup_popup h2 {
+				font-family: "minion-pro";
+				font-size: 23px;
+				font-weight: 700;
+				clear:both;
+				padding:20px 31px 0 31px;
+				
+			}
+
+			#real_email_sub {
+				display: none;
+			}
+
+			#signup_popup p.error {
+				color:#ff0000;
+				clear:both;
+				padding:15px 31px;
+				font-weight: 300;
+				font-family: "proxima-nova-extra-condensed";
+				font-size: 15px;
+				line-height: 18px;
+			}
+
+
+			
+
+
+			/*SHARE COMPONENTS*/
+			#share {
+				position:absolute;
+				top:0;
+				width:300px;
+				right: 0;
+				
+			}
+
+			#share .share_button {
+				background: #fff;
+			}
+
+			#share .share_button > * {
+				opacity: .7;
+			}
+
+			header:hover #share .share_button > * {
+				opacity: 1;
+			}
+
+			#share .twitter {
+				/*top:10px;*/
+				padding:5px;
+				right:15px;
+				background: #fff;
+				position: absolute;
+			}
+
+
+			#share .facebook {
+				/*top:10px;*/
+				position: absolute;
+				padding:5px;
+				background: #fff;
+				right:80px;
+			}
+
+
+
+
+
+			#fixed_space {
+				position: fixed;
+				top:0px;
+				bottom:0px;
+				right:0;
+				left:0px;
+				/*background: red*/
+			}
+
+
+
+		</style>
+
+
+
+
+
+		<!-- required for adding the scrollbar in the right place on the feature pages -->
+		<script type="text/javascript">
+			$(function(){
+				$('#feature').css({minHeight: $('#sidebar').height() + 'px'});
+			});
+		</script>
+
+
+
+
+	</head>
+
+
+	<body>
+
+
+
+		<!-- FACEBOOK JS -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+
+
+		<div id="signup_popup">
+			<div class="dialog">
+
+				<!-- <div class="input_wrapper"> -->
+					<h2>To hear about events and new issues,</h2>
+					<form action="http://megazine.createsend.com/t/j/s/krtld/" method="post" id="subForm">
+						<input type="text" placeholder="youremail@megazine.xxx" name="cm-krtld-krtld" />
+						<a class="submit" id="decoy_email_sub"  href="#">Subscribe!</a>
+						<input type="submit" id="real_email_sub" value="Subscribe" />
+					</form>					
+					<p class="error"></p>
+				<!-- </div> -->
+			</div>
+		</div>
+
+
+
+
+		<div id="all">
+			<header>
+
+				
+					<!-- MAKE THIS follow the mouse on the x axis across the header -->
+					<h1><img src="img/page_logo.png" width="20" /><span class="hidden">MEGAZINE!</span></h1>
+					<!-- <nav></nav> -->
+					<h3><span>The Septober Issue</span></h3>
+					
+					<hr />
+					
+<!-- SHARE -->
+				
+					<div id="share">
+						<div class="share_button twitter">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-via="MegaMaxims" data-count="none" data-dnt="true">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						
+						
+						<div class="share_button facebook">
+							<div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+						</div>
+					</div> 
+
+			</header>
+
+			<div id="sidebar">
+				<h5>On that note!</h5>
+
+
+				<div id="related">
+
+					<ul>
+						<li>
+							<div class="img_wrapper"><img src="img/rel_bb.jpg" width="280" /></div>
+							<h3>100 photos of a beautiful boy</h3>
+							<h2>SISTERY MYSTERY</h2>
+						</li>
+						<li>
+							
+							<div class="img_wrapper"><img src="img/rel_skull.jpg" width="280" /></div>
+							<h3>Skull</h3>
+							<h2>The Bruce High Quality Foundation</h2>
+						</li>
+						<li>
+							<div class="img_wrapper"><img src="img/rel_pipe.jpg" width="280" /></div>
+							<h3>Pipe Collection</h3>
+							<h2>CYNTHIA BROTHERS</h2>
+						</li>
+						
+					</ul>
+				</div>
+
+				<div id="signup">
+					<div class="callout">
+						<h2>Subscribe!</h2>
+					</div>
+				</div>
+
+			</div>
+			
+
+			<div id="feature" class="">
+
+
+
+		<div id="fixed_space">
+
+
+
+
+
+			<div id="back_stuff">
+				
+				<p>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..,,..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.......&nbsp;&nbsp;&nbsp;&nbsp;.....&nbsp;&nbsp;&nbsp;......&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=I8NMMMMMMMMMMMMMMND7+.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,,&nbsp;&nbsp;&nbsp;~8MDNMMMMMMMMMMMMMMMMMMMMMMMNNN~&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....&nbsp;&nbsp;,ZMNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMZ.,&nbsp;&nbsp;,,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.~OMMMNMNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMM8,,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;..&nbsp;.NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:&nbsp;&nbsp;&nbsp;.&nbsp;..&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;DMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8,&nbsp;.&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,..:MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:.&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;~8NMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM~.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,.DMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,.,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;.&nbsp;7MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;.&nbsp;:MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>.&nbsp;.&nbsp;?NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>.&nbsp;.&nbsp;IMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>.&nbsp;.&nbsp;=MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;.&nbsp;.NMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;..&nbsp;:MNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMMNMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMMMNMDZ:&nbsp;&nbsp;.,.+OMMMMMMMMMMMMMMMMMM$+&nbsp;&nbsp;:,.~NMMMMMMMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMMM?..:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..,,8MNMMMMMMMMMM8..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...,$MMMMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMM$.,..&nbsp;&nbsp;..&nbsp;..&nbsp;..,IMMMMMMMMMM?...&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;..&nbsp;..&nbsp;ZMNMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MMMMMMMMMMI.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MMMMMMMMMN&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;$MMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMM&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;,MMMMMMMD,.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;MMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.DMMMMMMMMN.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...7MMMMMM7..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;NMMMMMMMMM8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,.:?MMMMND&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.,7MMMMMMI.&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.,&nbsp;8MMMMMMMMMO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;MMMMMM.&nbsp;,.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..,NMMMMMMO,.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMMMMMMO,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;~MMMMMM:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;IMMMNMMMM7&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;,MMMMMMMMZ?.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;:MMMMMMMNI&nbsp;,&nbsp;&nbsp;.......&nbsp;&nbsp;&nbsp;&nbsp;=MMMD&nbsp;IMMMM=&nbsp;&nbsp;,&nbsp;&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7MNMMMMN&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.OMMMMMMMMM+&nbsp;...&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;..&nbsp;OMMMN,&nbsp;.MMMMMO&nbsp;&nbsp;&nbsp;&nbsp;.,&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;=MMMMMMNM...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;MMMMMMMMMMMN:&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;&nbsp;INMMMM,&nbsp;..DMMMMM8?&nbsp;&nbsp;&nbsp;&nbsp;.,&nbsp;&nbsp;&nbsp;~NMNMMMMMMMO.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+MMMMMMMMMMMMMMMMMMMMMMMMMNMI&nbsp;&nbsp;&nbsp;,&nbsp;OMMMMMMMMMMMMMMMMNMMMNMMMMMM$&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,DMMMMMMMMMMMMMMMMMMMMMMMMMM7,.&nbsp;&nbsp;&nbsp;&nbsp;:MMMMMMMMMMMMMMMMMMMMMMMMMMMM.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZMMMMMMMMMMMMMMMMMMMMMMMMMMM&nbsp;&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;DMMMMMMMMMMMMMMMMMMMMMMMMMMM,&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MMMMMMMMMMMMMMMMMMMMMMMMMMMM:&nbsp;&nbsp;.&nbsp;&nbsp;..&nbsp;ZMMMMMMMMMMMMMMMMMMMMMMMMMM8:.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,NMMMMMMMMMMMMNMMMMMMMMMMMMNMI&nbsp;&nbsp;D:&nbsp;.&nbsp;&nbsp;?MMMMMMMMMMMMMMNMMMMMMMMMMMD?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,,&nbsp;.,,ZMMMMMMMMMMMMMMMMMMMMMD:OMM$&nbsp;.ZNMMMMMMMMMMMMMMMMMMMM8I..,&nbsp;,&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;...&nbsp;,&nbsp;&nbsp;~=NMMNMMMMMMMMMMMMMMMMMDMMNDMMMMMMMMMMMMMMMMMMMD:.&nbsp;...&nbsp;..&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;=MMNMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMN,&nbsp;.&nbsp;&nbsp;.&nbsp;&nbsp;:&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;~OMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM7,&nbsp;&nbsp;..&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;.&nbsp;:7MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMI&nbsp;.&nbsp;..&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;,.&nbsp;&nbsp;~DMMMMMMMMMMMMMMMMMMMMMMMMMN7....&nbsp;&nbsp;&nbsp;..&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;.ZN,..&nbsp;..&nbsp;+MMMMMMMMMMMMMMMMMMMMMMMMD&nbsp;&nbsp;,.,&nbsp;...M$,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;..&nbsp;.MMM:&nbsp;.,&nbsp;&nbsp;.MMMMMMMMMMMMMMMMMMMMMMMM7&nbsp;&nbsp;&nbsp;.....OMM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;...~MMMM&nbsp;..&nbsp;&nbsp;&nbsp;MMMMMMMMMMMMMMMMMMMMMMMM:...&nbsp;&nbsp;&nbsp;&nbsp;8MMMI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NMNMO&nbsp;..&nbsp;,$MNMMMMMMMMMMMMMMMMMMMMM&nbsp;.&nbsp;.&nbsp;.&nbsp;IMMMM:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MMMMMO&nbsp;.&nbsp;&nbsp;~NMMMMMMMMMMMMMMMMMMMMMM&nbsp;&nbsp;&nbsp;.,.?MMMMM&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7MNMMM,&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;:==+I$ZDDNMMMMMMMMMM.&nbsp;&nbsp;..&nbsp;MMMMMD&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.7MMMMM+.&nbsp;&nbsp;.&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;....&nbsp;&nbsp;&nbsp;..,...NMNMNN..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.:MMMMMN&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.,&nbsp;.,&nbsp;&nbsp;&nbsp;OMMMMM+&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MMMMMM,..&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;,.+NN7.7777.IMMO,&nbsp;.MMMMMM&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=MMMMMM=&nbsp;&nbsp;MMM.MMMM,~NN?.MMMM&nbsp;IMMO&nbsp;,DMMMMM$&nbsp;..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...7MMMMMD.&nbsp;MMN&nbsp;MMMD&nbsp;=MM?.MMMM,?MMZ&nbsp;ZMMMMMD:,.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,&nbsp;.&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,..NMMMMMMMMMMMMMMNNMMMMNMMMMMNMMMMMMMMMN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;IMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMMMMMMO..&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~MNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,DMDNMMMMMMMMMMMMMMMMMMMMMMMMMMMM&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,?MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM..,.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;:7MMMMMMMMMMMMMMMMMMMMMMNMMO.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;$DMMMNMMMMMMMMMMMMMMMMMD,&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+</p>
+
+			</div>
+
+
+
+
+
+			<div id="right_gutter">
+
+				<div class="elastic_box">
+					<div class="mask">
+						<div class="hole"></div>
+					</div>
+					<div class="img_box"></div>
+				</div>
+			</div>
+
+
+			
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+	<!-- <div id="view"></div> -->
+	<div id="flow_content_wrapper">
+	<article class="blog_content">
+		
+		<h3 class="title">The Party Pirates Blog</h3>
+		<h2>by <em>Miracle Jones</em></h2>	
+		
+		<section>
+			<h2 class="post-title">This is the first post</h2>
+			<p class="post-meta">September 12, 1998 12:48 pm</p>
+			<p>
+				<span class="dropcap">When a famous writer wants to write an exquisite porn story&mdash;a story with no other purpose but to get people off&mdash;all they must do to protect their career is to use a pseudonym.
+			</p>
+
+			<p>
+				When a famous director wants to make an exquisite porn movie&mdash;a movie with no other purpose but to get people off&mdash;their task is much more difficult.  Making a movie requires substantial resources, and the artistic flourishes that separate a good director from a clumsy hack instantly mark the film as coming from the hand of a master.  Additionally, so many people must be involved that the secret is nearly impossible to keep.
+			</p>
+
+			<p>
+				Even if no one tattles, it doesn&#8217;t require sophisticated forensics to determine the creator of an anonymous film: the telltale obsessions of the visual artist reveal everything.
+			</p>
+
+			<p>
+				Famous directors solve this problem by never showing the pornography that they make to anyone.  If they are compelled to make something particularly stunning, they only show it to each other.
+			</p>
+
+			<p>
+				I learned about the process from my sister, the famous actress.  I won&#8217;t tell you her name, but you can probably figure it out from context.
+			</p>
+
+			<p>
+				I hadn&#8217;t seen my sister since she went out to California to &#8220;get so famous she needed a bodyguard for her boyfriend,&#8221; but here she was outside of my damp, reeking Queens apartment, &#8220;forgiving me&#8221; for ignoring her for years, saying how she understood that I needed to do things my own way instead of shamelessly mooching off her celebrity fortune like the rest of our family.
+			</p>
+
+			<p>
+				&#8220;Just say you need my help,&#8221; I said.  "Just say the words and you can come inside and tell me all about it.&#8221;
+			</p>
+
+			<p>
+				I wasn&#8217;t jealous.  I avoided her movies because watching them made me embarrassed for her.
+			</p>
+
+			<p>
+				I shared parts of her face.  I shared the line of her nose and the curve of her cheekbones.  When I tried to watch one of her movies, it felt like it was me who was being merciless squeezed into desiccated pulp by the relentlessly-vapid Hollywood shit machine, twisted and wrenched dry for my life juices.
+			</p>
+
+			<p>
+				Because I knew her better than anybody, I was aware of the sheer despair in her eyes, especially when she was doing comedy.  On the screen&mdash;in her eyes&mdash;I could tell she was barely holding on to the last animal remnants of her bartered soul.
+			</p>
+
+			<p>
+				&#8220;You are my sister,&#8221; she said.  &#8220;And I love you.&#8221;
+			</p>
+
+			<p>
+				&#8220;We both know why you are here," I seethed through the crack in the door. "You are drowning again and everyone is laughing at you, aren't they?"
+			</p>
+
+			<p>
+				When I was twelve and she was fifteen, E______ was pushed into the deep end of the public swimming pool by this guy she liked named Kurt Danner.  It was his birthday party.  All of her supposed friends watched and laughed as she struggled, drowning.  They thought she was trying to be funny.  Kurt Danner laughed the loudest of all, mocking the way she drowned by pretending to choke on a piece of his birthday cake.
+			</p>
+
+			<p>
+				I hadn&#8217;t been invited to the party, but our Dad said I had to go anyway because he had to work and he didn&#8217;t want me to stay home alone.  I didn&#8217;t even want to be there.
+			</p>
+
+			<p>
+				The only joy I got from the experience was seeing that my attendance pissed E_______ off so much.  I sat in the shade of the pump-house, stewing, watching everyone interact with each other and noting the way that these tan, slender children tortured each other to aggrandize themselves, knowing they would never grow out of it, knowing they would only get better and sneakier at it.
+			</p>
+
+			<p>
+				However, I was the only one at the party who knew that E________ couldn&#8217;t swim.
+			</p>
+
+			<p>
+				I was the only one who knew how deathly afraid she was of deep water, and how much she had to steel herself even to come near the water&#8217;s edge where Kurt Danner reclined in his lawn chair.
+			</p>
+
+			<p>
+				Without thinking, I leaped into the pool and dragged her to safety.  She clung to me so hard that I had bruises for weeks.  She held onto me, shivering, until she realized who I was.
+			</p>
+
+			<p>
+				She never forgave me for saving her life.
+			</p>
+
+			<p>
+				&#8220;I should have let you drown,&#8221; I said later, after listening to a solid hour of her ungrateful theatrics.
+			</p>
+
+			<p>
+				&#8220;He would have saved me,&#8221; she said.  &#8220;I knew exactly what I was doing.  I can&#8217;t believe I brought you along.  I&#8217;m never bringing you anywhere again.&#8221;
+			</p>
+
+			<p>
+				&#8220;He would have stood there eating cake until you swallowed a gallon of water and went brain dead,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;Don&#8217;t ever try to help me.  You don&#8217;t know as much as you think you do.  You are just a little girl from Tennessee.  I live in the whole world.&#8221;
+			</p>
+
+			<p>
+				Three years later, E_____ got her first starring role in a shitty television show.  It wasn&#8217;t long before she graduated to shitty movies.  Over the years, she offered me more free money than most people earn honestly in their entire lives.  I didn&#8217;t take a single dime.
+			</p>
+
+			<p>
+				She went West and I went East.
+			</p>
+
+			<p>
+				On Christmas and on my birthday, I sent back the titles to automobiles and the deeds to beach houses.  When my medical bills were mysteriously paid, I argued with the hospital to get the bills reinstated, claiming a breach of my privacy rights.
+			</p>
+
+			<p>
+				The other members of our family weren&#8217;t so spiteful, but they also didn&#8217;t have the same history with E______ that I did.  Her success ensured that our father and our little brother didn&#8217;t have to work.  I was glad for them.
+			</p>
+
+			<p>
+				But I would rather starve to death than take money from E_______ and her little world.  I wasn&#8217;t going to help E_______ justify her own self-destruction by taking money from her and from the commercial film industry that I loathed.
+			</p>
+
+			<p>
+				&#8220;It doesn&#8217;t cost me anything to say it,&#8221; she said, leaning against my doorjamb, putting one hand inside my home.  &#8220;I&#8217;ll say it if you need to hear it.  There is no one else I can go to.&#8221;
+			</p>
+
+			<p>
+				&#8220;And?&#8221;
+			</p>
+
+			<p>
+				She swallowed.
+			</p>
+
+			<p>
+				&#8220;And I need your help.&#8221;
+			</p>
+
+			<p>
+				I opened the door for her, allowing her to cross the threshold into my apartment.  I tried not to notice how she looked both ways along the hallway, making sure that no &#8220;normal people&#8221; saw her go into such a normal, disgusting place.  She took off her baseball cap and sunglasses and sat down in the easy chair that I had rescued from the garbage.  I sat down across from her on my coffee table, a footlocker with a blanket over it, the only other piece of furniture in my den.
+			</p>
+
+			<p>
+				I got out the bottle of vodka that was always in the freezer and I set it between us.
+			</p>
+
+			<p>
+				&#8220;You are still with Marcher & Mandrake,&#8221; she said, rolling her eyes around my empty apartment.  &#8220;Did I get that right?  That&#8217;s the name of your agency?&#8221;
+			</p>
+
+			<p>
+				&#8220;Yes,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;Have you sold any novels lately?&#8221;
+			</p>
+
+			<p>
+				&#8220;No,&#8221; I said.  &#8220;Why are you here?  Did you get burned on some bad coke?  Is somebody holding your rat terrier hostage?  Don&#8217;t you have billionaire friends out there in California who can help you with your problem?&#8221;
+			</p>
+
+			<p>
+				&#8220;I am coming to you because you are the only person I can trust,&#8221; she said quietly.
+			</p>
+
+			<p>
+				I put my hand on her knee.
+			</p>
+
+			<p>
+				&#8220;That would be so sad,&#8221; I said, &#8220;if I believed you.&#8221;
+			</p>
+
+			<p>
+				&#8220;I don&#8217;t trust you because I think you care about me,&#8221; she said without losing her cool.  &#8220;I trust you because I know you have too much pride to hurt me.&#8221;
+			</p>
+
+			<p>
+				I opened the bottle of vodka and drank a slug straight from the neck.  I offered it to her.  Fuck glasses.  Was she too good to drink straight from the bottle?
+			</p>
+
+			<p>
+				She sighed.
+			</p>
+
+			<p>
+				&#8220;Also, you are smart,&#8221; she said.  &#8220;Do you know how furious it makes me to say it out loud?  I need help and you are smart and you can help me.&#8221;
+			</p>
+
+			<p>
+				I shook the bottle of vodka at her until she took it from me.
+			</p>
+
+			<p>
+				&#8220;So tell me what&#8217;s wrong,&#8221; I said.  &#8220;Remember: details are food for smart people.&#8221;
+			</p>
+
+			<p>
+				&#8220;It started with my publicist,&#8221; she said.  &#8220;She said that if I didn&#8217;t win an Academy Award in the next five years, then my career would disappear when I got my first wrinkle.  The world wants to fuck me, not listen to me, she said.  I decided that it was time to do something dangerous.  Do you know Frank Fry?&#8221;
+			</p>
+
+			<p>
+				&#8220;I don&#8217;t know any of your movie people,&#8221; I seethed.  &#8220;I don&#8217;t want to know them.&#8221;
+			</p>
+
+			<p>
+				&#8220;He is European,&#8221; said E_________.  &#8220;Maybe Norwegian?  Anyway, it doesn&#8217;t matter.  He has never made an American film before.  He is a deaf-mute.  He can&#8217;t hear and he can&#8217;t speak.&#8221;
+			</p>
+
+			<p>
+				&#8220;And he&#8217;s the one who wants to listen to you and not fuck you?&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;He is also a genius film savant.  When I auditioned for the part, he put his head to my chest and he listened to my heart beat while he showed me a video of a baby being born.  When the video was over, he left the room, and I didn&#8217;t find out that I got the part until a week later.&#8221;
+			</p>
+
+			<p>
+				&#8220;Of course you got the part,&#8221; I said.  &#8220;You are E______ H______.  He rubbed his face all over your tits and you didn&#8217;t even flinch.  That&#8217;s good acting.&#8221;
+			</p>
+
+			<p>
+				&#8220;He has this helper guy, this guy named Whistle,&#8221; said my sister.  &#8220;Whistle does all his business for him and he also translates for him.  Whistle knows Scandinavian sign language or whatever.  Whistle is hideous.  He was in some kind of a fire and he burned off most of his face, so he always looks like he&#8217;s smiling.  He wears these fantastic blonde wigs made with real human hair.  His skin looks like a leather purse.&#8221;
+			</p>
+
+			<p>
+				&#8220;Sounds charming,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;Anyway, Frank Fry wants to make an American film.  The project is called &#8220;Symphony for Signs and Flesh.&#8221;  It is supposed to be a metaphysical horror movie.  You know: high art.  The premise is that after this scientist&#8217;s wife is horrifically burned in a fire, the scientist develops this method where people can change their skin.  They can change their features and skin color using little robots that chew up their hair follicles and rearrange their cells. At first, she changes back to her old skin, but then she wants more, and she starts acquiring the faces of celebrities and so on.  That&#8217;s my role in the movie.  The scientist&#8217;s wife desperately wants to be me, E________ H_______ the actress, and so she makes her face look like mine and pretends to be me, seducing neighborhood boys and ruining my reputation.  Anyway, you get the idea.  Lots of long, still shots of people gazing into mirrors with ambient animal noises and the sound of a crackling fire.&#8221;
+			</p>
+
+			<p>
+				&#8220;Naturally,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;We started filming six months ago.  The entire project has been like some cult.  I can&#8217;t say no to Frank.  Frank is the devil.  He has some uncanny power over me.  I will do whatever he wants.&#8221;
+			</p>
+
+			<p>
+				&#8220;A silent Scandinavian svengali and his fire-obsessed attaché,&#8221; I muttered.  My mind wandered, trying to imagine them.
+			</p>
+
+			<p>
+				&#8220;The other actors and actresses working on &#8220;Symphony&#8221; were not Hollywood types like me.  Frank found people from the streets by doing open casting in Amsterdam and Paris.  The movie was in English, but I was the only native English speaker.  That was part of Frank&#8217;s power.  There was no one else I could talk to.  He started making strange demands for scenes that weren&#8217;t in the script.&#8221;
+			</p>
+
+			<p>
+				&#8220;What kinds of scenes?&#8221; I asked.
+			</p>
+
+			<p>
+				&#8220;I thought it was just going to be a normal art movie,&#8221; she said.  &#8220;But it seemed like every day we did more sex stuff.&#8221;
+			</p>
+
+			<p>
+				&#8220;Sex stuff?&#8221;
+			</p>
+
+			<p>
+				&#8220;Yes,&#8221; said E_______, timidly.  &#8220;My agent told me how good the project would be for my career and how it would help me get more serious work.  She said I needed to make people think about me differently.  But all Frank Fry wanted to shoot were sex scenes.  I don&#8217;t think I&#8217;ve ever done so many sex scenes for all my other movies combined.  And it wasn&#8217;t just me:  all the extras and no-names were doing hardcore sex scenes with Frank and Whistle every day. We had all these prop faces, you know, since the whole movie is about changing skin.  Everyone was changing faces all the time, and Frank had a whole team of people who were using digital effects to change the way people looked.&#8221;
+			</p>
+
+			<p>
+				&#8220;And none of this stuff was in the script?&#8221;
+			</p>
+
+			<p>
+				&#8220;No,&#8221; said E_______.  &#8220;That&#8217;s the thing.  We would be making the movie, following the script, and then all of a sudden we would stop everything, get out the prop skins, and start doing sex scenes with Frank and Whistle in this one room with this giant golden bed.&#8221;
+			</p>
+
+			<p>
+				I stared at her.  She looked at me, searching for sympathy.  Instead, I shut my eyes and sighed.
+			</p>
+
+			<p>
+				&#8220;I got this horrible feeling in the pit of my stomach,&#8221; said E________.  &#8220;I left the set and went to London.  My agent and I went to Frank and we demanded to see the movie that was going to be released with my name on it. He showed us &#8220;Symphony.&#8221;  But there wasn&#8217;t any sex in it at all.  It was all blood and gore.  All the scenes we had been shooting for the past six months, all the face-changing orgies, were gone.  I was confused.  My agent made him sign papers saying that he would use the cut without the sex.  I refused to do any more work on the project. I talked to some of the other actors and actresses involved in the project, and they were also relieved that the orgies weren&#8217;t going to be included in the movie.  Everyone praised the director for his vision, and for his decision to sacrifice the shocking material for the sake of the story.&#8221;
+			</p>
+
+			<p>
+				&#8220;I bet deaf-mutes get praised for their vision all the time,&#8221; I said.
+			</p>
+
+			<p>
+				&#8220;But I wasn&#8217;t happy at all,&#8221; said E________.  &#8220;I wanted to know what he was going to do with the scenes he shot.  Was he going to watch them?  Was he going to show them to his friends? I couldn&#8217;t eat.  I couldn&#8217;t sleep.  I went to him, furious, and demanded that he destroy the footage.  But he just sat there, smiling, pretending he couldn&#8217;t understand me.  Whistle translated, but he still wouldn&#8217;t talk to me.  I got mad.  I wanted to murder him.&#8221;
+			</p>
+
+			<p>
+				She took a long swallow of vodka, and then sighed, hanging her head.
+			</p>
+
+			<p>
+				She stared at the ground.  Her fingers twitched on the neck of the bottle.
+			</p>
+
+			<p>
+				&#8220;Did you?&#8221; I asked.
+			</p>
+
+			<p>
+				&#8220;Did I what?&#8221;
+			</p>
+
+			<p>
+				&#8220;Did you murder him?  Is that what this is about?&#8221;
+			</p>
+
+			<p>
+				&#8220;No,&#8221; she said.  &#8220;I didn&#8217;t even raise my voice.  But I thought about it.  Very hard.&#8221;
+			</p>
+
+			<p>
+				&#8220;I see,&#8221; I said.  &#8220;And so here we are.&#8221;
+			</p>
+
+			<p>
+				&#8220;I want that footage back,&#8221; she said, her eyes blazing.  &#8220;He convinced me to do things that I never would have done if there hadn&#8217;t been a camera rolling.  He made this psychological space where it was okay to do the things he said.  I thought he was going to turn the sex scenes into a great film.  But he is cutting them and keeping them for himself.  Why?&#8221;
+			</p>
+
+			<p>
+				&#8220;You signed a contract,&#8221; I suggested.  &#8220;So did he.&#8221;
+			</p>
+
+			<p>
+				&#8220;Those scenes don&#8217;t belong to him,&#8221; she said.  &#8220;I want to know what he is going to do with them.  I want to know why he spent so much time making us fuck each other if he wasn&#8217;t going to show anybody. Maybe another actress wouldn&#8217;t care.  But all that footage could end up on the internet.  And then it would look like I did it in secret.  Like I enjoyed it.  Like doing porn was my hobby.&#8221;
+			</p>
+
+			<p>
+				&#8220;I can&#8217;t help you,&#8221; I said.  &#8220;You did what you did.  This isn&#8217;t a problem.  This is paranoia and vanity.&#8221;
+			</p>
+
+			<p>
+				&#8220;He&#8217;s here in New York,&#8221; said E________.  &#8220;We are supposed to do interviews and talk shows to promote the film.  When Frank Fry does interviews, he smiles like an idiot and then acts out little mime scenes.  Sometimes he draws pictures on a little chalkboard.  Everybody thinks it&#8217;s adorable.&#8221;
+			</p>
+
+			<p>
+				&#8220;And you have to sit next to him, restrained and demure, as part of your contract,&#8221; I said, imagining the scene.
+			</p>
+
+			<p>
+				&#8220;Will you please just go talk to him?&#8221; she begged.  &#8220;Why isn&#8217;t this making you angry?  This is exactly the sort of thing that makes you angry.&#8221;
+			</p>
+
+			<p>
+				I sipped my vodka, watching her squirm, agreeing to nothing.
+			</p>
+
+		</section>
+		
+
+
+
+
+
+
+
+		<div class="comments-area" id="comments">
+
+	
+			<h2 class="comments-title">
+			2 thoughts on “<span>Nerds &amp; Grape Nuts</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li id="li-comment-2" class="comment even thread-even depth-1">
+		<article class="comment" id="comment-2">
+			<footer>
+				<div class="comment-author vcard">
+					<img width="40" height="40" class="avatar avatar-40 photo" src="http://1.gravatar.com/avatar/381dc0ca0868962805106452497a93b2?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=G" alt="">					<cite class="fn">maren</cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://megazine/?party_pirates=nerds-grape-nuts#comment-2"><time datetime="2012-09-01T20:41:34+00:00" pubdate="">
+					September 1, 2012 at 8:41 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>this is a test</p>
+</div>
+
+			<div class="reply">
+				<a onclick="return addComment.moveForm(&quot;comment-2&quot;, &quot;2&quot;, &quot;respond&quot;, &quot;256&quot;)" href="/?party_pirates=nerds-grape-nuts&amp;replytocom=2#respond" class="comment-reply-link">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li id="li-comment-3" class="comment odd alt thread-odd thread-alt depth-1">
+		<article class="comment" id="comment-3">
+			<footer>
+				<div class="comment-author vcard">
+					<img width="40" height="40" class="avatar avatar-40 photo" src="http://1.gravatar.com/avatar/381dc0ca0868962805106452497a93b2?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=G" alt="">					<cite class="fn">maren</cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://megazine/?party_pirates=nerds-grape-nuts#comment-3"><time datetime="2012-09-01T20:41:54+00:00" pubdate="">
+					September 1, 2012 at 8:41 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>another test</p>
+				
+
+</div>
+
+			<div class="reply">
+				<a onclick="return addComment.moveForm(&quot;comment-3&quot;, &quot;3&quot;, &quot;respond&quot;, &quot;256&quot;)" href="/?party_pirates=nerds-grape-nuts&amp;replytocom=3#respond" class="comment-reply-link">Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+		</ol><!-- .commentlist -->
+
+		
+	
+	
+									<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a style="display:none;" href="/?party_pirates=nerds-grape-nuts#respond" id="cancel-comment-reply-link" rel="nofollow">Cancel reply</a></small></h3>
+									<form id="commentform" method="post" action="http://megazine/wp-comments-post.php">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input type="text" aria-required="true" size="30" value="" name="author" id="author"></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input type="text" aria-required="true" size="30" value="" name="email" id="email"></p>
+<p class="comment-form-url"><label for="url">Website</label><input type="text" size="30" value="" name="url" id="url"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea aria-required="true" rows="8" cols="45" name="comment" id="comment"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input type="submit" value="Post Comment" id="submit" name="submit">
+							<input type="hidden" id="comment_post_ID" value="256" name="comment_post_ID">
+<input type="hidden" value="0" id="comment_parent" name="comment_parent">
+						</p>
+											</form>
+							</div><!-- #respond -->
+						
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</article>
+	</div>
+
+
+
+
+
+
+				
+
+				<!-- <div id="slides">
+					<ul class="pictureGrid">
+						<li>		
+							<ul class="vertical">
+									
+									
+									<li><img src="PIPE_4.jpg" /></li>
+									<li><img src="PIPE_5.jpg" /></li>
+									<li><img src="PIPE_16.jpg" /></li>
+									<li><img src="PIPE_10.jpg" /></li>
+									<li><img src="PIPE_6.jpg" /></li>
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									
+									<li><img src="PIPE_8.jpg" /></li>
+									<li><img src="PIPE_9.jpg" /></li>
+									<li><img src="PIPE_25.jpg" /></li>
+									<li><img src="PIPE_23.jpg" /></li>
+									<li><img src="PIPE_17.jpg" /></li>
+									<li><img src="PIPE_11.jpg" /></li>
+									
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_18.jpg" /></li>
+									<li><img src="PIPE_13.jpg" /></li>
+									<li><img src="PIPE_34.jpg" /></li>
+									<li><img src="PIPE_15.jpg" /></li>
+									
+									<li><img src="PIPE_3.jpg" /></li>
+									
+									
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_19.jpg" /></li>
+									
+									<li><img src="PIPE_30.jpg" /></li>
+									<li><img src="PIPE_24.jpg" /></li>
+									<li><img src="PIPE_22.jpg" /></li>
+									
+									<li><img src="PIPE_7.jpg" /></li>
+									
+									<li><img src="PIPE_28.jpg" /></li>
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_12.jpg" /></li>
+									<li><img src="PIPE_26.jpg" /></li>
+									
+									<li><img src="PIPE_20.jpg" /></li>
+									
+									<li><img src="PIPE_29.jpg" /></li>
+									
+									<li><img src="PIPE_21.jpg" /></li>
+							</ul>
+						</li>
+						<li>		
+							<ul class="vertical">
+									<li><img src="PIPE_27.jpg" /></li>
+									<li><img src="PIPE_32.jpg" /></li>
+									<li><img src="PIPE_33.jpg" /></li>
+									<li><img src="PIPE_14.jpg" /></li>
+									
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+
+
+ -->
+
+
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<footer>
+				<nav>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Genesis</span><span class="visible_text">Genesis</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Radio</span><span class="visible_text">Radio</span></span></a>
+				<!-- <a href<span class="text_wrapper" ="#">Contributors<span class="bang"><span class="bang_text">Boing!</span></span></a> -->
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">About</span><span class="visible_text">About</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Shop</span><span class="visible_text">Shop</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Menu</span><span class="visible_text">Menu</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Interests</span><span class="visible_text">Interests</span><!-- <span class="bang"><span class="bang_text">Boing!</span></span> --></span></a></nav>
+
+
+
+
+
+
+
+
+
+
+				<div id="extra">
+					<div id="placeholder">
+						<img src="img/joana.jpg" width="100%" />
+					</div>
+					<h2>Illustration Joana Avillez</h2>
+				</div>
+
+			</footer>
+		</div>	
+
+
+		<script type="text/javascript" src="//use.typekit.net/wzt6iot.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	</body>
+
+</html>
