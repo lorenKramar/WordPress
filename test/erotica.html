@@ -1,3 +1,38 @@
+<script>
+	
+
+	$(function(){
+		var slides = $('.head');
+
+		$('.lim').each(function(){
+			slides.push(this);
+		});
+
+
+		slides.css('display', 'none');
+
+
+		// set this to the container of the lims and head classes
+		$('#slides').cycle({
+			speed:200,
+			timeout:2000
+		});
+
+	});
+	
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
 <div class="head">
 <h2 dir="ltr">Limericks</h2>
 <p dir="ltr">by</p>
