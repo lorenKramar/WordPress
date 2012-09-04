@@ -182,8 +182,16 @@
 
 						var animLetter = $('<span>'+ letters[i] +'</span>');
 
+						
+						if(animLetter[0].style.MozAnimation !== undefined) {
+							animLetter[0].style.MozAnimation = 'spin'+ axis[axisIndex] + ' ' + (Math.random() * 5) + 's infinite linear';
+						} else if(animLetter[0].style.webkitAnimation !== undefined) {
 
-						animLetter[0].style.MozAnimation = 'spin'+ axis[axisIndex] + ' ' + (Math.random() * 5) + 's infinite linear';
+							animLetter[0].style.webkitAnimation = 'spin'+ axis[axisIndex] + ' ' + (Math.random() * 5) + 's infinite linear';
+
+						}
+
+						
 
 						axisIndex++;
 
@@ -257,7 +265,9 @@
 				<div id="weather" class="rain">
 					<h2>Weather</h2>
 					<div id="weather_box">
-						<img src="img/weather2.png"  />
+						<div id="weather_medalion">
+							<img src="img/weather2.png"  />
+						</div>
 						<span id="high">H 131° F</span>
 						<span id="low">L -45° F</span>
 					</div>

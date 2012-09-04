@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+
+
+
+
+
+		<!-- FACEBOOK META -->
+		<meta property="fb:admins" content="309260325792555" />
+
+		<!-- PAGE TITLE GOES HERE -->
+		<meta property="og:title" content="Megazine" />
+
+		<meta property="og:type" content="website" />
+
+		<!-- FEATURED IMG GOES HERE -->
+		<meta property="og:image" content="" />
+
+		<meta property="og:site_name" content="MEGAZINE.XXX" />
+		<!-- END FB META -->
+
+
+
+
+
+
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="css/feature.css" />
+		<link rel="stylesheet" type="text/css" href="css/fbi.css" />
+
+
+
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+		<!-- GREENISH EXAMPLE -->
+		<link rel="stylesheet" type="text/css" href="example.css">
+		
+		<script type="text/javascript" src="greenishSlides/jquery.greenishSlides-v0.2-beta.js"></script>
+		<script type="text/javascript" src="jquery.greenishSlides.pictureGrid-v0.1-alpha.js"></script>
+		<script type="text/javascript">
+			(function($) {
+				$(document).ready(function() {
+					$(".pictureGrid").pictureGrid({
+						resizable:true
+
+					});
+				});
+			})(jQuery);
+		</script>	
+
+
+
+
+
+
+
+
+
+<script>
+
+	
+		$(function(){
+
+			var gradients = $('.gradient'),
+				docHeight = $(document).height(),
+				winHeight = $(window).height(),
+				scrollArea = docHeight - winHeight,
+				mask = $('.mask'),
+				leftImg = $('#left_gutter .img_box'),
+				rightImg = $('.story_title');
+
+			$(window).on('resize', function(){
+				scrollArea = docHeight - $(this).height();
+			})
+
+
+			var moveShutters = function(){
+
+				var scrollPercent = Math.round(($(this).scrollTop()/scrollArea) * 1000) / 1000;
+
+				mask.css({opacity:1 - scrollPercent});
+
+				gradients.css({top:(scrollPercent * -500) + '%'});
+
+				leftImg.css({marginLeft:(scrollPercent * -10) * 823 + 'px'});
+
+				rightImg.css({marginLeft:(scrollPercent * -10) * 823 + 'px'});
+
+			};
+
+
+			$(window).on('scroll', moveShutters);
+
+			moveShutters();
+
+		});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+		<script>
+
+			$(function(){
+
+
+				$('#decoy_email_sub').click(function(){
+					$('#real_email_sub').trigger('click');
+					return false;
+				})
+
+				var closeDialog = function(){
+
+		        	// unbind window evt
+		        	$(window).off('keyup.dia');
+
+		        	// hide the big bitch
+		        	$('#signup_popup').removeClass('active');
+
+		        	// show the form
+		        	$('#subForm').css('display', 'block');
+
+		        	//  replace the text in the header
+		        	$('#signup_popup h2').text('To hear about events and new issues,');
+
+		        	// remove any prev errors
+		        	$('#signup_popup p.error').text('');
+
+		        	$('#signup_popup input[type=text]').attr('value', '');
+
+		        };
+
+		        $('#subForm').submit(function (e) {
+		        	
+		        	$('#signup_popup p.error').text('');
+
+		            e.preventDefault();
+		            $.getJSON(
+		            	this.action + "?callback=?",
+		            	$(this).serialize(),
+			            function (data) {
+			                if (data.Status === 400) {
+			                	$('#signup_popup p.error').text(data.Message);
+			                } else { // 200
+			                	$('#signup_popup h2').html('Done! You&rsquo;ll hear from us shortly!');
+			                	$('#subForm').css('display', 'none');
+
+			                	setTimeout(closeDialog, 2000);
+			                }
+			            });
+		        });
+		    	
+
+		        
+
+	        	$('#signup_popup .dialog').on('click', function(e){
+	        		e.stopPropagation();
+	        	});
+
+	        	$('#signup_popup').on('click', function(){
+	        		//close dialog
+	        		closeDialog();
+	        	});
+
+		        $('#signup .callout').on('click', function(){
+
+		        	// bind the events to get rid of the dialog
+		        	$(window).on('keyup.dia', function(e){
+	        		
+		        		if(e.which === 27){
+		        			// close the dialog, unbind the close events
+		        			closeDialog();
+		        		}
+		        	});
+
+		        	// invoke the signup dialog
+		        	$('#signup_popup').addClass('active');
+
+		        	
+
+		        	return false;
+		        });
+		    });
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+		<!-- required for adding the scrollbar in the right place on the feature pages -->
+		<script type="text/javascript">
+			$(function(){
+				$('#feature').css({minHeight: $('#sidebar').height() + 'px'});
+			});
+		</script>
+
+
+
+
+	</head>
+
+
+	<body>
+
+
+
+		<!-- FACEBOOK JS -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+
+
+		<div id="signup_popup">
+			<div class="dialog">
+
+				<!-- <div class="input_wrapper"> -->
+					<h2>To hear about events and new issues,</h2>
+					<form action="http://megazine.createsend.com/t/j/s/krtld/" method="post" id="subForm">
+						<input type="text" placeholder="youremail@megazine.xxx" name="cm-krtld-krtld" />
+						<a class="submit" id="decoy_email_sub"  href="#">Subscribe!</a>
+						<input type="submit" id="real_email_sub" value="Subscribe" />
+					</form>					
+					<p class="error"></p>
+				<!-- </div> -->
+			</div>
+		</div>
+
+
+
+
+		<div id="all">
+			<header>
+
+				
+					<!-- MAKE THIS follow the mouse on the x axis across the header -->
+					<h1><img src="img/page_logo.png" width="20" /><span class="hidden">MEGAZINE!</span></h1>
+					<!-- <nav></nav> -->
+					<h3><span>The Septober Issue</span></h3>
+					
+					<hr />
+					
+<!-- SHARE -->
+				
+					<div id="share">
+						<div class="share_button twitter">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-via="MegaMaxims" data-count="none" data-dnt="true">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						
+						
+						<div class="share_button facebook">
+							<div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+						</div>
+					</div> 
+
+			</header>
+
+			<div id="sidebar">
+				<h5>On that note!</h5>
+
+
+				<div id="related">
+
+					<ul>
+						<li>
+							<div class="img_wrapper"><img src="img/rel_bb.jpg" width="280" /></div>
+							<h3>100 photos of a beautiful boy</h3>
+							<h2>SISTERY MYSTERY</h2>
+						</li>
+						<li>
+							
+							<div class="img_wrapper"><img src="img/rel_skull.jpg" width="280" /></div>
+							<h3>Skull</h3>
+							<h2>The Bruce High Quality Foundation</h2>
+						</li>
+						<li>
+							<div class="img_wrapper"><img src="img/rel_pipe.jpg" width="280" /></div>
+							<h3>Pipe Collection</h3>
+							<h2>CYNTHIA BROTHERS</h2>
+						</li>
+						
+					</ul>
+				</div>
+
+				<div id="signup">
+					<div class="callout">
+						<h2>Subscribe!</h2>
+					</div>
+				</div>
+
+			</div>
+			
+
+			<div id="feature" class="ball">
+				<div id="fixed_space"></div>
+		
+				<div id="flow_content_wrapper">
+
+
+					<h3>Free Business Ideas
+						<!-- <img src="img/fbi/logo.png" /> -->
+					</h3>
+
+					<h2><small>by</small>Miracle Jones</h2>
+
+
+
+
+					
+					
+					
+					
+					
+					
+					
+
+					<div class="idea">
+						<h3>Dreamshare</h3>
+						<img src="img/fbi/dreamshare.jpg" />
+						<!-- cite -->
+						<h2><cite><a href="#">Jake Brower</a></cite></h2>
+
+						<p>A website where people upload each night's dreams in great detail to a persistent database.  The website searches for patterns in dreams over time using state-of-the art software developed to fight terrorists.  The software psychoanalyzes you for a fee, explaining your fears, desires, and fetishes. The website also compares the nouns and concepts in your dreams to other people and gives you a percentage score for how much you are how plugged into the collective unconscious.  Also, Dreamshare will alert you if you have the same exact dream as another dreamer, just in case this is a "warning from the great beyond."</p>
+					</div>
+					<div class="idea">
+						<h3>Dynamite Brand "Strike-anywhere" Cigarettes</h3>
+						<img src="img/fbi/dynamite.jpg" />
+						<!-- cite -->
+						<h2><cite><a href="#">Joe Kendall</a></cite></h2>
+
+						<p>Each cigarette will have a phosphorous tip and be fortified by a stiff length of hard magnesium.  The pack will also have a strip of sandpaper along the side.  To light the cigarette, you strike the tip against the sandpaper as if you are lighting a match.  The fortifying stick of magnesium will burn like a sparkler as you smoke.  Fuck lighters!  Your cigarette is now a fireworks display that shows everyone who the emperor of smoking is.  The smoking hero is you!</p>
+					</div>
+					<div class="idea">
+						<h3>Bukkolik Morning Sickness System</h3>
+						<img src="img/fbi/BUKKOLICK.jpg" />
+						<!-- cite -->
+						<h2><cite><a href="#">Lobesian Press</a></cite></h2>
+
+						<p>Science has determined that the reason women get morning sickness when they are pregnant is because their body is rejecting the DNA of an alien.  Their bodies are trying to purge this infection the same way that it would purge any other infection.  Science has determined that the only effective treatment for morning sickness is constant reinsemination by the same DNA, either orally or vaginally, until the body accepts this new DNA as its own.  Since daily sex with the same partner is not always possible nor desirable, especially for lesbian couples, Bukkolik dehumidifes semen, like beef jerky, turning it into a white powder which can then be snorted or taken as a pill three times a day.  One heavy load of dehumidified semen is good for thirty days worth of pills. </p>
+					</div>
+					<div class="idea">
+						<h3>deaddrop.com</h3>
+						<img src="img/fbi/deaddrop.jpg"/>
+						<!-- cite -->
+						<h2><cite><a href="#">Jake Brower</a></cite></h2>
+
+						<p>A website that helps you draft a fully-legal final will and testament, asking you a series of questions about your estate through simple TurboTax-style online forms.  The website also stores this will and testament for you.  Every six months, you get an email from Deaddrop where you must respond with your code word within a month.  If you do not respond, Deaddrop emails your will to everyone on your "contacts" list, assuming that you are dead.</p>
+					</div>
+					<div class="idea">
+						<h3>Anonymoustache</h3>
+						<img src="img/fbi/anon.jpg" />
+						<!-- cite -->
+						<h2><cite><a href="#">Joe Kendall</a></cite></h2>
+
+						<p>An open-source, anonymous email website.  Anonymoustache pops up as a simple window where you put in the email address of the person you wish to contact.  Then you type your message and send it.  The message is completely encrypted and untraceable, and the server is located on an international zeppelin decorated with the "Anonymoustache" logo (a friendly ghost with a big mustache). Perfect for affairs, hate mail, drug deals, or just bothering people.</p>
+					</div>
+					<div class="idea">
+						<h3>Mad Hater</h3>
+						<img src="img/fbi/MAD-HATER.jpg" />
+						<!-- cite -->
+						<h2><cite><a href="#">Lobesian Press</a></cite></h2>
+
+						<p>"Mad Hater" is a social networking platform which exists as a massive cloud of nouns, concepts, ideas, products, celebrities, and real people taken from wikipedia, the dictionary, and your facebook, twitter, and email.  You tag the things that you hate, and if there is something specific that you hate, you type it in and now other people can hate that too.  People who share common hates draw closer and closer together and are invited to "tolerate" each other, without revealing what those hates might be.  Somewhere out there is a person who hates all the same things that you hate, and you ought to get to know them.</p>
+					</div>
+					<div class="idea">
+						<h3>LA$HE$</h3>
+						<img src="img/fbi/LASHES.jpg"/>
+						<!-- cite -->
+						<h2><cite><a href="#">Lobesian Press</a></cite></h2>
+
+						<p>Belts and neckties designed as sturdy whips, chains, ropes, and restraints for mobile S&amp;M.  Made from microfibers strong enough to dangle your victim from a hook in the ceiling, yet they won't chafe or leave burns on wrists or ankles.  Also they identify you as a willing proponent of a certain lifestyle.  :"Is that a La$he$-brand necktie?"  "Why, yes it is!  Now down on your knees, slut!"</p>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<footer>
+				<nav>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Genesis</span><span class="visible_text">Genesis</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Radio</span><span class="visible_text">Radio</span></span></a>
+				<!-- <a href<span class="text_wrapper" ="#">Contributors<span class="bang"><span class="bang_text">Boing!</span></span></a> -->
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">About</span><span class="visible_text">About</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Shop</span><span class="visible_text">Shop</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Menu</span><span class="visible_text">Menu</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Interests</span><span class="visible_text">Interests</span><!-- <span class="bang"><span class="bang_text">Boing!</span></span> --></span></a></nav>
+
+
+				<div id="extra">
+					<div id="placeholder">
+						<img src="img/joana.jpg" width="100%" />
+					</div>
+					<h2>Illustration Joana Avillez</h2>
+				</div>
+
+			</footer>
+		</div>	
+
+
+		<script type="text/javascript" src="//use.typekit.net/wzt6iot.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	</body>
+
+</html>

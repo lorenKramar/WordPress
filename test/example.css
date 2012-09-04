@@ -9,11 +9,11 @@
 #slides li {
 	outline:1px solid #000;
 	background:#000;
-	/*background-color:#000000;*/
+	
 }
 #slides .vertical li{
 	text-align:center;
-/*	min-width:10px; */
+
 }
 
 
@@ -21,7 +21,7 @@
 	height:700px;
 	max-width: 1200px;
 	margin:0px auto;
-	/*padding:100px 0;*/
+
 }
 
 
@@ -42,6 +42,7 @@
 	top:50%;
 	margin-top:-266px;
 	/*min-width:400px;*/
+	transform:  scale(.45,.45);
 	-webkit-transform:  scale(.45,.45);
 	-moz-transform: scale(.45,.45);
 	
@@ -53,7 +54,7 @@
 
 
 #slides  .gsActive img {
-
+	transform:  scale(1,1);
 	-webkit-transform:  scale(1,1);
 	-moz-transform: scale(1,1);
 	
@@ -69,10 +70,4 @@
 	outline: none;
 	position: relative;
 	outline: 1px solid #000;
-}
-
-
-#slides  .gsActive {
-	/*outline: 1px solid #fff;*/
-
 }

@@ -244,7 +244,29 @@
 	text-transform: uppercase;
 }
 
+#feature h5.feed_link {
+  position: absolute;
 
+  
+  font-family: 'cooper std';
+
+  transform: rotateZ(-2deg);
+  -webkit-transform: rotateZ(-2deg);
+  -moz-transform: rotateZ(-2deg);
+  padding:10px 0;
+  color: #000;
+  font-style: italic;
+  font-size:24px;
+  text-transform: none;
+  top:139px;
+  right:45px;
+  text-align: center;
+}
+
+#feature h5.feed_link a {
+  color:red;
+  text-decoration: none;
+}
 
 
 #feature h3 {

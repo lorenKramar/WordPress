@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+
+
+
+
+
+		<!-- FACEBOOK META -->
+		<meta property="fb:admins" content="309260325792555" />
+
+		<!-- PAGE TITLE GOES HERE -->
+		<meta property="og:title" content="Megazine" />
+
+		<meta property="og:type" content="website" />
+
+		<!-- FEATURED IMG GOES HERE -->
+		<meta property="og:image" content="" />
+
+		<meta property="og:site_name" content="MEGAZINE.XXX" />
+		<!-- END FB META -->
+
+
+
+
+
+
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="css/feature.css" />
+		<link rel="stylesheet" type="text/css" href="css/contrib.css" />
+
+
+
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+	
+		$(function(){
+
+			var gradients = $('.gradient'),
+				docHeight = $(document).height(),
+				winHeight = $(window).height(),
+				scrollArea = docHeight - winHeight,
+				mask = $('.mask'),
+				leftImg = $('#left_gutter .img_box'),
+				rightImg = $('.story_title');
+
+			$(window).on('resize', function(){
+				scrollArea = docHeight - $(this).height();
+			})
+
+
+			var moveShutters = function(){
+
+				var scrollPercent = Math.round(($(this).scrollTop()/scrollArea) * 1000) / 1000;
+
+				mask.css({opacity:1 - scrollPercent});
+
+				gradients.css({top:(scrollPercent * -500) + '%'});
+
+				leftImg.css({marginLeft:(scrollPercent * -10) * 823 + 'px'});
+
+				rightImg.css({marginLeft:(scrollPercent * -10) * 823 + 'px'});
+
+			};
+
+
+			$(window).on('scroll', moveShutters);
+
+			moveShutters();
+
+		});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+		<script>
+
+			$(function(){
+
+
+				$('#decoy_email_sub').click(function(){
+					$('#real_email_sub').trigger('click');
+					return false;
+				})
+
+				var closeDialog = function(){
+
+		        	// unbind window evt
+		        	$(window).off('keyup.dia');
+
+		        	// hide the big bitch
+		        	$('#signup_popup').removeClass('active');
+
+		        	// show the form
+		        	$('#subForm').css('display', 'block');
+
+		        	//  replace the text in the header
+		        	$('#signup_popup h2').text('To hear about events and new issues,');
+
+		        	// remove any prev errors
+		        	$('#signup_popup p.error').text('');
+
+		        	$('#signup_popup input[type=text]').attr('value', '');
+
+		        };
+
+		        $('#subForm').submit(function (e) {
+		        	
+		        	$('#signup_popup p.error').text('');
+
+		            e.preventDefault();
+		            $.getJSON(
+		            	this.action + "?callback=?",
+		            	$(this).serialize(),
+			            function (data) {
+			                if (data.Status === 400) {
+			                	$('#signup_popup p.error').text(data.Message);
+			                } else { // 200
+			                	$('#signup_popup h2').html('Done! You&rsquo;ll hear from us shortly!');
+			                	$('#subForm').css('display', 'none');
+
+			                	setTimeout(closeDialog, 2000);
+			                }
+			            });
+		        });
+		    	
+
+		        
+
+	        	$('#signup_popup .dialog').on('click', function(e){
+	        		e.stopPropagation();
+	        	});
+
+	        	$('#signup_popup').on('click', function(){
+	        		//close dialog
+	        		closeDialog();
+	        	});
+
+		        $('#signup .callout').on('click', function(){
+
+		        	// bind the events to get rid of the dialog
+		        	$(window).on('keyup.dia', function(e){
+	        		
+		        		if(e.which === 27){
+		        			// close the dialog, unbind the close events
+		        			closeDialog();
+		        		}
+		        	});
+
+		        	// invoke the signup dialog
+		        	$('#signup_popup').addClass('active');
+
+		        	
+
+		        	return false;
+		        });
+		    });
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+		<!-- required for adding the scrollbar in the right place on the feature pages -->
+		<script type="text/javascript">
+			$(function(){
+				$('#feature').css({minHeight: $('#sidebar').height() + 'px'});
+			});
+		</script>
+
+
+
+
+	</head>
+
+
+	<body>
+
+
+
+		<!-- FACEBOOK JS -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+
+
+		<div id="signup_popup">
+			<div class="dialog">
+
+				<!-- <div class="input_wrapper"> -->
+					<h2>To hear about events and new issues,</h2>
+					<form action="http://megazine.createsend.com/t/j/s/krtld/" method="post" id="subForm">
+						<input type="text" placeholder="youremail@megazine.xxx" name="cm-krtld-krtld" />
+						<a class="submit" id="decoy_email_sub"  href="#">Subscribe!</a>
+						<input type="submit" id="real_email_sub" value="Subscribe" />
+					</form>					
+					<p class="error"></p>
+				<!-- </div> -->
+			</div>
+		</div>
+
+
+
+
+		<div id="all">
+			<header>
+
+				
+					<!-- MAKE THIS follow the mouse on the x axis across the header -->
+					<h1><img src="img/page_logo.png" width="20" /><span class="hidden">MEGAZINE!</span></h1>
+					<!-- <nav></nav> -->
+					<h3><span>The Septober Issue</span></h3>
+					
+					<hr />
+					
+<!-- SHARE -->
+				
+					<div id="share">
+						<div class="share_button twitter">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-via="MegaMaxims" data-count="none" data-dnt="true">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						
+						
+						<div class="share_button facebook">
+							<div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+						</div>
+					</div> 
+
+			</header>
+
+			<div id="sidebar">
+				<h5>On that note!</h5>
+
+
+				<div id="related">
+
+					<ul>
+						<li>
+							<div class="img_wrapper"><img src="img/rel_bb.jpg" width="280" /></div>
+							<h3>100 photos of a beautiful boy</h3>
+							<h2>SISTERY MYSTERY</h2>
+						</li>
+						<li>
+							
+							<div class="img_wrapper"><img src="img/rel_skull.jpg" width="280" /></div>
+							<h3>Skull</h3>
+							<h2>The Bruce High Quality Foundation</h2>
+						</li>
+						<li>
+							<div class="img_wrapper"><img src="img/rel_pipe.jpg" width="280" /></div>
+							<h3>Pipe Collection</h3>
+							<h2>CYNTHIA BROTHERS</h2>
+						</li>
+						
+					</ul>
+				</div>
+
+				<div id="signup">
+					<div class="callout">
+						<h2>Subscribe!</h2>
+					</div>
+				</div>
+
+			</div>
+			
+
+			<div id="feature">
+
+				<div id="fixed_space"></div>
+
+				<div id="flow_content_wrapper">
+
+					
+ 
+
+ 
+					<h3 class="page_title">Editors</h3>
+					<div class="editor"> 
+					<h2>LOREN KRAMAR</h2> 
+					<p>(b.1987, Los Angeles) has seen the following celebrities in real life: Leonardo DiCaprio, Brad Pitt, Johnny Depp, Angelina Jolie, Madonna, Whitney Houston, Jack Nicholson, Michael Caine, Paris Hilton, Lady Gaga, Lindsay Lohan, Nicole Richie, Christina Aguilera, Justin Bieber, Justin Timberlake, Janet Jackson, Katie Holmes, Suri Cruise, Alexander Skarsgard, Quentin Tarantino, Steven Spielberg, Denzel Washington, Mary-Kate Olsen, Ashley Olsen, Elizabeth Olsen, Queen Latifah, Kirsten Dunst, Viggo Mortensen, Adrien Brody, Alan Cumming, Goldie Hawn, Kurt Russell, Jake Gyllenhaal, Josh Hartnett, Michelle Williams, Jason Segel, Keanu Reeves, Ryan Phillippe, Lou Reed, Tony Danza, Yoko Ono, Anna Wintour, Andre Leon Talley, Grace Coddington, Fran Lebowitz, Mario Testino, Mario Sorrenti, Terry Richardson, Marc Jacobs, Karl Lagerfeld, Bruce Willis, Sarah Jessica Parker, Hugh Grant, Harvey Keitel, Vincent Gallo, David LaChapelle, 50 Cent, Usher, Zac Posen, Isaac Mizrahi, Mary J. Blige, Tweet, Liam Neeson, Bono, Willem DaFoe, James Franco, Tyra Banks, Kobe Bryant, Sharon Osbourne, Kelly Osbourne, Courtney Love, Willow Smith, Jaden Smith, Orlando Bloom, Mario Cantone, Jay Leno, Bjork, Mel Gibson, Priscilla Presley and others.</p>
+					</div>
+					<div class="editor">
+					<h2>MAREN MILLER</h2> 
+					<p>Is infinite and unchanging.</p>
+					</div>
+					<div class="editor">
+					<h2>JOE KENDALL</h2> <p>Weighs 157 lbs. </p>
+					 </div>
+
+
+
+					<h3>Contributors</h3>
+
+					<div class="contrib">
+
+					<h2>MIRACLE JONES</h2>
+					<p>Born in Bryan, Texas and lived in Texas for several decades before hopping on a Greyhound bus and moving to NYC because that is where "publishing is at."  He has been a dishwasher, a paralegal, a cold-caller, an illegal underground sandwich-maker, a copywriter, a bartender, a barista, a copy-shop employee, a night-shift stocker, a merchandise packer, a gardener, a nanny, a video store clerk, an incense sales associate, and an author of "how-to" books about making coffee, taking care of an infant, and Bruce Lee.
+					</p>
+					<p>He wrote this <a href="http://www.youtube.com/watch?v=uceSOEqU_3c">commercial!</a></p>
+					 
+
+
+					<p>He helped illustrate this <a href="http://www.randomhouse.com/book/213949/fidel-by-nestor-kohan">book</a> about Fidel Castro!</p>
+
+					 
+					<p>He has also written hundreds of short stories, five full-length stage plays, a handful of songs, and three novels.  He is working on a fantasy/sci-fi series about psychics called "The Fold."  The first two books in this series are already complete: "Sharing" and "Shifting."  His first novel, "Rocks at the Cuts" was an experiment in digital publishing, coded for touch-screen tablets before touch-screen tablets even existed.  You can read it <a href="http://www.rocksatthecuts.com">here.</a></p>
+					 
+
+					 
+					<p>Jones was also the first person to publish books as "digital sculptures," a phenomenon that he predicts will be quite "the thing" in the 21st century, especially once wireless routers become small enough to fit inside everyday objects like coffee mugs, neckties, paperbacks, and 3D-printed bionic kidneys. </p>
+					 
+					<p>He published his short story collection "Seed" inside 3-inch USB dildos and his short-story collection "Soil" inside floppy USB vaginas that look like sandworms.  The sculptures contained every possible ebook format, in addition to live and studio recordings of the individual short stories. The USB drives also contained a PDF book block so that you could print hard copies of "Seed" and :Soil" on an Espresso book machine at your local indie bookstore.</p>
+					 
+					<p>You can take a look at "Seed" and "Soil" <a href="http://fictioncircus.com/news.php?id=593&mode=one">here.</a></p>
+					 
+
+					 
+					<p>Jones has never been published by "outside sources," except for a magazine for people in prison called "Out of the Gutter," and by Megazine.  He has received thousands of rejections for his work.</p>
+					 
+					<p>However, along with Jeanne Thornton, Anton Solomonik, Kevin Carter, and Jason Laney, Jones was a founder of the "Fiction Circus," an online literary magazine that specializes in controversial fiction, online activism, and helping literature transition between the print and digital ages, fighting against corporate censorship by behemoths such as Amazon, Google, Apple, and Paypal.</p>
+					 
+					<h4><a href="http://www.fictioncircus.com">Fiction Circus</a></h4>
+
+					<p>After doing extremely elaborate, unattended fiction readings in Austin for many years, the Fiction Circus started staging readings in Brooklyn and Manhattan at places like the Stain Bar and the KGB Bar. </p>
+					 
+					<p>Now, the third Friday of every month, the Fiction Circus helps Mr. Kevin Carter host "Derangement of the Senses" at the Happy Ending Lounge.  This is a multimedia reading showcase that brings together the best performers in the city, featuring poetry, storytelling. fiction, essays, burlesque. and song.  The motto of Derangement of the Senses is "the purpose of literature is to fuck you up!"  It is a free show.</p>
+					 
+					<p>Jones tries to keep a good attitude about life, though he believes that life is truly terrifying and hard.   He is diligently at work on his fourth novel and he lives in Queens. </p>
+
+				</div>
+				<div class="contrib">
+				<h2>THE BRUCE HIGH QUALITY FOUNDATION</h2> 
+				<p>The official arbiter of the estate of Bruce High Quality, is dedicated to the preservation of the legacy of the late social sculptor, Bruce High Quality. In the spirit of the life and work of Bruce High Quality, we aspire to invest the experience of public space with wonder, to resurrect art history from the bowels of despair, and to impregnate the institutions of art with the joy of man&rsquo;s desiring.  
+				Professional Challenges. Amateur Solutions.</p>
+				</div>
+				<div class="contrib">
+				<h2>JOANA AVILLEZ</h2> 
+				<p>Is a cartoonist and illustrator who was born and still lives and works in New York City.  She is the author of "Life Dressing: The Idiosyncratic Fashionistas", a fashionary tale of two real-life women who live to dress and dress to live.  More of her work can be seen at <a href="http://joanadavillez.com">joanadavillez.com</a></p>
+				</div>
+
+				<div class="contrib">
+				<h2>EBECHO MUSLIMOVA</h2> 
+				<p>Born in Makhachkala, Dagestan, Russia and studied art at the Cooper Union. She is best known for the cartoon character called Fat Ebe, whose sexuality exposes insecurities about human partnership, public life, culture, faith, and love. She lives and works in New York City.</p>
+				</div>
+
+				<div class="contrib">
+				<h2>AUREL SCHMIDT</h2> 
+				<p>Is an artist living and working in New York.  She is known for her highly detailed drawings as well as her groundbreaking erotic photography. <a href="www.aurelschmidt.com">www.info@aurelschmidt.com</a></p>
+				</div>
+				<div class="contrib">
+
+				<h2>OTO GILLEN</h2> 
+				<p>Born in New York where he continues to live and work, find photographs, mark paper, and write music.  
+				<a href="www.oto-gillen.com">www.oto-gillen.com</a></p>
+				</div>
+
+				<div class="contrib">
+				<h2>SNOOCHIE BOOCHIES</h2> 
+				<p>publishes and/or writes erotic limericks online and has no identity.</p>
+				</div>
+
+				<div class="contrib">
+				<h2>NICK LEMMIN</h2> 
+				<p>Lives in Garden Grove, CA and builds custom tailored water pipes for tobacco use only. All orders contact Megazine.</p>
+				</div>
+
+
+				<div class="contrib">
+				<h2>KEEGAN MONAGHAN</h2> 
+				<p>Born in Chicago in 1986. He is a painter who lives and works in New York City.  He also plays in a band and makes movies.</p>
+				</div>
+
+
+				<div class="contrib">
+				<h2>SASHA GROSSMAN</h2> 
+				<p>Is a New York based makeup artist working in film and television. She does makeup for "On the Verge" a tech-based late night talk show, and has recently wrapped "Beach Pillows," an indie feature starring Vincent Kartheiser (Mad Men), and Geoffrey Arend (500 Days of Summer). She is also a trainer and freelancer for Tarte Cosmetics. She graduated from Emerson College</p>
+				</div>
+
+
+				<div class="contrib">
+				<h2>CYNTHIA BROTHERS</h2> 
+				<p>failed to send Megazine a bio.</p>
+				 <div class="contrib">
+				<h2>JAKE BROWER</h2> 
+				<p>Is an artist and designer from Madison, WI, currently
+				living in Athens, GA. His design work can be viewed at <a href="http://www.jakebrower.info">www.jakebrower.info</a></p>
+				</div>
+
+				<div class="contrib">
+				<h2>SISTERY MYSTERY</h2> 
+				<p>Is a perverted photographer.</p>
+				</div>
+
+				<div class="contrib">
+				<h2>OLIVER LOAIZA</h2>
+				<p>1985 Born, Paterson, NJ <br/ >
+				2009 Graduated, Cooper Union </p>
+				</div>
+
+				<div class="contrib">
+					<h2>AVERY K. SINGER</h2>
+					<p>Was delivered to a loft in New York City in 1987 by the UPS man, to the great surprise of her surrogate parents.  She will be receiving a B.S. degree from the Muddy Waters Institute of Discursive Lunch Practices in May of 2013.  Major solo exhibitions include: &ldquo;Chicken A la King&rdquo; The Stage Diner, New York, NY (2005-Ongoing), &ldquo;Cloacal Obsession,&rdquo; &ldquo;Diarrhea is not the end of my humiliation,&rdquo; and &ldquo;After several gin &amp; tonics, I don&rsquo;t remember what I did or ordered next, but I do remember mistaking my roommate&rsquo;s hamper for the toilet later on that night&rdquo; Mars Bar, New York, NY (date uncertain).  A retrospective exhibition will open in the lady&rsquo;s bathroom of the New Museum pending her next visit, entitled &ldquo;The Full Monty Part Deux: the Elimination.&rdquo;</p>
+				</div>
+				<div class="contrib">
+					<h2>LOBESIAN PRESS</h2>
+					<p>Is credited when a contributor wants no association with Megazine.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+			<footer>
+				<nav>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Genesis</span><span class="visible_text">Genesis</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Radio</span><span class="visible_text">Radio</span></span></a>
+				<!-- <a href<span class="text_wrapper" ="#">Contributors<span class="bang"><span class="bang_text">Boing!</span></span></a> -->
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">About</span><span class="visible_text">About</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Shop</span><span class="visible_text">Shop</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Menu</span><span class="visible_text">Menu</span></span></a>
+				<a href="#"><span class="text_wrapper"> <span class="hidden_text">Interests</span><span class="visible_text">Interests</span><!-- <span class="bang"><span class="bang_text">Boing!</span></span> --></span></a></nav>
+
+
+				<div id="extra">
+					<div id="placeholder">
+						<img src="img/joana.jpg" width="100%" />
+					</div>
+					<h2>Illustration Joana Avillez</h2>
+				</div>
+
+			</footer>
+		</div>	
+
+
+		<script type="text/javascript" src="//use.typekit.net/wzt6iot.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	</body>
+
+</html>
