@@ -248,16 +248,28 @@
 
         $('body').bind('afterPreWpautop', function(e, o) {
             //On Switch to HTML & On save/update from Visual tab
-            
             //Now we replace all those temporary html comments with spaces and newlines
-            o.data = o.unfiltered.replace(/<\!--mep-nl-->/g, "\r\n").replace(/<\!--mep-tab-->/g, "    ");
+            o.data = o.unfiltered;
+           
+            //remove cdata tags that are injected by browser, they can also malform mep tags
+            o.data = o.data.replace(/\/\/ <!\[CDATA\[/g, "");
+            o.data = o.data.replace(/[^-]mep-nl-->/g, "<!--mep-nl-->"); //fix new lines before and after script tags
+            o.data = o.data.replace(/<!--mep-nl[^-]/g, "<!--mep-nl-->"); 
+            o.data = o.data.replace(/<!--mep-tab[^-]/g, "<!--mep-tab-->"); //corner case, user adds four spaces after an opening script tag... not likely
+            o.data = o.data.replace(/[^-]mep-tab-->/g, "<!--mep-tab-->");  //fix script blocks that are fully indented
+            o.data = o.data.replace(/\/\/ \]\]>/g, "");
+            
+            //now decode newlines and tabs
+            o.data = o.data.replace(/<\!--mep-nl-->/g, "\r\n").replace(/<\!--mep-tab-->/g, "    ");
             
             //Fix broken >, <, &, etc symbols when they exist inside quote marks inside tag elements
             o.data = fix_intra_tag_content("&amp;", o.data, "{-mep-amp}", "&");
             o.data = fix_intra_tag_content("&gt;", o.data, "{-mep-gts}");
             o.data = fix_intra_tag_content("&lt;", o.data, "{-mep-lts}");
             o.data = fix_intra_tag_content("&#8221;", o.data, "{-mep-dbl-quote}", '"'); 
-            o.data = fix_intra_tag_content("&#8243;", o.data, "{-mep-dbl-quote}", '"'); 
+            o.data = fix_intra_tag_content("&#8243;", o.data, "{-mep-dbl-quote}", '"');
+            
+            //fix >, < last because `fix_intra_tag_content` relies on their symbol placement
             o.data = o.data.replace(/{-mep-gts}/g, '>');
             o.data = o.data.replace(/{-mep-lts}/g, '<');
             

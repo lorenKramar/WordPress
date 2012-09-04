@@ -7,7 +7,7 @@ Description: A Wordpress Plugin that preserves HTML markup in the TinyMCE editor
 html and visual tabs.  Also adds support for HTML5 Block Anchors.
 Author: Marcus E. Pope, marcuspope
 Author URI: http://www.marcuspope.com
-Version: 1.4
+Version: 1.5
 
 Copyright 2011 Marcus E. Pope (email : me@marcuspope.com)
 

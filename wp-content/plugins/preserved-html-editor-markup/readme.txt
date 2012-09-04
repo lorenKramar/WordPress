@@ -1,20 +1,30 @@
 === Preserved HTML Editor Markup ===
 Contributors: marcuspope
-Donate link: http://www.marcuspope.com/
+Donate link: http://www.marcuspope.com/wordpress
 Tags: wpautop, editor, markup, html, white space, HTML5, WYSIWYG, visual, developer
 Requires at least: 3.2.1
 Tested up to: 3.4
 Stable tag: trunk
+License: GPLv2 or later
 
-Preserves white space and developer edits in HTML tab AND WYSIWYG tab and adds support for HTML5 block anchor tags
+
+Preserves white space and developer edits in HTML AND WYSIWYG tab.  Supports inline scripts/css, JavaScript code blocks and HTML5 content editing
+
 
 == Description ==
 
 This plugin preserves the user-generated HTML markup in the TinyMCE editor.  Unlike other plugins this one allows developers to work in the HTML tab AND end-users to work in the WYSIWYG Visual tab at the same time!  No longer will your HTML markup be completely munged into an unrecognizable form when you switch between those tabs.  And you don't have to hang your users/editors out to dry when you hand off the project with a disabled Visual tab.
 
-It also supports HTML5 Block Anchor tags, something that is currently not supported in WP even via any existing plugins.
+#### IMPORTANT: Please read the installation instructions carefully.  If you have existing content it will not render properly after activating this plugin until you use the Fix It Tools.
 
-Version 1.4 is just a minor patch release.  User @denl noticed a problem with the plugin CataBlog which implements its own administrative management features by disabling the 'show_ui' flag for its custom post type.  I was ignoring any custom post type that didn't have a GUI, but it was an unecessary filter that probably limited other plugins.  This fix allows any post type that supports the TinyMCE editor to be "fixed" using the tools under Admin > Settings > Writing.
+(One user didn't read or follow these steps and panicked thinking I ruined their website.)
+
+It also supports HTML5 Block Anchor tags in addition to other HTML5 elements, something that is currently not supported in WordPress via any existing plugins.
+
+
+Version 1.5 will probably be the last version I release for a while since my daughter will be born soon.  I've added support for full JavaScript code blocks in the HTML tab.  They are compatible and preserved when switching to Visual mode.  This rounds out the support for almost complete html preservation, with full use of the WYSIWYG editor. And you don't need to wrap comment codes around it per the recommendations located here: <http://codex.wordpress.org/Using_Javascript> but you can leave them in if you want.
+
+Version 1.4 was just a minor patch release.  User @denl noticed a problem with the plugin CataBlog which implements its own administrative management features by disabling the 'show_ui' flag for its custom post type.  I was ignoring any custom post type that didn't have a GUI, but it was an unecessary filter that probably limited other plugins.  This fix allows any post type that supports the TinyMCE editor to be "fixed" using the tools under Admin > Settings > Writing.
 
 Since version 1.3 you can now use inline CSS and JavaScript in the HTML editor and everything should be preserved.  To be clear, this applies to tags only, like `onclick` events and style definitions - not script blocks themselves.  To enable this feature you must disable the `wptexturize` and `convert_chars` filters by adding the following code to your theme's `functions.php`:
 
@@ -40,6 +50,8 @@ Since version 1.2, you now have a little more control over how content is create
 
 The caveats that still remains are:
 
+  1. With script blocks added to your HTML markup, the right arrow key does not pass over them in the Visual Tab.  You can down arrow over them however so this will likely never be addressed.
+  
   1. If you use the Paragraph tag setting for newlines there is a minor bug where it will only wrap your content in Paragraph tags if you specify Paragraph in the Format drop down or if you enter more than one paragraph of text.  So if you just type one sentence and click save it will not wrap the content in Paragraph tags.  I tried to fix this but ran out of my allotted time working on other core issues.  Should be fixed in the next release.
   
   1. For performance reasons, it will only preserve spaces if 4 spaces are used consecutively - i.e. an expanded tab in developer terms.  It will not preserve intra-tag white space like &lt;p&nbsp;&nbsp;&nbsp;&nbsp;&gt;.
