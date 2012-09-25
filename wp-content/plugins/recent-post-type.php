@@ -3,9 +3,9 @@
 /*
 Plugin Name: Recent Party Pirates Posts
 Description: Random Post Widget grabs a random post and the associated thumbnail to display on your sidebar
-Author: James Bruce
+Author: 
 Version: 1
-Author URI: http://jamesbruce.me/
+Author URI: 
 */
  
  
@@ -49,7 +49,7 @@ class RecentPartyPiratePost extends WP_Widget
       $args = array( 'numberposts' => '10', 'post_type' => 'party_pirates' );
       $recent_posts = wp_get_recent_posts( $args );
       foreach( $recent_posts as $recent ){
-        echo '<h6><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h6> ' . '<div class="excerpt">' . '&ldquo;' . $recent["post_excerpt"] . '&rdquo;' .'</div>';
+        echo '<div class="recent_post"><h2><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h2> ' . '<div class="excerpt">' . '&ldquo;' . $recent["post_excerpt"] . '&rdquo;' .'</div></div>';
       }
 
  
