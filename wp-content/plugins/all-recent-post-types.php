@@ -1,20 +1,20 @@
 
 <?php
 /*
-Plugin Name: Recent Party Pirates Posts
-Description: Displays recent Party Pirate Posts ONLY
+Plugin Name: Recent Posts - ALL post types
+Description: Displays ALL recent post types
 Author: 
 Version: 1
 Author URI: 
 */
  
  
-class RecentPartyPiratePost extends WP_Widget
+class AllRecentPosts extends WP_Widget
 {
-  function RecentPartyPiratePost()
+  function AllRecentPosts()
   {
-    $widget_ops = array('classname' => 'RecentPartyPiratePost', 'description' => 'Displays Recent Party Pirates Posts' );
-    $this->WP_Widget('RecentPartyPiratePost', 'Recent Party Pirate Post', $widget_ops);
+    $widget_ops = array('classname' => 'AllRecentPosts', 'description' => 'Displays all recent post types' );
+    $this->WP_Widget('AllRecentPosts', 'All Recent Post Types', $widget_ops);
   }
  
   function form($instance)
@@ -46,10 +46,10 @@ class RecentPartyPiratePost extends WP_Widget
     // WIDGET CODE GOES HERE
     
 
-      $args = array( 'numberposts' => '10', 'post_type' => 'party_pirates' );
+      $args = array( 'numberposts' => '10', 'post_type' => array( 'party_pirates', 'megaziner', 'post', 'collectible') );
       $recent_posts = wp_get_recent_posts( $args );
       foreach( $recent_posts as $recent ){
-        echo '<div class="recent_post"><h2><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h2> ' . '<div class="excerpt">' . '&ldquo;' . $recent["post_excerpt"] . '&rdquo;' .'</div></div>';
+        echo '<div class="recent_post"><h2><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h2> ' . '<div class="excerpt">' .  $recent["post_excerpt"] . '</div></div>';
       }
 
  
@@ -57,4 +57,4 @@ class RecentPartyPiratePost extends WP_Widget
   }
  
 }
-add_action( 'widgets_init', create_function('', 'return register_widget("RecentPartyPiratePost");') );?>
+add_action( 'widgets_init', create_function('', 'return register_widget("AllRecentPosts");') );?>
