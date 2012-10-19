@@ -46,13 +46,18 @@ class AllRecentPosts extends WP_Widget
     // WIDGET CODE GOES HERE
     
 
-      $args = array( 'numberposts' => '10', 'post_type' => array( 'party_pirates', 'megaziner', 'post', 'collectible') );
+      $args = array( 'numberposts' => '5', 'post_type' => array( 'party_pirates', 'megaziner', 'post', 'collectible') );
       $recent_posts = wp_get_recent_posts( $args );
+      echo '<ul>';
       foreach( $recent_posts as $recent ){
-        echo '<div class="recent_post"><h2><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h2> ' . '<div class="excerpt">' .  $recent["post_excerpt"] . '</div></div>';
+        echo '<li class="recent_post"><h2><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h2> ';
+        if($recent["post_excerpt"] !== '') {
+          '<p class="excerpt">' .  $recent["post_excerpt"] . '</p>';
+        }
+        echo '</li>';
       }
+      echo '</ul>';
 
- 
     echo $after_widget;
   }
  

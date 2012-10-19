@@ -48,9 +48,15 @@ class RecentPartyPiratePost extends WP_Widget
 
       $args = array( 'numberposts' => '10', 'post_type' => 'party_pirates' );
       $recent_posts = wp_get_recent_posts( $args );
+      echo '<ul>';
       foreach( $recent_posts as $recent ){
-        echo '<div class="recent_post"><h2><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h2> ' . '<div class="excerpt">' . '&ldquo;' . $recent["post_excerpt"] . '&rdquo;' .'</div></div>';
+        echo '<li class="recent_post"><h2><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </h2> ';
+        if($recent["post_excerpt"] !== '') {
+          '<p class="excerpt">' .  $recent["post_excerpt"] . '</p>';
+        }
+        echo '</li>';
       }
+      echo '</ul>';
 
  
     echo $after_widget;
