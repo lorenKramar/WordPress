@@ -1,0 +1,102 @@
+#masthead {
+	position: relative;
+	z-index: 3;
+	box-shadow: none;
+	/*background: rgb(249,221,63);*/
+	background: #fff000;
+}
+
+#masthead nav {
+	text-align: center;
+	display: block;
+	padding:7px 0 2px 0;
+	background: #000;
+	font-style: italic;
+	font-size: 24px;
+	line-height: 23px;
+	word-spacing: 30px;
+	font-weight: normal;
+	font-family: 'cooper std', "cooper-black-std";
+	/*border-top:15px solid #000;
+	border-bottom:1px solid #aaa;*/
+}
+
+#masthead nav a {
+	color:#fff;
+	text-decoration: none;
+}
+
+#masthead nav a .text_wrapper {
+	position:relative;
+}
+
+#masthead nav a .hidden_text {
+	visibility: hidden;
+}
+
+#masthead nav a .visible_text {
+	position: absolute;
+	transform:  scale3d(.99,.99,.99);
+	-webkit-transform:  scale3d(.99,.99,.99);
+	-moz-transform: scale3d(.99,.99,.99);
+	transition: all 2s linear;
+	-webkit-transition: all 2s linear;
+	-moz-transition: all 2s linear;
+	left:0;
+	top:0px;
+	padding: 2px 2px 1px 2px;
+}
+
+#masthead nav a:hover .visible_text{
+	transition: all 2s linear;
+	-webkit-transition: all 2s linear;
+	-moz-transition: all 2s linear;
+	transform: scale3d(.75,.75,.75); 
+	-webkit-transform: scale3d(.75,.75,.75); 
+	-moz-transform: scale3d(.75,.75,.75);
+	/*text-shadow:1px 1px 0 #aaa;*/
+	color:#fff;
+}
+
+header {
+	position:relative;
+	/*background: #fff000;*/
+	max-width: 1400px;
+	margin:0;
+	margin:0 auto;
+	/*background-image: url(../img/sky.png);*/
+}
+
+header #signup  {
+	
+	position: absolute;
+	top:20px;
+	right:0;
+	bottom:0;
+	margin-left: 240px;
+	width:250px;
+	padding-top:0px;
+	background:#fff;
+	border-radius:150px 150px 0 0px;
+	z-index: 3;
+}
+
+header #signup h2 {
+	color:#000;
+}
+
+header h1 {
+	text-align: center;
+	font-size: 100px;
+	width:700px;
+	margin:0 0 0 3px;
+	position: relative;
+	z-index: 2;
+	padding:0 0 0px;
+}
+
+header h1 img{
+	display: block;
+	width: 665px;
+	padding:5px 0;
+}

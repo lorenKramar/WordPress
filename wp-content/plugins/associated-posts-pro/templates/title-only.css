@@ -1,0 +1,32 @@
+/*
+
+This is an example file of the Post-Page-Associator style sheet. You can copy
+this file into your theme directory and customize it until it fits your needs.
+
+If this file exists in your theme directory it will be included automaticlly
+by the plugin.
+
+*/
+
+
+
+/* The container with the associated posts */
+.associated-posts.title-only {
+}
+
+
+/* The container with ONE associated post */
+.associated-posts.title-only .associated-post {
+}
+
+
+/* The link element inside the header with the title of the post */
+.associated-posts.title-only .associated-post a {
+}
+
+
+/* The clearing element. You can use it if you want. */
+.associated-posts.title-only .clear {
+  clear: both;
+}
+

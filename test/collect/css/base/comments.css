@@ -1,0 +1,118 @@
+#comments {
+	display: block;
+	width: 410px;
+	font-size: 18px;
+	line-height: 26px;
+	position: relative;
+	background: white;
+	color: black;
+	z-index: 3;
+	padding-top:30px;
+}
+
+
+h2.comments-title {
+	margin-bottom:30px;
+	line-height:1;
+}
+
+
+#primary #comments .comment-notes, #comments .form-allowed-tags {
+	font-size: 12px;
+	line-height: 15px;
+	color:#aaa;
+}
+
+#primary #comments .reply a {
+	color: #000;
+	font-size: 15px;
+}
+
+#primary #comments #commentform p {
+	margin: 10px 0;
+}
+
+#primary #comments label, #comments .required {
+	font-size: 15px;
+	text-transform: uppercase;
+	font-family: "proxima-nova-extra-condensed", arial;
+	font-weight: 200;
+}
+
+#primary #comments input[type=text] {
+	width:300px;
+	margin:0 10px;
+	height:25px;
+	border:1px solid #ccc;
+}
+
+#primary #comments textarea {
+	width:408px;
+	border:1px solid #ccc;	
+}
+
+#primary #comments .comment-author {
+	font-size: 15px;
+	font-weight: 900;
+	text-transform: uppercase;
+	font-family: "proxima-nova-extra-condensed", arial;
+	letter-spacing: 1px;
+}
+
+#primary #comments .comment-author cite {
+	font-style: normal;
+}
+
+#primary #comments .comment-author img {
+	display: none;
+}
+
+#primary #comments .comment-meta {
+	font-size: 12px;
+	line-height: 15px;
+	color: #AAA;
+}
+
+#primary #comments .comment-meta a {
+	font-size: 12px;
+	line-height: 15px;
+	color: #AAA;
+}
+
+#primary #comments .reply {
+	font-size: 12px;
+	line-height: 15px;
+	color: #AAA;
+}
+
+#primary #comments #reply-title {
+	position: relative;
+	font-family: 'cooper std', "cooper-black-std", georgia;
+	transform: rotateZ(-2deg);
+	-webkit-transform: rotateZ(-2deg);
+	-moz-transform: rotateZ(-2deg);
+	padding:10px 0 20px;
+	color: #000;
+	font-style: italic;
+	font-size:36px;
+	text-transform: none;
+	text-align: center;
+}
+
+p.logged-in-as {
+	font-size: 12px;
+	line-height: 15px;
+	color: #AAA;
+	text-align:center;
+	padding-top:10px;
+}
+
+.comments-link a {
+	font-weight: 900;
+}
+
+#primary #comments .comment-notes, #comments .form-allowed-tags {
+	font-size: 12px;
+	line-height: 15px;
+	color:#aaa;
+}

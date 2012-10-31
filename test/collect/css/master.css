@@ -1,0 +1,44 @@
+@import url(base/reset.css);
+@import url(base/text-elements.css);
+@import url(base/sidebar.css);
+@import url(base/signup.css);
+@import url(base/comments.css);
+@import url(base/media-handling.css);
+@import url(base/header.css);
+@import url(widgets/news.css);
+@import url(widgets/recent_posts.css);
+
+html{
+	overflow-y:auto;
+}
+
+body {
+	min-width:1000px;
+	cursor: url('imgs/cursor.png'), default;
+}
+
+a {
+	color:#000;
+}
+
+a:hover {
+	cursor: url('imgs/pointer.png'), pointer;
+}
+
+#primary {
+	margin-left:250px;
+	overflow: hidden;
+	overflow-x:auto;
+	z-index: 5;
+}
+
+#content {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.hidden {
+	display: none;
+}
+

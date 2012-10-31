@@ -1,0 +1,122 @@
+.page h1.entry-title {
+	display:none;
+}
+
+.page #primary {
+	display: block;
+	font-size:18px;
+	line-height:26px;
+	padding:20px 0px;
+	/*border-left: 1px solid #000;*/
+	position: relative;
+	background:#fff;
+	color:#000;
+	z-index:2;
+	font-family: "pt-sans", verdana;
+}
+
+.page #flow_content_wrapper {
+	width:410px;
+	padding:0 20px;
+}
+
+.page #flow_content_wrapper p {
+	margin:20px 0;
+}
+
+.page #flow_content_wrapper a {
+
+	color:#000;
+}
+
+
+.page #primary h3 {
+
+	font-family: "proxima-nova-extra-condensed", arial;
+	text-align:center;
+	font-size:28px;
+	font-weight:200;
+	text-transform: uppercase;
+}
+.page #primary h2 {
+
+	font-size:18px;
+	padding: 10px 0;
+	font-weight:normal;
+	
+}
+
+
+
+.page #primary {
+	display: block;
+	font-size: 14px;
+	line-height: 19px;
+	padding:20px 0px;
+	/*border-left: 1px solid #000;*/
+	position: relative;
+	background:#fff;
+	color:#000;
+	z-index:2;
+	font-family: "pt-sans", verdana;
+}
+
+.page #flow_content_wrapper {
+	width:410px;
+	padding:0 20px;
+}
+
+.page #flow_content_wrapper p {
+	margin:0 0 20px 0;
+}
+
+.page #flow_content_wrapper a {
+
+	color:#000;
+}
+
+
+.page #primary h3, #primary h4 {
+	font-family: "proxima-nova-extra-condensed", arial;
+	text-align:center;
+	font-size:28px;
+	font-weight:200;
+	text-transform: uppercase;
+}
+
+.page  #primary h3 {
+	margin:0 0 30px;
+}
+
+.page  #primary h4 {
+	font-size: 24px;
+	text-align: left;
+}
+
+
+
+.page  #primary h2 {
+
+	font-size:18px;
+	padding: 10px 0;
+	font-weight:normal;
+	
+}
+
+.page  #primary .contrib h2,
+.page  #primary .editor h2 {
+	font-size:40px;
+	line-height:40px;
+	padding:0;
+	font-weight: 900;
+	font-family: "proxima-nova-extra-condensed", arial;
+}
+
+
+.page  #primary .contrib p:first-child{
+	margin-top:0;
+}
+
+.page  #primary .contrib p a {
+	color:navy;
+}

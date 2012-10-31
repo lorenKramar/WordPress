@@ -1,0 +1,46 @@
+#related li h2 {
+	font-family: "proxima-nova-extra-condensed", 'arial black', sans-serif;
+	font-weight: 900;
+	line-height: 25px;
+	font-size:15px;
+	padding:0px 0 7px;
+	text-transform: uppercase;
+}
+
+#related li h3 {
+	
+	font-family: "proxima-nova-extra-condensed", arial, sans-serif;
+	font-weight: 200;
+	line-height: 28px;
+	font-size:28px;
+	padding:8px 0 2px;
+}
+
+#related .img_wrapper {
+	border: 1px solid #000;
+	width:175px;
+	height:175px;
+	background:#ffea00;
+	overflow: hidden;
+	
+}
+
+#related .img_wrapper a {
+	width:175px;
+	height:175px;
+}
+
+#related img {
+	width:175px;
+	display: block;
+}
+
+#related li {
+	padding:5px 0px;
+	margin: 0 10px;
+}
+
+#related li:first-child {
+	padding-top:0;
+}
+

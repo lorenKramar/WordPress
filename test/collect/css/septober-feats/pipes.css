@@ -1,0 +1,123 @@
+/* PIPES! .postid-25
+-----------------------------------------------------------------------------------------------*/
+
+.postid-25 #primary .head {
+	background-color: #000000;
+    border-radius: 150px 150px 150px 150px;
+    height: 250px;
+    width: 250px;
+    margin: 0 auto -95px;
+
+}
+
+.postid-25 #primary h1.entry-title {
+	display:none;
+}
+
+.postid-25 #primary h1  {
+	font-family:"proxima-nova-extra-condensed", arial, sans-serif;
+	font-weight:200;
+	 font-size: 38px;
+	 text-align:center;
+	 color:#fff;
+	 padding-top:50px;
+}
+
+.postid-25 #primary h2 {
+	font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    color:#fff;
+    font-weight:300;
+}
+
+.postid-25 #primary #slides ul{
+	position:relative;
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+.postid-25 #primary #slides li {
+	outline:1px solid #000;
+	background:#000;
+}
+.postid-25 #primary #slides .vertical li{
+	text-align:center;
+}
+
+
+.postid-25 #primary #slides .pictureGrid {
+	height:700px;
+	max-width: 1200px;
+	margin:0px auto;
+
+}
+
+
+
+.postid-25 #primary #slides {
+	padding:0px 10px 30px;
+	background: #fff;
+}
+
+.postid-25 #primary #slides img {
+	
+	
+	
+	width: 800px;
+	position: absolute;
+	left:50%;
+	margin-left:-400px;
+	top:50%;
+	margin-top:-266px;
+	transform:  scale(.45,.45);
+	-webkit-transform:  scale(.45,.45);
+	-moz-transform: scale(.45,.45);
+	
+	transition: all 450ms linear;
+	-webkit-transition: all 450ms linear;
+	-moz-transition: all 450ms linear;
+
+}
+
+
+.postid-25 #primary #slides  .gsActive img {
+
+	transform:  scale(1,1);
+	-webkit-transform:  scale(1,1);
+	-moz-transform: scale(1,1);
+	
+	transition: all 450ms linear;
+	-webkit-transition: all 450ms linear;
+	-moz-transition: all 450ms linear;
+
+
+}
+
+.postid-25 #primary #slides li {
+	border: none;
+	outline: none;
+	position: relative;
+	outline: 1px solid #000;
+}
+
+.postid-25 #primary img {
+	max-width: none;
+}
+
+.postid-25 #primary .gsActive p.wp-caption-text {
+	display: block;
+	position: absolute;
+	color: white;
+	bottom: 0;
+	text-align: left;
+	font-size: 15px;
+	left: 20px;
+	font-family: "pt-sans", verdana, 'lucida grande', sans-serif;
+	bottom:-15px;
+}
+
+.postid-25 #primary p.wp-caption-text {
+	display:none;
+}

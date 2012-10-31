@@ -1,0 +1,106 @@
+/* PORTFOLIO .postid-27
+-----------------------------------------------------------------------------------------------*/
+
+.postid-27 #primary .entry-content {
+	height: 100%;
+	width: 23400px;
+	min-height: 500px;
+	overflow-y: hidden;
+}
+
+
+/*INTRO*/
+
+.postid-27 #primary #intro {
+	width:1000px;
+	display:block;
+	float:left;
+	height:100%;
+	position:relative;
+	max-height:800px;
+
+}
+
+.postid-27 #primary h1.entry-title {
+	display:none;
+}
+
+.postid-27 #primary h1 {
+	text-transform: uppercase;
+	padding: 0;
+	font-family: "proxima-nova-extra-condensed", 'arial black', sans-serif;
+	border-bottom: 3px solid #404040;
+	border-top: 3px solid #404040;
+	display: block;
+	width: 421px;
+	margin:-73px auto 0;
+	/*font-weight: bold;*/
+	font-size:53px;
+}
+
+.postid-27 #primary h2 {
+	font-family: "proxima-nova-extra-condensed", arial, sans-serif;
+	font-weight:200;
+	text-transform:uppercase;
+	text-align:center;
+	padding:0;
+    margin:0;
+    color:#404040;
+}
+
+.postid-27 #primary h2#first {
+	font-size: 234px;
+}
+
+.postid-27 #primary h2#last {
+	font-size: 164px;
+	margin-top: -37px;
+	margin-left: -10px;
+}
+
+/*BODY*/
+
+#primary .transition-holder {
+	height:100%;
+	float:left;
+	max-height:900px;
+}
+
+#primary .transition {
+	width:100px;
+	height:98px;
+	top:50%;
+	margin-top:-50px;
+	position:absolute;
+	background-image:url('imgs/penny.jpg');
+}
+
+
+#a1, #a2, #a3, #a4, #a5, #a6, #a7, #a8, #a9, #a10, #a11, #a12, #a13, #a14 {
+	height:100%;
+	width:1600px;
+	display:block;
+	float:left;
+}
+
+.postid-27  #primary section {
+height:100%;
+	position:relative;
+}
+
+
+.postid-27 #primary .image_wrapper {
+	width: 100%;
+	max-height: 800px;
+}
+
+
+/* IMG GLOBAL */
+.postid-27 #primary img {
+	display:block;
+	height:100%;
+	margin:0px auto;
+	max-height:800px;
+	position:relative;
+	z-index:2;
+}

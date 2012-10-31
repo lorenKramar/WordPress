@@ -1,0 +1,267 @@
+/* PARTY PIRATES .page-template-template-post-type-archive-party_pirates php ; .post-type-archive-party_pirates  for single: .single-party_pirates
+-----------------------------------------------------------------------------------------------*/
+
+
+h1.title {
+	text-transform:uppercase;
+	text-align:center;
+}
+
+/* PARTY PIRATES SPECIFIC SIDEBAR */
+
+#party-sidebar {
+	width: 300px;
+	height: 300px;
+	float: left;
+	display: block;
+}
+
+/* Party Pirates Post Content */
+
+/*Header*/
+
+h1.entry-title a {
+	color:black;
+	font-family: "minion-pro",sans-serif;
+	font-size:23px
+}
+
+.party_pirates .entry-meta {
+	font-family: "proxima-nova-extra-condensed",sans-serif;
+	font-weight:300;
+	font-size:15px;
+	text-transform:uppercase;
+}
+
+
+/*Footer*/
+
+footer.entry-meta {
+	padding-top:15px;
+}
+
+footer.entry-meta span.sep {
+	display:none;
+}
+
+
+
+/* -----PARTY PIRATES .post-type-archive-party_pirates  .single-party_pirates---------------------------------------------------------------------------------------------------------------------------------------*/
+
+span.byline {
+	display:none;
+}
+
+.blog_content a, #comments a, .entry-meta a, .post-meta a {
+	color:navy;
+}
+
+.post-type-archive-party_pirates #primary {
+	padding:0;
+}
+
+.post-type-archive-party_pirates #flow_content_wrapper {
+	padding:0;
+	width:410px;
+}
+
+.single-party_pirates #primary .blog_content,
+.post-type-archive-party_pirates #primary .blog_content {
+	display: block;
+	width:410px;	
+	font-size:14px;
+	line-height:19px;
+	padding:22px 20px;
+	box-shadow:0 0px 35px #777;
+	-moz-box-shadow:0 0px 35px #777;
+	-webkit-box-shadow:0 0px 35px #777;
+	/*border-radius :0 150px 0 0;*/
+	/*-moz-border-radius :0 150px 0 0;*/
+	position: relative;
+	background:#fff;
+	color:#000;
+	z-index:3;
+	font-family: "pt-sans", verdana;
+}
+
+
+.post-type-archive-party_pirates #primary .blog_content section {
+	padding-bottom:30px;	
+}
+
+/*
+.post-type-archive-party_pirates #comments {
+	margin: 0;
+}*/
+
+
+.post-type-archive-party_pirates #primary h2, .single-party_pirates #primary h2{
+	font-family: "proxima-nova-extra-condensed", arial;
+	text-align:center;
+	font-size:15px;
+	padding:0px 0 50px;
+	font-weight:200;
+	text-transform: uppercase;
+}
+
+.post-type-archive-party_pirates #primary h5.feed_link, .single-party_pirates #primary h5.feed_link {
+  position: absolute;
+
+  
+  font-family: 'cooper std', "cooper-black-std", georgia;
+
+  transform: rotateZ(-2deg);
+  -webkit-transform: rotateZ(-2deg);
+  -moz-transform: rotateZ(-2deg);
+
+  padding:10px 0;
+  color: #000;
+  font-style: italic;
+  font-size:24px;
+  text-transform: none;
+  top:110px;
+  right:45px;
+  text-align: center;
+}
+
+.post-type-archive-party_pirates #primary h5.feed_link a, .single-party_pirates #primary h5.feed_link a {
+  color:red;
+  text-decoration: none;
+}
+
+
+.post-type-archive-party_pirates #primary h3, .single-party_pirates #primary h3  {
+
+	font-family: "proxima-nova-extra-condensed", arial;
+	text-align:center;
+	font-size:28px;
+	font-weight:200;
+	text-transform: uppercase;
+	margin-bottom:10px;
+}
+
+
+
+.post-type-archive-party_pirates #primary h2 em, .single-party_pirates #primary h2 em {
+	font-size:36px;
+	text-transform:uppercase;
+	font-style:normal;
+	font-weight:900;
+	font-family: "proxima-nova-extra-condensed", 'arial black';
+	display: block;
+	padding-top: 10px;
+}
+
+
+.post-type-archive-party_pirates #primary h1, .single-party_pirates #primary h1 {
+	width:600px;
+	margin:0 auto;
+	padding:50px;
+}
+
+.post-type-archive-party_pirates #primary h1 img, .single-party_pirates #primary h1 img {
+	display: block;
+}
+
+
+.post-type-archive-party_pirates #primary img, .single-party_pirates #primary img  {
+	width: 100%;
+	display: block;
+	margin:12px 0;
+}
+
+
+.post-type-archive-party_pirates #primary h2.post-title, .single-party_pirates #primary h2.post-title {
+	padding:0;
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 25px;
+	line-height: 25px;
+}
+
+.post-type-archive-party_pirates #primary p.post-meta, .single-party_pirates #primary p.post-meta {
+	color:#aaa;
+	font-size: 12px;
+	padding: 0;
+	margin: 4px 0;
+	line-height: 15px;
+}
+
+#primary #back_stuff {
+	position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	z-index:1;
+	background: #000;
+}
+
+#primary #back_stuff p {
+
+	transform: perspective(500px) rotateY(-25deg);
+	-webkit-transform: perspective(500px) rotateY(-25deg);
+	-moz-transform: perspective(500px) rotateY(-25deg);
+
+	animation:lightup 10s infinite linear;
+	-moz-animation:lightup 10s infinite linear; 
+	-webkit-animation:lightup 10s infinite linear;
+
+
+	font-family: courier, monospace;
+	color:#fff;
+	width:800px;
+	line-height: 7px;
+	position: absolute;
+	right:50%;
+	margin-right: -800px;
+	top:-100px;
+	height:931px;
+	top:50%;
+	margin-top: -465px;
+}
+
+#primary #back_stuff p span {
+	display: block;
+	line-height: 7px;
+	font-size: 12px;
+	letter-spacing: 2px;
+}
+
+
+
+#sidebar.party{
+	font-family: "pt-sans", verdana;
+    line-height: 26px;
+    padding-top:0px;
+    border-right:1px solid yellow;
+
+}
+
+#sidebar.party .pp_widget {
+	padding:0 0 20px 0;
+}
+
+#sidebar.party .textwidget {
+	position: relative;
+	font-size: 14px;
+	line-height: 19px;
+	margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+    font-family: "pt-sans", arial, sans-serif;
+    /*border-top: 5px solid yellow;*/
+    /*border-bottom: 15px solid yellow;*/
+    /*margin-top:20px;*/
+    /*border-radius :0 0px 30px 0;*/
+	/*-moz-border-radius :0 0px 30px 0;*/
+    background: yellow;
+    /*color:#fff;*/
+    /*font-weight: 900;*/
+    z-index: 2;
+}
+
+span.byline {
+	display:none;
+}
+
+

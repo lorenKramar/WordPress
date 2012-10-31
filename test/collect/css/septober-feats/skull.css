@@ -1,0 +1,41 @@
+/* SKULL .skull
+-----------------------------------------------------------------------------------------------*/
+
+.skull #primary #slides {
+	margin:0 auto;
+	width:100%;
+	height:800px;
+	min-width: 488px;
+}
+
+.skull #primary #slides img {
+	width: 100%;
+}
+
+.skull #primary h1.entry-title {
+	display:none;
+}
+
+.skull #primary h1.headline {
+	text-align: center;
+	font: 95px/1 "proxima-nova-extra-condensed";
+	text-transform: uppercase;
+	display: block;
+	margin: 5% auto 5%;
+	font-weight:300;
+	padding-bottom:0;
+	margin-bottom:0;
+}
+
+.skull #primary h2 {
+	font-weight:700;
+	font-size:24px;
+	text-align:center;
+	text-transform:uppercase;
+	margin-bottom:10px;
+}
+
+.skull #primary #content {
+	width:90%;
+	margin:0 auto;
+}

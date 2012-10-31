@@ -1,0 +1,52 @@
+/*
+
+This is an example file of the Post-Page-Associator style sheet. You can copy
+this file into your theme directory and customize it until it fits your needs.
+
+If this file exists in your theme directory it will be included automaticlly
+by the plugin.
+
+*/
+
+
+
+/* The container with the associated posts */
+.associated-posts.title-excerpt-thumbnail {
+}
+
+
+/* The container with ONE associated post */
+.associated-posts.title-excerpt-thumbnail .associated-post {
+}
+
+
+/* The header element with the title of the post */
+.associated-posts.title-excerpt-thumbnail .associated-post .post-title {
+}
+
+
+/* The link element inside the header with the title of the post */
+.associated-posts.title-excerpt-thumbnail .associated-post .post-title a {
+}
+
+
+/* The element which contains the post thumbnail image element */
+.associated-posts.title-excerpt-thumbnail .associated-post .thumb-frame {
+}
+
+
+/* The post thumbnail image element itself */
+.associated-posts.title-excerpt-thumbnail .associated-post .thumb-frame img {
+}
+
+
+/* The element which contains the post excerpt. (Only if you set up 'show an excerpt of the posts.') */
+.associated-posts.title-excerpt-thumbnail .associated-post .post-excerpt {
+}
+
+
+/* The clearing element. You can use it if you want. */
+.associated-posts.title-excerpt-thumbnail .clear {
+  clear: both;
+}
+

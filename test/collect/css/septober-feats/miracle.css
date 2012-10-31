@@ -1,0 +1,365 @@
+/*
+Kickstart: article.post-15
+*/
+
+#fixed_space {
+	position: fixed;
+	top:0px;
+	bottom:0px;
+	right:0;
+	left:0px;
+	z-index: 1;
+}
+
+
+#flow_content_wrapper {
+	position: relative;
+	z-index: 2;
+}
+
+.kickstart-my-bad-life #primary #content,
+.cream #primary #content,
+.muteamate #primary #content,
+.ball-fights #primary #content {
+	padding:20px;
+	width:410px;
+}
+
+
+
+#primary article.tag-story h1.entry-title {
+	display:none;
+}
+
+#primary article.tag-story a {
+	color:#000;
+}
+
+.kickstart-my-bad-life #content,
+.ball-fights #content,
+.muteamate #content,
+.cream #content {
+	display: block;
+	font-size: 14px;
+	line-height: 19px;
+	box-shadow:0 0px 35px #777;
+	border-left: 1px solid #000;
+	-moz-box-shadow:0 0px 35px #777;
+	-webkit-box-shadow:0 0px 35px #777;
+	border-radius :0 150px 0 0;
+	-moz-border-radius :0 150px 0 0;
+	position: relative;
+	background:#fff;
+	color:#000;
+	z-index:3;
+	font-family: "pt-sans", verdana;
+}
+
+
+.muteamate #content  {
+	background:#fff;
+	color:#000;
+	box-shadow:0 0px 35px #000;
+	border-left: 1px solid #ccc;
+	-moz-box-shadow:0 0px 35px #000;
+	-webkit-box-shadow:0 0px 35px #000;
+}
+
+
+.kickstart-my-bad-life #content  {
+	background:#fff;
+	color:#000;
+	box-shadow:0 0px 35px #000;
+	border-left: 2px solid pink;
+	-moz-box-shadow:0 0px 35px #000;
+	-webkit-box-shadow:0 0px 35px #000;
+}
+
+.ball-fights #content .post-36 article {
+	background:#fff;
+	color:#000;
+	box-shadow:0 0px 35px #000;
+	border-left: 1px solid yellow;
+	-moz-box-shadow:0 0px 35px #000;
+	-webkit-box-shadow:0 0px 35px #000;
+}
+
+#primary #recording_heading{
+	/*color:red;*/
+	font-size: 15px;
+	font-weight: 200;
+	padding:0;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	font-family: "proxima-nova-extra-condensed", arial;
+	text-transform: uppercase;
+
+}
+
+#recording_box{
+	padding: 5px 0 0;
+	display: block;
+	width:250px;
+	margin:0 auto;
+}
+
+.post-15 #recording_box{
+	padding: 5px 0 15px;
+	display: block;
+	width:350px;
+	margin:0 auto;
+}
+
+#primary .story_title {
+	color:#fff;
+	z-index: 1;
+	position: absolute;
+	left:670px;
+	width:5000px;
+	text-align: left;
+	bottom: 0;
+	font-size: 400px;
+	height:295px;
+	text-transform: uppercase;
+	font-weight: 900;
+	white-space: nowrap;
+	line-height:1;
+}
+
+
+#primary.post-17 .story_title {
+	color:#ccc;
+	
+}
+
+#primary article.tag-story .story_title {
+	color:#000;
+	
+}
+
+#primary .post-36 .story_title {
+	color:#ccc;
+	
+}
+
+
+#primary article.tag-story h2 {
+
+	font-family: "proxima-nova-extra-condensed", arial;
+	/*font-weight:300;*/
+
+	text-align:center;
+	font-size:15px;
+	padding:0px 0 30px;
+	font-weight:200;
+	text-transform: uppercase;
+	/*text-shadow:-2px -2px 0 #fff;*/
+}
+
+
+#primary article.tag-story h3 {
+
+	font-family: "proxima-nova-extra-condensed", arial;
+	/*font-weight:300;*/
+
+	text-align:center;
+	font-size:28px;
+	/*padding:0px 0 30px;*/
+	font-weight:200;
+	text-transform: uppercase;
+	/*text-shadow:-2px -2px 0 #fff;*/
+}
+
+
+
+#primary article.tag-story h2 em {
+	font-size:40px;
+	text-transform:uppercase;
+	font-style:normal;
+	font-weight:900;
+	display: block;
+	padding-top: 3px;
+}
+
+#primary article.tag-story h5 {
+	text-transform:uppercase;
+	font-weight:900;
+	text-align:center;
+	font-size:30px;
+	text-shadow:-2px -2px 0 #fff;
+	padding:20px 0;
+	font-size:24px;
+	text-transform:uppercase;
+	font-style:normal;
+	font-weight:900;
+	display: block;
+}
+
+#primary article.tag-story h1 {
+	width:600px;
+	margin:0 auto;
+	padding:50px;
+}
+
+#primary article.tag-story h1 img {
+	display: block;
+}
+
+
+
+#primary article.tag-story section p {
+	margin:12px 0;
+}
+
+#primary #right_gutter {
+	position:absolute;
+	right:0;
+	left:0px;
+	height:100%;
+	top:0;
+	z-index:2;
+}
+
+#primary #right_gutter .elastic_box {
+	position:absolute;
+	right:0;
+	left:0;
+	height:100%;
+	top:0;
+	overflow:hidden;
+}
+
+#primary #right_gutter .mask {
+	position: absolute;
+	top:0;
+	z-index:2;
+	right:0;
+	left:0;
+	bottom:0;
+}
+
+#primary #right_gutter .mask .hole {
+
+	height:100%;
+	bottom:0;
+	position: absolute;
+	left:0;
+	width:100%;
+	background: radial-gradient(50% 100%, circle , rgba(0,0,0, 0) 0%, rgb(0,0,0) 75%) repeat scroll 0 0;
+	background: -moz-radial-gradient(50% 100%, circle , rgba(0,0,0, 0) 0%, rgb(0,0,0) 75%) repeat scroll 0 0;
+	background: -webkit-radial-gradient(50% 100% , circle , rgba(0,0,0, 0) 0%, rgb(0,0,0) 75%) repeat scroll 0 0;
+
+}
+
+
+#primary .post-17 #right_gutter .mask .hole {
+	background: radial-gradient(50% 100%, circle , rgba(255,255,255, 0) 0%, rgb(255,255,255) 75%) repeat scroll 0 0;
+	background: -moz-radial-gradient(50% 100%, circle , rgba(255,255,255, 0) 0%, rgb(255,255,255) 75%) repeat scroll 0 0;
+	background: -webkit-radial-gradient(50% 100% , circle , rgba(255,255,255, 0) 0%, rgb(255,255,255) 75%) repeat scroll 0 0;
+
+}
+
+
+#primary .post-15 #right_gutter .mask .hole {
+
+	background: radial-gradient(50% 100%, circle , rgba(55,55,55, 0) 0%, rgb(55,55,55) 75%) repeat scroll 0 0;
+	background: -moz-radial-gradient(50% 100%, circle , rgba(55,55,55, 0) 0%, rgb(55,55,55) 75%) repeat scroll 0 0;
+	background: -webkit-radial-gradient(50% 100% , circle , rgba(55,55,55, 0) 0%, rgb(55,55,55) 75%) repeat scroll 0 0;
+
+}
+
+#primary .post-36 #right_gutter .mask .hole {
+
+	background: radial-gradient(50% 100%, circle , rgba(255,255,255, 0) 0%, rgb(0,34,119) 75%) repeat scroll 0 0;
+	background: -moz-radial-gradient(50% 100%, circle , rgba(255,255,255, 0) 0%, rgb(0,34,119) 75%) repeat scroll 0 0;
+	background: -webkit-radial-gradient(50% 100% , circle , rgba(255,255,255, 0) 0%, rgb(0,34,119) 75%) repeat scroll 0 0;
+
+}
+
+
+
+#primary #band_box {
+	position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	z-index:1;
+	background: #000;
+}
+
+
+#primary .post-17 #band_box {
+	background:rgb(11,0,64);
+	
+}
+
+#primary .post-15 #band_box {
+	
+	background:rgb(132,179,64);
+	
+}
+
+
+#primary .post-36 #band_box {
+		
+	background:rgb(201,23,0);
+	
+}
+
+
+#primary #band_box .band {
+	background:rgb(255,231,241);
+	width:100%;
+	height:12.5%;
+	position:relative;
+	overflow: hidden;
+}
+
+#primary #band_box .gradient {
+	width:100%;
+	height:500%;
+	position:absolute;
+	background:linear-gradient(to bottom, rgb(0,0,0), rgb(255,231,241));
+	background:-moz-linear-gradient(to bottom, rgb(0,0,0), rgb(255,231,241));
+	background:-webkit-linear-gradient(top, rgb(0,0,0), rgb(255,231,241));
+}
+
+
+
+#primary .post-17 #band_box .band {
+	background:rgb(11,0,64);
+	
+}
+
+#primary .post-17 #band_box .gradient {
+	background:linear-gradient(to bottom, rgb(0,0,0), rgb(11,0,64));
+	background:-moz-linear-gradient(to bottom, rgb(0,0,0), rgb(11,0,64));
+	background:-webkit-linear-gradient(top, rgb(0,0,0), rgb(11,0,64));
+}
+
+#primary .post-15 #band_box .band {
+	
+	background:rgb(132,179,64);
+	
+}
+
+#primary .post-15 #band_box .gradient {
+	background:linear-gradient(to bottom, rgb(0,0,0), rgb(132,179,64));
+	background:-moz-linear-gradient(to bottom, rgb(0,0,0), rgb(132,179,64));
+	background:-webkit-linear-gradient(top, rgb(0,0,0), rgb(132,179,64));
+}
+
+#primary .post-36 #band_box .band {
+
+	background:rgb(201,23,0);
+	
+}
+
+#primary .post-36 #band_box .gradient {
+	background:linear-gradient(to bottom, rgb(0,0,0), rgb(201,23,0));
+	background:-moz-linear-gradient(to bottom, rgb(0,0,0), rgb(201,23,0));
+	background:-webkit-linear-gradient(top, rgb(0,0,0), rgb(201,23,0));
+}
+

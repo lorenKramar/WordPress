@@ -1,0 +1,90 @@
+/* MOLE PEOPLE .postid-141 
+---------------------------------------------------------------------------------------------------*/
+
+.postid-141 #page {
+	background-color:#000;
+}
+
+.postid-141 a {
+	color:#fff;
+}
+
+.postid-141 #primary h1.entry-title {
+	display:none;
+}
+
+.postid-141 #primary .entry-content {
+	position:relative;
+	height:2500px;
+}
+.postid-141 #primary #content {
+	background-color:#000;
+
+}
+
+.postid-141 #primary .post {
+	padding-left:3%;
+}
+
+
+.postid-141 #primary h2 {
+	color:#fff;
+	text-transform:uppercase;
+	font-size: 57px;
+	font-weight:300;
+}
+
+
+
+.busted, #primary .scary, #primary .surfer, #primary .sallow, #primary .glam {
+	width:37%;
+}
+
+ #primary .busted {
+	position: absolute;
+	top: 73px;
+	right: 10%;
+	max-width:300px;
+}
+
+#primary .scary {
+	position: absolute;
+	bottom: 200px;
+	right: 11%;
+	width: 35%;
+	max-width:300px;
+}
+
+#primary .surfer {
+	position: absolute;
+	width: 38%;
+	top: 600px;
+	left: 20%;
+	max-width:300px;
+}
+
+#primary .glam {
+	position: absolute;
+	bottom: 950px;
+	right: 10%;
+	width: 38%;
+	max-width:300px;
+}
+
+#primary .sallow {
+	position: absolute;
+	bottom: 559px;
+	max-width: 300px;
+	left: -60px;
+}
+
+/* h3 = header captions*/
+
+.postid-141 #primary h3 {
+	font-family: "proxima-nova-extra-condensed",sans-serif;
+	font-weight:700;
+	text-transform:uppercase;
+	font-size:22px;
+	color:#fff;
+	padding-left:5px;
+}

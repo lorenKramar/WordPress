@@ -1,0 +1,32 @@
+#wp_plugin_associated_posts span.option-short,
+#wp_plugin_associated_posts span.option-long {
+  width: 150px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#wp_plugin_associated_posts span.option-long {
+  width: 304px;
+}
+
+#wp_plugin_associated_posts .toggle-box input {
+}
+
+
+#wp_plugin_associated_posts h4.toggle-title {
+  cursor: pointer;
+  padding-left: 15px;
+  background: url(images/arrow-up.gif) scroll no-repeat left center;
+}
+#wp_plugin_associated_posts h4.toggle-title.closed {
+  background: url(images/arrow-down.gif) scroll no-repeat left bottom;
+}
+#wp_plugin_associated_posts h4.toggle-title.open {
+}
+
+#wp_plugin_associated_posts h4.toggle-title .active {
+  color: red;
+  font-size: 0.9em;
+  font-style: italic;
+}

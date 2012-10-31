@@ -1,0 +1,167 @@
+/* EROTICA .postid-33
+-----------------------------------------------------------------------------------------------*/
+
+.postid-33 #primary h1 {
+	display:none;
+}
+
+.postid-33 a {
+	color:#000;
+}
+
+.postid-33 #primary #slides {
+	width:100%;
+	position: absolute;
+	top:0;
+	right:0;
+	bottom: 0;
+	left:0;
+	min-width: 488px;
+	overflow: hidden;
+	z-index:-1;
+}
+
+.postid-33 #primary .entry-content {
+	min-height: 600px;
+    min-width: 488px;
+    position: relative;
+}
+
+.postid-33 #primary #slides img {
+	width: 100%;
+}
+
+
+.postid-33 #primary .circle {
+	display: block;
+	width: 275px;
+	height: 275px;
+	border-radius: 150px;
+	position: absolute;
+
+}
+
+.postid-33 #primary .lim {
+ 	padding-top: 87px;
+	margin:0 auto;
+	width:205px;
+}
+
+.postid-33 #primary .lim p {
+	margin: 0 0 7px 0;
+	padding: 0;
+	font-size: 18px;
+	font-family: "proxima-nova-extra-condensed",arial, sans-serif;
+	font-weight:300;
+	line-height: 15px;
+	text-align:center;
+}
+
+.postid-33 #primary .lim p.alt {
+	color:gray;
+}
+
+/*title*/
+
+.postid-33 #primary .circle#one h2, .circle#one h3 {
+	font-family: "proxima-nova-extra-condensed",arial, sans-serif;
+	font-weight:900;
+	text-transform:uppercase;
+	text-align:center;
+	margin:0;
+	font-size:25px;
+	line-height: 27px
+} 
+
+.postid-33 #primary .circle#one h2 {
+	color:white;
+}
+
+.postid-33 #primary .circle#one h2.title-two {
+	padding-top:10px;
+	line-height: 28px;
+}
+
+.postid-33 #primary .circle#one p {
+	font-family: "proxima-nova-extra-condensed",arial, sans-serif;
+	font-weight:300;
+	margin:0;
+	text-align:center;
+	font-size: 18px;
+}
+
+.postid-33 #primary .circle#one .head {
+    padding-top: 30px;
+	width: 250px;
+	margin: 0 auto;
+}
+
+/*end title*/
+
+.postid-33 #primary .circle {
+	display:none;
+}
+
+.postid-33 #primary .circle#one {
+	background-color:red;
+	top:10px;
+	left:10%;
+}
+
+.postid-33 #primary .circle#two {
+	background-color:green;
+	bottom:30px;
+	right:30%;
+}
+
+.postid-33 #primary .circle#two p.alt {
+	color:#fff;
+}
+
+.postid-33 #primary .circle#three {
+	background-color:yellow;
+	top:10px;
+	right:10%;
+}
+
+.postid-33 #primary .circle#four {
+	background-color:yellowgreen;
+	bottom:30px;
+	left:30%;
+}
+
+.postid-33 #primary .circle#four p.alt {
+	color:#fff;
+}
+
+.postid-33 #primary .circle#five {
+	background-color:pink;
+	top:30px;
+	right:30%;
+}
+
+.postid-33 #primary .circle#six {
+	background-color:lightblue;
+	bottom:10px;
+	right:10%;
+}
+
+.postid-33 #primary .circle#seven {
+	background-color:crimson;
+	top:30px;
+	left:30%;
+}
+
+.postid-33 #primary .circle#seven p.alt {
+	color:#fff;
+}
+
+.postid-33 #primary .circle#eight {
+	background-color:orangered;
+	bottom:10px;
+	left:10%;
+}
+
+.postid-33 #primary .circle#eight p.alt {
+	color:#fff;
+}

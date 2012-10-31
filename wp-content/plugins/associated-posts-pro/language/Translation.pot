@@ -1,0 +1,353 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Associated Posts Pro Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-19 15:06+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Dennis Hoppe <mail@DennisHoppe.de>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: t;t:2c,1\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../meta-box.php:15
+#, php-format
+msgid "Select %s by Author"
+msgstr ""
+
+#: ../meta-box.php:16
+#: ../meta-box.php:40
+#: ../meta-box.php:56
+msgid "Active"
+msgstr ""
+
+#: ../meta-box.php:20
+#: ../meta-box.php:60
+msgid "Selection mode:"
+msgstr ""
+
+#: ../meta-box.php:22
+#, php-format
+msgid "Add to my selection: All %s created by these Authors."
+msgstr ""
+
+#: ../meta-box.php:23
+#, php-format
+msgid "Filter my selection: Only %s created by these Authors."
+msgstr ""
+
+#: ../meta-box.php:24
+msgid "Do not care about the Authors."
+msgstr ""
+
+#: ../meta-box.php:39
+#, php-format
+msgid "Select %s explicitly (Additionally to your selection)"
+msgstr ""
+
+#: ../meta-box.php:47
+#, php-format
+msgid "Post %s (Without title)"
+msgstr ""
+
+#: ../meta-box.php:55
+#, php-format
+msgid "Select %1$s by %2$s"
+msgstr ""
+
+#: ../meta-box.php:63
+#, php-format
+msgid "Add to my selection: All %1$s which are at least in one of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:64
+#, php-format
+msgid "Filter my selection: Only %1$s which are at least in one of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:65
+#, php-format
+msgid "Add to my selection: All %1$s which are in all of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:66
+#, php-format
+msgid "Filter my selection: Only %1$s which are in all of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:67
+#: ../meta-box.php:73
+#, php-format
+msgid "Do not care about %s."
+msgstr ""
+
+#: ../meta-box.php:69
+#, php-format
+msgid "Add to my selection: All %1$s with at least one of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:70
+#, php-format
+msgid "Filter my selection: Only %1$s with at least one of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:71
+#, php-format
+msgid "Add to my selection: All %1$s with all of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:72
+#, php-format
+msgid "Filter my selection: Only %1$s with all of these %2$s."
+msgstr ""
+
+#: ../meta-box.php:106
+msgid "Offset:"
+msgstr ""
+
+#: ../meta-box.php:106
+msgid "Leave blank to start with the first post."
+msgstr ""
+
+#: ../meta-box.php:107
+msgid "With the offset you can pass over posts which would normally be collected by your selection."
+msgstr ""
+
+#: ../meta-box.php:111
+msgid "Posts per page:"
+msgstr ""
+
+#: ../meta-box.php:111
+msgid "Leave blank to show all posts on one page."
+msgstr ""
+
+#: ../meta-box.php:115
+msgid "Disable pagination:"
+msgstr ""
+
+#: ../meta-box.php:116
+msgid "Do not display the pagination for this post."
+msgstr ""
+
+#: ../meta-box.php:120
+msgid "Order posts by:"
+msgstr ""
+
+#: ../meta-box.php:130
+msgid "Meta Value"
+msgstr ""
+
+#: ../meta-box.php:131
+msgid "Meta Value (Numeric)"
+msgstr ""
+
+#: ../meta-box.php:136
+msgid "Meta key name:"
+msgstr ""
+
+#: ../meta-box.php:138
+msgid "Please notice: This will only work if <strong>all</strong> posts in your selection will have this meta key!"
+msgstr ""
+
+#: ../meta-box.php:142
+msgid "Order:"
+msgstr ""
+
+#: ../meta-box.php:144
+msgid "Descending"
+msgstr ""
+
+#: ../meta-box.php:145
+msgid "Ascending"
+msgstr ""
+
+#: ../meta-box.php:150
+#: ../wp-plugin-associated-posts-pro.php:1068
+msgid "Template"
+msgstr ""
+
+#: ../meta-box.php:163
+#: ../meta-box.php:165
+#: ../option-box-templates.php:17
+#: ../option-box-templates.php:19
+msgid "by"
+msgstr ""
+
+#: ../option-box-interface.php:1
+msgid "Please select the sections where you want to have an association meta box."
+msgstr ""
+
+#: ../option-box-interface.php:10
+msgid "After you have done all your selections of course you can hide the boxes. Your selections will be stored. So you could hide the meta boxes from your client."
+msgstr ""
+
+#: ../options-page.php:3
+#: ../wp-plugin-associated-posts-pro.php:127
+#: ../wp-plugin-associated-posts-pro.php:253
+#: ../wp-plugin-associated-posts-pro.php:955
+#: ../wp-plugin-associated-posts-pro.php:969
+#: ../wp-plugin-associated-posts-pro.php:981
+msgid "Associated Posts"
+msgstr ""
+
+#: ../option-box-add-template.php:1
+msgid "Install a template in ZIP format"
+msgstr ""
+
+#: ../option-box-add-template.php:2
+msgid "If you have a template in a .zip format, you may install it by uploading it here."
+msgstr ""
+
+#: ../option-box-add-template.php:3
+msgid "Template as ZIP File"
+msgstr ""
+
+#: ../option-box-add-template.php:5
+msgid "Install a template in PHP/CSS format"
+msgstr ""
+
+#: ../option-box-add-template.php:6
+msgid "If you have a template in a .php (and .css format), you may install it by uploading it here."
+msgstr ""
+
+#: ../option-box-add-template.php:7
+msgid "Templates PHP File"
+msgstr ""
+
+#: ../option-box-add-template.php:8
+msgid "Templates CSS File"
+msgstr ""
+
+#: ../option-box-add-template.php:8
+msgid "not required"
+msgstr ""
+
+#: ../option-box-add-template.php:10
+msgid "Install template and save all options"
+msgstr ""
+
+#: ../option-box-templates.php:2
+msgid "Are you sure you want to delete this template?"
+msgstr ""
+
+#: ../option-box-templates.php:21
+msgid "Delete this template"
+msgstr ""
+
+#: ../option-box-templates.php:21
+msgid "Delete"
+msgstr ""
+
+#: ../option-box-templates.php:23
+#, php-format
+msgid "Found in <em>%s</em>."
+msgstr ""
+
+#: ../option-box-templates.php:29
+msgid "You can tick a template to make it the default one."
+msgstr ""
+
+#: ../option-box-taxonomies.php:1
+msgid "Please select the taxonomies you need to select and filter your associated posts."
+msgstr ""
+
+#: ../option-box-taxonomies.php:7
+#, php-format
+msgid "%s by the creator"
+msgstr ""
+
+#: ../option-box-taxonomies.php:12
+#, php-format
+msgid "%1$s by %2$s"
+msgstr ""
+
+#: ../option-box-taxonomies.php:17
+#, php-format
+msgid "Select %s explicitly"
+msgstr ""
+
+#: ../option-box-miscellaneous.php:3
+msgid "Show the full path for hierarchical taxonomies."
+msgstr ""
+
+#: ../option-box-miscellaneous.php:8
+msgid "Display the associated posts only on single view."
+msgstr ""
+
+#: ../option-box-miscellaneous.php:13
+msgid "Display page navigation below the posts content. (Only required if your theme does not support it.)"
+msgstr ""
+
+#: ../option-box-update.php:3
+msgid "Disable Update notification."
+msgstr ""
+
+#: ../option-box-update.php:6
+msgid "Your DennisHoppe.de Account"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:126
+msgid "Associated Posts Options"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:134
+msgid "Position"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:135
+msgid "Templates"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:136
+msgid "Add a Template"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:137
+msgid "Association Interface"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:138
+msgid "Selectable Taxonomies"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:139
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:956
+#: ../wp-plugin-associated-posts-pro.php:970
+msgid "Displays the associated posts of the current post in the sidebar."
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:1059
+msgid "Please activate the Associated Posts Plugin!"
+msgstr ""
+
+#: ../wp-plugin-associated-posts-pro.php:1064
+msgid "Title"
+msgstr ""
+
+#: ../option-box-position.php:3
+msgid "Append the associated posts to the pages content."
+msgstr ""
+
+#: ../option-box-position.php:8
+msgid "Prepend the associated posts to the pages content."
+msgstr ""
+
+#: ../option-box-position.php:13
+msgid "<b>Do not</b> show the associated posts automatically. (In this case you have to add the short code manually.)"
+msgstr ""
+
+#: ../option-box-position.php:17
+msgid "Content filter priority"
+msgstr ""
+
+#: ../option-box-position.php:19
+msgid "Appoints the priority of the auto added ShortCode in relation to other plugins."
+msgstr ""
+

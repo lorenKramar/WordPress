@@ -1,0 +1,96 @@
+/* FREE BIZ IDEAS .free-business-ideas-miracle-jones
+---------------------------------------------------------------------------*/
+
+.free-business-ideas-miracle-jones h1.entry-title {
+	display:none;
+}
+
+.free-business-ideas-miracle-jones a {
+	
+}
+
+.free-business-ideas-miracle-jones cite {
+	font-style:normal;
+	font-weight:300;
+}
+
+.free-business-ideas-miracle-jones #primary {
+	display: block;
+	width:410px;
+	margin:10px;
+	padding:20px 10px;
+	border-left: 1px solid #000;
+	position: relative;
+	background:#fff;
+	color:#000;
+	z-index:2;
+	font-family: "pt-sans", verdana;
+
+}
+
+.free-business-ideas-miracle-jones #flow_content_wrapper {
+	width: 410px;
+}
+
+.free-business-ideas-miracle-jones #primary h3 {
+	font-family: "proxima-nova-extra-condensed", arial;
+	text-align:center;
+	font-size:28px;
+	font-weight:200;
+	text-transform: uppercase;
+}
+
+
+
+.free-business-ideas-miracle-jones #primary h2 {
+	font-family: "proxima-nova-extra-condensed", 'arial black';
+	font-size:40px;
+	text-transform:uppercase;
+	font-style:normal;
+	font-weight:900;
+	display: block;
+	padding-top: 3px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.free-business-ideas-miracle-jones #primary h2 small {
+	font-size: 15px;
+	font-weight: 200;
+	display: block;
+
+}
+
+
+.free-business-ideas-miracle-jones #primary .idea {
+	padding:30px 0 50px;
+}
+
+.free-business-ideas-miracle-jones #primary .idea img {
+
+	margin:0 ;
+	width: 400px;
+	display: block;
+
+}
+
+
+.free-business-ideas-miracle-jones #primary .idea h2 {
+	font-size: 15px;
+	
+	
+	text-align: right;
+}
+
+.free-business-ideas-miracle-jones #primary .idea h2 a {
+	color:#000;
+	font-style: normal;
+
+}
+
+.free-business-ideas-miracle-jones #primary .idea h3 {
+	text-transform: uppercase;
+	border-bottom: 1px solid #000;	border-top: 1px solid #000;
+	padding:5px 0;
+	font-size: 20px;
+}

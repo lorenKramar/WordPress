@@ -1,0 +1,81 @@
+#sidebar {
+	width:250px;
+	padding-top:0px;
+	background:#fff;
+	-moz-border-radius:0 50px  0 50px;
+	-webkit-border-radius:0 50px  0 50px;
+	border-radius:0 0px 150px 150px;
+	float:left;
+	z-index: 3;
+	position: relative;
+}
+
+#sidebar h3 a {
+	color:#000;
+}
+
+#sidebar h5 {
+	font-family: "cooper std", "cooper-black-std", georgia;
+	transform: rotateZ(-2deg);
+	-webkit-transform: rotateZ(-2deg);
+	-moz-transform: rotateZ(-2deg);
+	font-size: 28px;
+	line-height: 40px;
+	font-weight: bold;
+	font-style:italic;
+	color:#000;
+	text-align: left;
+	white-space: nowrap;
+	position: relative;
+	padding:12px 10px 10px 10px;
+}
+
+#sidebar .widgettitle {
+	font-size: 15px;
+	font-weight: 900;
+	padding:8px 5px 3px 10px;
+	margin:0 0 4px 0;
+	float: left;
+	letter-spacing: 1px;
+	clear: both;
+	text-transform: uppercase;
+	border-right:5px solid #fff000;
+	border-bottom:5px solid #fff000;
+	/*background: #fff000;*/
+}
+
+
+#sidebar .widget {
+	padding:0 0 20px;
+	/*border-bottom: 10px solid #000;*/
+	
+}
+
+#sidebar .widget ul {
+	clear: both;
+}
+
+#sidebar .widget li {
+	font-family: "proxima-nova-extra-condensed";
+	font-weight: 200;
+	line-height: 28px;
+	font-size: 28px;
+	padding: 5px 0 5px 0px;
+	text-transform: none;
+	margin-bottom:0;
+	list-style-type: disc;
+	margin-left: 30px;
+}
+
+#sidebar .widget li:first-child {
+	padding-top: 0;
+}
+
+#sidebar .widget li a {
+	color:#000;
+}
+
+
+#sidebar .widget li a:hover {
+	text-shadow:1px 1px 0 #fff000;
+}

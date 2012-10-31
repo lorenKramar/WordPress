@@ -1,0 +1,234 @@
+@import url(css/megaziner_animations.css);
+@import url(css/archive_header.css);
+@import url(css/signup.css);
+@import url(css/comments_megaziner.css);
+
+
+/* Based on Megaziner.css */
+
+/* Cursor */
+
+a:hover {
+	cursor: url('imgs/pointer.png'), pointer;
+}
+
+#archive-page {
+	background:yellow;
+}
+
+#primary {
+	margin-left:250px;
+	overflow: hidden;
+	overflow-x:auto;
+	/*position: relative;*/
+	z-index: 5;
+	background: yellow;
+}
+
+
+#primary .archive_content{
+	display: block;
+	width:498px;
+	font-size:18px;
+	line-height:26px;
+	padding:50px 10px;
+	/*box-shadow:0 0px 35px #777;
+	-moz-box-shadow:0 0px 35px #777;
+	-webkit-box-shadow:0 0px 35px #777;*/
+	border-radius :0 150px 0 0;
+	-moz-border-radius :0 150px 0 0;
+	position: relative;
+	background:#fff;
+	color:#000;
+	margin:5px 0 0 5px;
+	z-index:3;
+	font-family: "pt-sans";
+}
+
+#primary h1 {
+	width:600px;
+	margin:0 auto;
+	padding:50px;
+}
+
+#primary h2 {
+	font-family: "proxima-nova-extra-condensed";
+	text-align:center;
+	font-size:15px;
+	padding:0px 0 30px;
+	font-weight:200;
+	text-transform: uppercase;
+}
+
+#primary h2 em {
+	font-size:40px;
+	text-transform:uppercase;
+	font-style:normal;
+	font-weight:900;
+	display: block;
+	padding-top: 3px;
+}
+
+#primary h2.post-title {
+	text-align: center;
+	font-size: 28px;
+	text-transform:none;
+}
+
+#primary h2.post-title a {
+	color:#000;
+	text-decoration:none;
+}
+
+#primary h2.post-title a:hover {
+	color:navy;
+}
+
+#primary h3 {
+	font-family: "proxima-nova-extra-condensed";
+	text-align:center;
+	font-size:28px;
+	font-weight:200;
+	text-transform: uppercase;
+}
+
+#primary h6 {
+	font-family: "proxima-nova-extra-condensed";
+	text-align:center;
+	font-size:15px;
+	padding:0px 0 30px;
+	font-weight:200;
+	text-transform: uppercase;
+}
+
+#primary img {
+	width: 100%;
+	display: block;
+	margin:12px 0;
+}
+
+
+
+#primary article {
+	padding-bottom:40px;
+	width:100%;
+}
+
+#primary article .entry-content {
+	width:100%;
+}
+
+#primary article p {
+	margin:12px 0;
+}
+
+ #primary article .post-meta {
+	color:#000;
+	font-size: 12px;
+	padding-bottom:30px;
+	margin: 0;
+	line-height: 15px;
+	text-align:center;
+	width:100px;
+	margin:0 auto;
+}
+
+ #primary article .post-meta .month, #primary article .post-meta .day, #primary article .post-meta .year {
+ 	text-transform:uppercase;
+ 	display:block;
+ 	float:left;
+ }
+
+ #primary article .post-meta .month {
+ 	padding:4px;
+ }
+
+ #primary article .post-meta .day {
+	 background-color: red;
+	padding: 4px;
+	border-radius: 20px;
+	border: 1px solid black;
+	color:white;
+ }
+
+ #primary article .post-meta .year {
+ 	padding:4px;
+ }
+
+ #primary article footer.entry-meta {
+ 	color:#000;
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	line-height: 15px;
+	text-align:center;
+ }
+
+ /* Weird little extra line appearing? */
+#primary span.byline {
+	display:none;
+}
+
+/*Image Post Format*/
+
+#primary article.format-image .entry-content img {
+	border:6px solid yellow;
+}
+
+
+
+/*Sidebar*/
+
+#sidebar {
+	width:250px;
+	padding-top:0px;
+	background:#fff;
+	-moz-border-radius:0 50px  0 50px;
+	-webkit-border-radius:50px;
+	border-radius:0 0px 150px 150px;
+	float:left;
+	z-index: 3;
+	position: relative;
+	margin-top:5px;
+
+}
+
+#sidebar .widget {
+	padding:0 10px;
+}
+
+#sidebar .widgettitle {
+	font-family: "proxima-nova-extra-condensed";
+	font-weight: 200;
+	line-height: 28px;
+	font-size: 28px;
+}
+
+#sidebar .widget li {
+	font-family: "proxima-nova-extra-condensed";
+	font-weight: 900;
+	line-height: 25px;
+	font-size: 15px;
+	padding: 0px 0 7px;
+	text-transform: uppercase;
+	margin-bottom:0;
+}
+
+#sidebar .widget li a {
+	color:navy;
+}
+
+/*Singel Views*/
+
+.single-megaziner #primary .blog_content {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+/* Single View with Post Formats */
+
+.single-megaziner #primary article.format-image .entry-content {
+	width: 100%;
+	margin:10px;
+}

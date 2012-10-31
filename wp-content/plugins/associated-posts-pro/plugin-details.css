@@ -1,0 +1,9 @@
+#plugin-information .fyi {
+position: absolute;
+right: 0px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

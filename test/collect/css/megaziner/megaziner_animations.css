@@ -1,0 +1,285 @@
+/* ANIMATIONS! */
+
+@keyframes lightup {
+  0% { 
+	background-color: rgba(51,51,51,1);
+  }
+  50%   { 
+  	background-color: rgba(51,51,51,1);
+	
+  }
+
+  50% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  50.75% {
+  	background-color: rgba(68,0,76,0);
+  }
+  51% {
+  	background-color: rgba(51,51,51,.75);
+  }
+  52% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  53.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+
+  70% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  70.75% {
+  	background-color: rgba(68,0,76,.25);
+  }
+  71% {
+  	background-color: rgba(51,51,51,1);
+  }
+  72% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  73.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+  100% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+   
+}
+
+@-webkit-keyframes lightup {
+  0% { 
+	background-color: rgba(51,51,51,1);
+  }
+  50%   { 
+  	background-color: rgba(51,51,51,1);
+	
+  }
+
+  50% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  50.75% {
+  	background-color: rgba(68,0,76,0);
+  }
+  51% {
+  	background-color: rgba(51,51,51,.75);
+  }
+  52% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  53.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+
+  70% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  70.75% {
+  	background-color: rgba(68,0,76,.25);
+  }
+  71% {
+  	background-color: rgba(51,51,51,1);
+  }
+  72% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  73.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+  100% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+   
+}
+
+
+@-moz-keyframes lightup {
+  0% { 
+	background-color: rgba(51,51,51,1);
+  }
+  50%   { 
+  	background-color: rgba(51,51,51,1);
+	
+  }
+
+  50% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  50.75% {
+  	background-color: rgba(68,0,76,0);
+  }
+  51% {
+  	background-color: rgba(51,51,51,.75);
+  }
+  52% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  53.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+
+
+  70% {
+  	background-color: rgba(51,51,51,1);
+  }
+  
+  70.75% {
+  	background-color: rgba(68,0,76,.25);
+  }
+  71% {
+  	background-color: rgba(51,51,51,1);
+  }
+  72% {
+  	background-color: rgba(68,0,76,0);
+  }
+
+
+
+  73.5% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+  100% {
+  	background-color: rgba(51,51,51,1);	
+  }
+
+}
+
+
+@keyframes spinZ {
+  from { -moz-transform: rotateZ(0); }
+  to   { -moz-transform: rotateZ(360deg); }
+}
+
+
+@-webkit-keyframes spinZ {
+  from { -webkit-transform: rotateZ(0); }
+  to   { -webkit-transform: rotateZ(360deg); }
+}
+	
+@-moz-keyframes spinZ {
+  from { -moz-transform: rotateZ(0); }
+  to   { -moz-transform: rotateZ(360deg); }
+}
+
+@keyframes spinX {
+  from { -webkit-transform: rotateX(0); }
+  to   { -webkit-transform: rotateX(360deg); }
+}
+
+@-webkit-keyframes spinX {
+  from { -webkit-transform: rotateX(0); }
+  to   { -webkit-transform: rotateX(360deg); }
+}
+	
+@-moz-keyframes spinX {
+  from { -moz-transform: rotateX(0); }
+  to   { -moz-transform: rotateX(360deg); }
+}
+
+@keyframes spinY {
+  from { -webkit-transform: rotateY(0); }
+  to   { -webkit-transform: rotateY(360deg); }
+}
+
+@-webkit-keyframes spinY {
+  from { -webkit-transform: rotateY(0); }
+  to   { -webkit-transform: rotateY(360deg); }
+}
+	
+@-moz-keyframes spinY {
+  from { -moz-transform: rotateY(0); }
+  to   { -moz-transform: rotateY(360deg); }
+}
+
+
+@keyframes pulse {
+  0% { 
+	transform: scale3d(1,1,1) rotate(-8deg);
+  }
+  50%   { 
+  	
+	transform: scale3d(1.15,1.15,1.15) rotate(-8deg);
+  }
+  100%	{
+  	transform: scale3d(1,1,1) rotate(-8deg);	
+  }
+}
+
+
+
+@-webkit-keyframes pulse {
+  0% { 
+	-webkit-transform: scale3d(1,1,1) rotate(-8deg);
+  }
+  50%   { 
+  	
+	-webkit-transform: scale3d(1.15,1.15,1.15) rotate(-8deg);
+  }
+  100%	{
+  	-webkit-transform: scale3d(1,1,1) rotate(-8deg);	
+  }
+}
+	
+@-moz-keyframes pulse {
+  0% { 
+	-moz-transform: scale3d(1,1,1) rotate(-8deg);
+  }
+  50%   { 
+  	
+	-moz-transform: scale3d(1.15,1.15,1.15) rotate(-8deg);
+  }
+  100%	{
+  	-moz-transform: scale3d(1,1,1) rotate(-8deg);	
+  }
+}
+
+
+
+
+
+
+@keyframes spinZr {
+  from { transform: rotateZ(0); }
+  to   { transform: rotateZ(-360deg); }
+}
+@-webkit-keyframes spinZr {
+  from { -webkit-transform: rotateZ(0); }
+  to   { -webkit-transform: rotateZ(-360deg); }
+}
+	
+@-moz-keyframes spinZr {
+  from { -moz-transform: rotateZ(0); }
+  to   { -moz-transform: rotateZ(-360deg); }
+}

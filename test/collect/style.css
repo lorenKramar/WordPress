@@ -1,0 +1,133 @@
+/*
+Theme Name:Megazine
+Theme URI: https://www.megazine.xxx
+Author: Megazine
+Description: 
+Version: 1.1
+*/
+
+@import url(css/master.css);
+
+
+
+.collect #collector { 
+	position: relative;
+	background: black;
+
+}
+
+.collect #sidebar {
+	width: 250px;
+	padding-top: 0px;
+	background: white;
+	-moz-border-radius: 0 50px 0 50px;
+	-webkit-border-radius: 0 50px 0 50px;
+	border-radius: 0 0px 150px 150px;
+	float: left;
+	z-index: 3;
+	position: relative;
+	padding-bottom:125px;
+}
+
+.collect #sidebar .widget {
+	border-top: 1px solid black;
+	display:block;
+	width:100%;
+	float:left;
+	position:relative;
+}
+
+.collect #sidebar h3 {
+	font-size: 15px;
+	font-weight: 900;
+	padding: 8px 5px 3px 10px;
+	margin: 0 10px 4px 0;
+	float: left;
+	letter-spacing: 1px;
+	clear: both;
+	text-transform: uppercase;
+	border-right: 5px solid #000;
+	border-bottom: 5px solid #000;
+}
+
+.collect #sidebar p {
+	margin:12px 0 12px 0;
+	font-size:14px;
+}
+
+.collect #sidebar .description {
+	padding:0 20px 0 20px;
+	float:left;
+}
+
+.collect #sidebar .button {
+	width: 100px;
+	height: 100px;
+	background: #FFF000;
+	position: absolute;
+	border-radius: 56px;
+	top: 33px;
+	left: 200px;
+	z-index: -1;
+
+}
+
+.collect #issue .content_wrapper {
+	width:1000px;
+	margin:0 auto;
+}
+
+
+.collect #issue {
+	position: absolute;
+	top: 0;
+	left: 250px;
+	right: 0;
+	z-index: 4;
+	text-align: center;
+	padding: 0px 0 1px;
+	background: none;
+}
+
+.collect #primary .collect_blog_content {
+	display: block;
+	width: 498px;
+	font-size: 18px;
+	line-height: 26px;
+	padding: 20px 20px 20px 45px;
+	position: relative;
+	background: white;
+	color: black;
+	margin: 0;
+	z-index: 3;
+	font-family: "pt-sans";
+	border-left: 15px solid #000;
+	border-top:1px solid #000;
+
+}
+
+.collect #primary h2.post-title {
+font-weight: 200;
+font-size: 40px;
+line-height: 40px;
+padding: 20px 0px 10px;
+}
+
+.collect #primary .image {
+	max-width:670px;
+}
+
+.collect #primary .image img {
+	max-width:660px;
+	display:block;
+	margin:12px 0 0;
+	border:10px solid #000;
+}
+
+.collect #primary p {
+	font-size:14px;
+}
+
+.collect #primary p.bio {
+	padding-left:20px;
+}

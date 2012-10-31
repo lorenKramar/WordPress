@@ -1,0 +1,204 @@
+/*SIGNUP CSS*/
+#signup {
+	margin:0 auto;
+	padding:10px 0 40px;
+	color:#000;
+}
+
+#signup .callout {
+
+	background: url(../../imgs/bang.png);
+	background-repeat: no-repeat;
+	height:160px;
+	
+}
+
+
+#signup .callout:hover {
+	background: url(../../imgs/bang_yellow.png);
+	background-repeat: no-repeat;
+	cursor: url(../../imgs/pointer.png), pointer;
+}
+
+#signup .callout h2 {
+	font-family: 'cooper std', "cooper-black-std", georgia;
+	font-style: italic;
+	font-size:36px;
+	padding-top:65px;
+	text-align: center;
+	transform: rotate(-5deg); 
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg);
+}
+
+#signup .callout:hover h2 {
+	text-shadow:2px 2px 0 #fff;
+	color:#000;
+}
+
+
+
+/*signup popout*/
+#signup_popup {
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:-200%;
+	width: 100%;
+	background:rgba(0,0,0,.75);
+	z-index: 100;
+	opacity: 0;
+	transition: 150ms ease-in-out;
+	-moz-transition: 150ms ease-in-out;
+	-webkit-transition:150ms ease-in-out;
+
+	transition-property:opacity;
+	-moz-transition-property:opacity;
+	-webkit-transition-property:opacity;
+}
+
+#signup_popup.active {
+	/*display: block;*/
+	opacity: 1;
+	left:0;
+	right: 0;
+	transition: 150ms ease-in-out;
+	-moz-transition: 150ms ease-in-out;
+	-webkit-transition:150ms ease-in-out;
+
+	transition-property:opacity;
+	-moz-transition-property:opacity;
+	-webkit-transition-property:opacity;
+}
+
+
+
+#signup_popup .dialog {
+	position: absolute;
+	top:50%;
+	width:500px;
+	height:175px;
+	background:#fff;
+	left:50%;
+	margin-left:-250px;
+	box-shadow: 0 0 50px #000;
+	margin-top:-125px;
+}
+
+#signup_popup input, #signup_popup .submit{
+	float:left;
+	font-weight: 200;
+	font-family: "proxima-nova-extra-condensed", arial, sans-serif;
+	text-transform: uppercase;
+}
+
+#signup_popup input[type=text] {
+	width:300px;
+	height:30px;
+	padding:10px 5px 0 10px;
+	border:1px solid #ccc;
+	font-size: 23px;
+	line-height: 23px;
+	margin: 20px 0 0 20px;
+	outline: none;
+}
+
+#signup_popup a.submit {
+	background-color: #fff;
+	cursor:url(../../imgs/pointer.png), pointer;
+	margin: 20px 0 0 0px;
+	padding:11px 10px 0px;
+	text-align: center;
+	height:29px;
+	border: 1px solid #ccc;
+	font-size: 23px;
+	line-height: 23px;
+	border-left:none;
+	display: block;
+	float:left;
+	text-decoration: none;
+	color:#000;
+	font-weight: 900;
+}
+
+#signup_popup h2 {
+	font-size: 23px;
+	font-weight: 700;
+	clear:both;
+	padding:20px 31px 0 31px;
+	
+}
+
+#real_email_sub {
+	display: none;
+}
+
+#signup_popup p.error {
+	color:#ff0000;
+	clear:both;
+	padding:15px 31px;
+	font-weight: 200;
+	font-family: "proxima-nova-extra-condensed", arial, sans-serif;
+	font-size: 15px;
+	line-height: 18px;
+}
+
+
+header #signup {
+	position:absolute;
+	top:0;
+	bottom: 0;
+	right:0;
+	left:50%;
+	margin-left: 220px;
+	/*background: red;*/
+	z-index: 2;
+	color:#fff;
+}
+
+header #signup .callout {
+	position: absolute;
+	left:50%;
+	margin-left: -100px;
+	background: url(../imgs/bang.png);
+	background-repeat: no-repeat;
+	top:25px;
+	bottom:-10px;
+	width:200px;
+	/*height:160px;*/
+}
+
+
+header #signup .callout:hover {
+	background: url(../imgs/bang_yellow.png);
+	background-repeat: no-repeat;
+	cursor: url(../imgs/pointer.png), pointer;
+}
+
+
+
+header #signup .callout h2 {
+	font-family: 'cooper std', "cooper-black-std";
+	font-style: italic;
+	font-size:38px;
+	padding-top:65px;
+	text-align: center;
+	transform: rotate(-5deg); 
+	-webkit-transform: rotate(-5deg); 
+	-moz-transform: rotate(-5deg);
+}
+
+header #signup .callout:hover h2 {
+	text-shadow:2px 2px 0 #fff;
+	color:#000;
+}
+
+header #signup .callout p {
+	font-size:14px;
+	line-height: 19px;
+	padding-top:5px;
+	text-align: center;
+	font-weight:400;
+	white-space: nowrap;
+	
+}
