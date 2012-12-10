@@ -1,0 +1,125 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<style>
+
+			@-webkit-keyframes ping {
+			  0% { 
+				margin-left: 0;
+				height:0;
+				width:0;
+				opacity: 0;
+			  }
+			  50%   { 
+			  	opacity: 1;
+			  }
+			  100% {
+			  	margin-left: -2500px;
+			  	margin-top: -2500px;
+			  	height:100%;
+			  	width:100%;
+			  	opacity: 0;
+			  }
+			}
+			body {
+				margin:0;
+				position: absolute;
+				overflow: hidden;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+			}
+
+			div {
+				width:5000px;
+				height:5000px;
+				position: absolute;
+				top:50%;
+				left:50%;
+				margin-top: -2500px;
+				margin-left: -2500px;
+				background-color: #000;
+			}
+
+			span {
+				position: absolute;
+				height: 20px;
+				width: 20px;
+				top:50%;
+				left: 50%;
+				background-color: red;
+				margin-top: -10px;
+				margin-left: -10px;
+			}
+
+			section {
+				width:0;
+				height:0;
+				position: absolute;
+				top:50%;
+				left:50%;
+				margin-left: 0;
+				margin-top: 0;
+				/*background-color: #fff;*/
+				border-radius: 100%;
+				border:1px solid #fff;
+				animation:ping 10s infinite linear;
+				-moz-animation:ping 10s infinite linear; 
+				-webkit-animation:ping 10s infinite linear;
+				opacity: 0;
+			}
+
+			.c1 {
+				-webkit-animation-delay:0ms;	
+			}
+			.c2 {
+				-webkit-animation-delay:750ms;	
+			}
+			.c3 {
+				-webkit-animation-delay:2000ms;	
+			}
+			.c4 {
+				-webkit-animation-delay:2750ms;	
+			}
+			.c5 {
+				-webkit-animation-delay:4000ms;	
+			}
+			.c6 {
+				-webkit-animation-delay:4750ms;	
+			}
+			.c7 {
+				-webkit-animation-delay:6000ms;	
+			}
+			.c8 {
+				-webkit-animation-delay:6750ms;	
+			}
+			.c9 {
+				-webkit-animation-delay:8000ms;	
+			}
+			.c10 {
+				-webkit-animation-delay:8750ms;	
+			}
+		</style>
+	</head>
+	<body>
+
+		<div>
+			<!-- <span></span> -->
+
+			<section class="c1"></section>
+			<section class="c2"></section>
+			<section class="c3"></section>
+			<section class="c4"></section>
+			<section class="c5"></section>
+			<section class="c6"></section>
+			<section class="c7"></section>
+			<section class="c8"></section>
+			<section class="c9"></section>
+			<section class="c10"></section>
+
+
+		</div>
+
+	</body>
+</html>
