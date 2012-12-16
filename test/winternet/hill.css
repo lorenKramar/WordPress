@@ -1,0 +1,26 @@
+.landscape_wrap{
+	white-space:nowrap;
+	position:absolute;
+	bottom:0;
+	height:100%;
+	z-index: 1;
+	left:0;
+}
+
+.landscape{
+	display:inline-block;
+	font-size:16px;
+	height:100%;
+}
+
+.sliver{
+	white-space:normal;
+	width:15px;
+	height:100%;
+	position:relative;
+}
+
+.sliver > div{
+	position:absolute;
+	bottom:0px;
+}

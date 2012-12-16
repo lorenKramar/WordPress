@@ -1,0 +1,109 @@
+
+/* keyframes */
+@-moz-keyframes pan_a {
+  0% { 
+	transform: translate3d(-100%,0,0);
+  }
+  50%   { 
+	transform: translate3d(0,0,0);
+  }
+  50.01% {
+  	transform: translate3d(0,0,0);
+  }
+  100%	{
+  	transform: translate3d(100%,0,0);
+  }
+}
+
+@-moz-keyframes pan_b {
+  0% { 
+	transform: translate3d(0,0,0);
+  }
+  50%   { 
+	transform: translate3d(100%,0,0);
+  }
+  50.01% {
+  	transform: translate3d(-100%,0,0);
+  }
+  100%	{
+  	transform: translate3d(0,0,0);
+  }
+}
+
+@-moz-keyframes stagger {
+  0% { 
+	-moz-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+  }
+  100%   { 
+	-moz-transform: rotate(90deg);
+	transform: rotate(90deg);
+  }
+}
+
+@-moz-keyframes fall {
+  0% { 
+  	/*-moz-transform: rotate(-90deg);*/
+	/*transform: rotate(-90deg);*/
+	top: -20px;
+	width: 20px;
+  }
+  100%   { 
+	top: 100%;
+	width: 120px;
+	/*-moz-transform: rotate(90deg);*/
+	/*transform: rotate(180deg);*/
+  }
+}
+
+
+
+#snow_box_a {
+	height:100%;
+	width: 100%;
+	position: absolute;
+	top:0;
+	animation:pan_a 120s infinite linear;
+	-moz-animation:pan_a 120s infinite linear; 
+	-webkit-animation:pan_a 120s infinite linear;
+}
+
+#snow_box_b {
+	height:100%;
+	width: 100%;
+	position: absolute;
+	top:0;
+	animation:pan_b 120s infinite linear;
+	-moz-animation:pan_b 120s infinite linear; 
+	-webkit-animation:pan_b 120s infinite linear;
+}
+
+#pan_box {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	z-index: 2;
+	height:100%;
+	/*background: blue;*/
+	overflow: hidden;
+	/*background: #999;*/
+}
+
+.flakebox {
+	height:12px;
+	position: absolute;
+	/*background: #fff;*/
+	animation:fall 15s infinite linear;
+	-moz-animation:fall 15s infinite linear; 
+	-webkit-animation:fall 15s infinite linear;
+}
+
+.flakebox input {
+	position: absolute;
+	display: block;
+	left: 100%;
+	animation:stagger 2s infinite ease-in-out alternate;
+	-moz-animation:stagger 2s infinite ease-in-out alternate; 
+	-webkit-animation:stagger 2s infinite ease-in-out alternate;
+}

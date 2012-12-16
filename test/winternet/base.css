@@ -1,0 +1,19 @@
+html,body{
+	background-color:lavender;
+	height:100%;
+	overflow: hidden;
+}
+
+input[type="checkbox"]{
+	width:12px;
+	height:12px;
+	margin:0px;
+	display: block;
+}
+
+input[type="radio"]{
+	width:12px;
+	height:12px;
+	margin:0px;
+
+}
