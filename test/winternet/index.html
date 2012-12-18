@@ -6,29 +6,92 @@
 		<link href="hill.css" rel="stylesheet" />
 		<link href="marquee.css" rel="stylesheet" />
 		<script src="marquee.js"></script>
+		
 		<script src="hill.js"></script>
+		<script src="letterGrid.js"></script>
 
 		<script>
 			
+			var writeWord = function(elm, word, size){
+
+				var letters = word.split('');
+
+				for(var i=0; i<letters.length; i++){
+					var letterBox = $('<div class="letterBox">').css({
+							position:'relative',
+							top:0,
+							float:'left',
+							height:100,
+							margin:'0px'
+						}),
+						letterW = 0;
+
+					$.each(letterGrid[letters[i]].zones, function(i, block){
+
+						// block.x -= 1;
+						// block.y -= 3;
+
+						if((block.x + block.l) > letterW) {
+							letterW = block.x + block.l;
+						}
+
+						
+						letterBox.append($('<span>').css({
+							position:'absolute',
+							left:block.x * 12,
+							width: block.l * 12,
+							height: 12,
+							top: block.y * 12,
+							background: '#000'
+						}));
+
+
+					});
+
+					elm.append(letterBox.css('width', letterW * 12))
+				}
+			};
+
 			$(function(){
+
 				// makeBox($('#box'), {h:10, w:20});
+
+				writeWord($('#title'), 'winternet', 1);
+
 			});
-		</script>
-		<script>
-
-
 
 		</script>
-
+		
 		<style>
 
+			body {
+				transform-style: preserve-3d;
+				margin: 0;
+			}
+
+			body #box {
+				/*transform: rotateX(0deg) rotateY(-30deg) rotateZ(-15deg);*/
+				margin: 0;
+				/*left:-50px;*/
+				bottom:100px;
+				
+			}
+
+			#box .innerBox {
+				/*background: #eee;*/
+			}
 		</style>
 	</head>
 	<body>
 
 		<div class="landscape_wrap"><div class="landscape"></div></div>
-		<div id="box"><div class="innerBox"></div></div>
 
+
+		<div id="box"><div class="innerBox"></div></div>
+		<div id="title"></div>
+
+		
+		
 		<div id="pan_box">
 			<div class="snow_box" id="snow_box_a"></div>
 			<div class="snow_box" id="snow_box_b"></div>

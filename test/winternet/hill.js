@@ -21,48 +21,54 @@ $(function(){
 
 
 
-	var makeSliver=function(x, pos){
+	var makeSliver=function(x){
 		var sliver = $('<div class="sliver"></div>')
 			.css({
 				position:'absolute',
 				bottom:0,
-				left:pos*12,
+				left:x*12,
 				height:bg[x] * 12,
 				background:'#f0ffe9'
 			});
 
 		slivers.push(sliver);
-
-		for(var j=0; j<Math.round(bg[x]/5); j++) {
-			sliver.append($('<input type="checkbox">'));
+		var randNum = Math.round(Math.random() * 5)
+		for(var j=0; j<bg[x]; j++) {
+			if(j < Math.round(bg[x]/8) + randNum){
+				sliver.append($('<input type="checkbox">'));
+			}else {
+				sliver.append($('<input type="checkbox" checked>'));
+			}
+			
 		}
+
 		landscape.append(sliver);
 	}
 
 
 
 	for(var i=0; i<rightIndex; i++) {
-		makeSliver(i, i);
+		makeSliver(i);
 	}
 
-	setInterval(function(){
+	// setInterval(function(){
 
-		if(rightIndex===bg.length){
-			rightIndex = 0;
-		}
+	// 	if(rightIndex===bg.length){
+	// 		rightIndex = 0;
+	// 	}
 		
-		makeSliver(rightIndex, rightBound);
-		slivers.shift().remove();
-		// animate
-		$.each(slivers, function(i, sliv){
-			sliv.css({left:sliv.position().left - 12});
-		});
+	// 	makeSliver(rightIndex, rightBound);
+	// 	slivers.shift().remove();
+	// 	// animate
+	// 	$.each(slivers, function(i, sliv){
+	// 		sliv.css({left:sliv.position().left - 12});
+	// 	});
 
 		
 
-		leftIndex++;
-		rightIndex++;
-	}, 1000)
+	// 	leftIndex++;
+	// 	rightIndex++;
+	// }, 1000)
 
 
 });

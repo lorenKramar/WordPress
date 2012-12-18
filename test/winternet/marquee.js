@@ -6,10 +6,10 @@ var makeBox = function(elm, conf){
 	elm.css({
 		height:h,
 		width:w,
-		left:'50%',
-		top:'50%',
-		marginTop: (h/2) * -1,
-		marginLeft: (w/2) * -1
+		// left:'50%',
+		// top:'50%',
+		// marginTop: (h/2) * -1,
+		// marginLeft: (w/2) * -1
 	})
 
 	// <div class="side north"></div>

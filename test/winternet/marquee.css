@@ -11,7 +11,11 @@
 #box {
 	position: absolute;
 	z-index: 5;
-	
+}
+
+#box2 {
+	position: absolute;
+	z-index: 5;
 }
 
 #box .innerBox {
@@ -24,19 +28,19 @@
 	bottom: 6px;
 }
 
-#box .side {
+.side {
 	height:12px;
 	z-index: 2;
 	position: absolute;
 }
 
-#box .north {
+.north {
 	right: 12px;
 	left: 0;
 	top:0;
 }
 
-#box .south {
+.south {
 	right: 0;
 	bottom:0;
 	transform-origin: 50% 50%;
@@ -47,7 +51,7 @@
 	-moz-transform: rotate(180deg);
 }
 
-#box .east {
+.east {
 	left: 100%;
 	top:0;
 	transform-origin: 0 0;
@@ -58,7 +62,7 @@
 	-moz-transform: rotate(90deg);
 }
 
-#box .west {
+.west {
 	left: 0;
 	bottom:-12px;
 	transform-origin: 0 0;
